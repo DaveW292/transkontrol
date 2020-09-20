@@ -134,3 +134,9 @@ main
     justify-content: center;
     background-color: yellow;
 }
+#characterList
+{
+    margin-top: 50px;
+    line-height: 250%;
+    list-style-image: url('img/conductor.png');
+}
