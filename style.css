@@ -124,3 +124,13 @@ ul
     display: flex;
     justify-content: flex-end;
 }
+#aboutUs
+{
+    margin-top: 50px;
+}
+#aboutUs h2
+{
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+}
