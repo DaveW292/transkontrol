@@ -12,3 +12,30 @@
         width: 100%;
     }
 }
+body
+{
+    margin: 0 !important;
+    background-image: url("img/brushed.png");
+    font-size: 18px;
+}
+header
+{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+#h1bg
+{
+    height: 200px;
+    min-width: 600px;
+}
+h1
+{
+    width: 550px;
+    position: absolute;
+    top: 75px;
+    text-align: center;
+    color: yellow;
+    font-size: 65px;
+    font-family: 'Courier New', Courier, monospace;
+}
