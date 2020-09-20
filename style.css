@@ -93,3 +93,28 @@ a
 {
     text-decoration: none;
 }
+main
+{
+    margin-top: 60px;
+    width: 1250px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#intro
+{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+}
+#introContent
+{
+    width: 50%;
+}
+ul
+{
+    margin-top: 50px;
+    line-height: 250%;
+    list-style-image: url('img/ticket.png');
+}
