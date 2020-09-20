@@ -39,3 +39,57 @@ h1
     font-size: 65px;
     font-family: 'Courier New', Courier, monospace;
 }
+nav
+{
+    height: 40px;
+    background-color: darkgreen;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+}
+#activeNavButton
+{
+    width: 110px;
+    background-color: white;
+    border: 1px solid rgb(0, 80, 19);
+    border-bottom: transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    color: darkgreen;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("img/brushed.png");
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.inactiveNavButton
+{
+    width: 110px;
+    border: 1px solid rgb(0, 80, 19);
+    border-bottom: transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    color: yellow;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.inactiveNavButton:hover
+{
+    color: darkgreen;
+    background-image: url("img/brushed.png");
+}
+a
+{
+    text-decoration: none;
+}
