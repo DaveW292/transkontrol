@@ -1,17 +1,136 @@
-@media screen and (max-width: 1250px)
+/* big screens */
+@media screen and (min-width: 1100px)
 {
+    #h1bg
+    {
+        height: 200px;
+        min-width: 600px;
+    }
+    h1
+    {
+        width: 550px;
+        position: absolute;
+        top: 75px;
+        text-align: center;
+        color: yellow;
+        font-size: 65px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    nav
+    {
+        height: 40px;
+        background-color: darkgreen;
+        position: sticky;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        z-index: 1;
+    }
+    .navButton
+    {
+        width: 90px;
+        border: 1px solid rgb(0, 80, 19);
+        border-bottom: transparent;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        color: yellow;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .navButton:hover, #activeNavButton
+    {
+        color: darkgreen;
+        background-image: url("img/brushed.png");
+    }
+    a
+    {
+        text-decoration: none;
+    }
+    main
+    {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     #intro
     {
-        width: 1250px;
+        width: 1100px;
+        height: 510px;
+        display: flex;
+    }
+    #introContent
+    {
+        width: 50%;
+        margin-left: 10px;
+        
+    }
+    #introList
+    {
+        margin-top: 50px;
+        line-height: 250%;
+        list-style-image: url('img/ticket.png');
+    }
+    #slider
+    {
+        width: 50%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    h2
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: yellow;
     }
 }    
-@media screen and (min-width: 1251px)
+
+/* mobile */
+@media screen and (max-width: 1100px)
 {
-    #intro
+    #h1bg
     {
         width: 100%;
     }
+    h1
+    {
+        width: 70%;
+        position: absolute;
+        top: 100px;
+        text-align: center;
+        color: yellow;
+        font-size: 38px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    nav
+    {
+        width: 100%;
+        height: 40px;
+        background-color: darkgreen;
+        position: sticky;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        z-index: 1;
+    }
+
 }
+
+/* generally */
 body
 {
     margin: 0 !important;
@@ -24,114 +143,26 @@ header
     display: flex;
     justify-content: center;
 }
-#h1bg
-{
-    height: 200px;
-    min-width: 600px;
-}
-h1
-{
-    width: 550px;
-    position: absolute;
-    top: 75px;
-    text-align: center;
-    color: yellow;
-    font-size: 65px;
-    font-family: 'Courier New', Courier, monospace;
-}
-nav
-{
-    height: 40px;
-    background-color: darkgreen;
-    position: sticky;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    z-index: 1;
-}
-#activeNavButton
-{
-    width: 90px;
-    background-color: white;
-    border: 1px solid rgb(0, 80, 19);
-    border-bottom: transparent;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    color: darkgreen;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url("img/brushed.png");
-    margin-left: 2px;
-    margin-right: 2px;
-}
-.inactiveNavButton
-{
-    width: 90px;
-    border: 1px solid rgb(0, 80, 19);
-    border-bottom: transparent;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    color: yellow;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 2px;
-    margin-right: 2px;
-}
-.inactiveNavButton:hover
-{
-    color: darkgreen;
-    background-image: url("img/brushed.png");
-}
-a
-{
-    text-decoration: none;
-}
-main
-{
-    margin-top: 60px;
-    margin-bottom: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#intro
-{
-    width: 1250px;
-    background-color: red;
-    height: 500px;
-    display: flex;
 
-}
-#introContent
-{
-    width: 50%;
-}
-#introList
-{
-    margin-top: 50px;
-    line-height: 250%;
-    list-style-image: url('img/ticket.png');
-}
-#slider
-{
-    width: 50%;
-}
-h2
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: yellow;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
