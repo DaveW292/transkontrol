@@ -9,12 +9,8 @@
     h1
     {
         width: 550px;
-        position: absolute;
         top: 75px;
-        text-align: center;
-        color: yellow;
         font-size: 65px;
-        font-family: 'Courier New', Courier, monospace;
     }
     nav
     {
@@ -113,12 +109,8 @@
     h1
     {
         width: 70%;
-        position: absolute;
         top: 55px;
-        text-align: center;
-        color: yellow;
         font-size: 38px;
-        font-family: 'Courier New', Courier, monospace;
     }
     nav
     {
@@ -154,6 +146,13 @@ header
 {
     display: flex;
     justify-content: center;
+}
+h1
+{
+    text-align: center;
+    color: yellow;
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
