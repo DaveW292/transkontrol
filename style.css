@@ -48,6 +48,10 @@
         color: darkgreen;
         background-image: url("img/brushed.png");
     }
+    #mobileNavButton
+    {
+        display: none;
+    }
     a
     {
         text-decoration: none;
@@ -103,7 +107,7 @@
 {
     #h1bg
     {
-        width: 100%;
+        max-width: 440px;
     }
     h1
     {
@@ -126,6 +130,14 @@
         justify-content: center;
         align-items: flex-end;
         z-index: 1;
+    }
+    .navButton
+    {
+        display: none;
+    }
+    #mobileNavButton
+    {
+        background-color: red;
     }
 
 }
