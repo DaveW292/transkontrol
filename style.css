@@ -93,7 +93,7 @@
     #h1bg
     {
         height: 130px;
-        max-width: 440px;
+        width: 100%;
     }
     h1
     {
@@ -127,8 +127,6 @@
         margin-left: 2px;
         margin-right: 2px;
         background-image: url("img/brushed.png");
-        display: flex;
-        justify-content: space-around;
     }
     #mobileNavButton
     {
