@@ -8,16 +8,10 @@
     }
     h1
     {
-        width: 550px;
         top: 75px;
         font-size: 65px;
     }
-    nav
-    {
-        height: 40px;
-        justify-content: center;
-        align-items: flex-end;
-    }
+    nav{height: 40px;}
     .navButton
     {
         width: 90px;
@@ -97,15 +91,10 @@
     }
     h1
     {
-        width: 70%;
         top: 55px;
         font-size: 32px;
     }
-    nav
-    {
-        height: 30px;
-        justify-content: center;
-    }
+    nav{height: 30px;}
     nav #mobileNavButton
     {
         display: flex;
@@ -206,7 +195,9 @@ nav
     position: sticky;
     top: 0px;
     display: flex;
+    justify-content: center;
     z-index: 1;
+    align-items: flex-end;
 }
 
 
