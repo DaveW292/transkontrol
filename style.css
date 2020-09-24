@@ -159,22 +159,18 @@ body
 }
 header
 {
-    height: 140px;
     display: flex;
     justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h1
 {
     text-align: center;
     color: black;
     position: absolute;
-    top: 30px;
+    top: 10px;
     word-spacing: 200px;
-}
-#headImg
-{
-    position: absolute;
-    left: 640px;
+    font-size: 50px;
 }
 nav
 { 
