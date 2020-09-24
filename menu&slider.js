@@ -1,3 +1,27 @@
+function smartMenu() 
+{
+    document.getElementById("dropdownTabs").classList.toggle("show");
+}
+function smartMenu2() 
+{
+    document.getElementById("dropdownLangs").classList.toggle("show");
+}
+window.onclick = function(event) 
+{
+  if (!event.target.matches('.dropbtn')) 
+  {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) 
+    {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) 
+      {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+} 
 var number = Math.floor(Math.random()*5)+1;
 var timer1 = 0;
 var timer2 = 0;

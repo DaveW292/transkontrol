@@ -5,7 +5,7 @@
     <title>Trans Kontrol</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript" src="slider.js"></script>
+    <script type="text/javascript" src="menu&slider.js"></script>
 </head>
 <body onload="changeSlide()">
     <header>
@@ -24,37 +24,34 @@
         <a href="#">Praca</a>
         <a href="#">Kontakt</a>
     </nav>
-
     <nav id="smartNav">
-        <div id="mobileNavButton">
-            <button class="dropbtn">
-                <img src="img/menu.png" style="margin-right: 10px;">Start
+        <div class="dropdown">
+            <button onclick="smartMenu()" class="dropbtn">
+                <img src="img/tabsMenu.png" width="15px" height="15px" style="margin-right: 10px;">Odwołania
             </button>
-            <div class="dropdown-content">
-              <a href="#">Start</a>
-              <a href="#">Usługi</a>
-              <a href="#">Płatności</a>
-              <a href="#">Skargi</a>
-              <a href="#">Odwołania</a>
-              <a href="#">Pozwy</a>
-              <a href="#">Media</a>
-              <a href="#">Incydenty</a>
-              <a href="#">Praca</a>
-              <a href="#">Kontakt</a>
+            <div id="dropdownTabs" class="dropdown-content">
+                <a href="#">Start</a>
+                <a href="#">Usługi</a>
+                <a href="#">Płatności</a>
+                <a href="#">Skargi</a>
+                <a href="#">Odwołania</a>
+                <a href="#">Pozwy</a>
+                <a href="#">Media</a>
+                <a href="#">Incydenty</a>
+                <a href="#">Praca</a>
+                <a href="#">Kontakt</a>
+              </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="smartMenu2()" class="dropbtn">
+                <img src="img/langsMenu.png" width="15px" height="15px" style="margin-right: 10px;">English
+            </button>
+            <div id="dropdownLangs" class="dropdown-content">
+                <a href="#">Polish</a>
+                <a href="#">English</a>
             </div>
         </div>
-        <div id="mobileNavButton">
-            <button class="dropbtn">
-                <img src="img/menu.png" style="margin-right: 10px;">Language
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Polish</a>
-              <a href="#">English</a>
-            </div>
-        </div>
-
     </nav>
-
     <main>
         <article id="intro">
             <section id="introContent">
