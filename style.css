@@ -35,11 +35,10 @@ nav a
     text-decoration: none;
     color: white;
 }
-/* STANDARD MENU */
 @media screen and (min-width: 1100px)
 {
-    nav{height: 40px;}
-    nav > a, nav > a:hover, #activeNavButton
+    #standardNav{height: 40px;}
+    #standardNav > a, #standardNav > a[href]:hover
     {
         width: 90px;
         background-color: #404040;
@@ -53,12 +52,12 @@ nav a
         margin-left: 2px;
         margin-right: 2px;
     }
-    nav > a:hover, #activeNavButton
+    #standardNav > a:hover, #activeTab
     {
         color: black;
         background-image: url("img/brushed.png");
     }
-    #mobileNavButton, #menu{display: none;}
+    #smartNav{display: none;}
     main
     {
         margin-top: 60px;
@@ -96,23 +95,15 @@ nav a
         display: flex;
         justify-content: flex-end;
     }
-    h2
-    {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: yellow;
-    }
 }    
-/* SMART MENU */
 @media screen and (max-width: 1100px)
 {
     nav{height: 30px;}
-    nav #mobileNavButton
+    #mobileNavButton
     {
         display: flex;
     }
-    .navButton{display: none;}
+    #standardNav{display: none;}
     .dropbtn 
     {
         width: 150px;
@@ -185,28 +176,13 @@ nav a
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+h2
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+}
 #aboutUs
 {
     margin-top: 50px;
