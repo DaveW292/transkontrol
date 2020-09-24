@@ -2,10 +2,6 @@ function smartMenu()
 {
     document.getElementById("dropdownTabs").classList.toggle("show");
 }
-function smartMenu2() 
-{
-    document.getElementById("dropdownLangs").classList.toggle("show");
-}
 window.onclick = function(event) 
 {
   if (!event.target.matches('.dropbtn')) 

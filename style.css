@@ -41,8 +41,8 @@ nav a
     }
     #standardNav
     {
-        height: 40px;
         justify-content: center;
+        height: 40px;
     }
     #standardNav > a, #standardNav > a[href]:hover
     {
@@ -114,19 +114,19 @@ nav a
     #standardNav{display: none;}
     #smartNav
     {
-        height: 30px;
         justify-content: space-around;
+        height: 35px;
     }
-
  /* Dropdown Button */
- .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
+    .dropbtn
+    {
+        background-color: #404040;
+        color: white;
+        padding: 5px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
   
   /* Dropdown button on hover & focus */
   .dropbtn:hover, .dropbtn:focus {
