@@ -117,22 +117,40 @@ nav a
         justify-content: space-around;
         height: 35px;
     }
- /* Dropdown Button */
+    .dropdown img
+    {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px; 
+        margin-left: 10px;
+        position: relative;
+        top: 3px;
+    }
     .dropbtn
     {
         background-color: #404040;
         color: white;
-        padding: 5px;
+        padding: 4px;
         font-size: 16px;
         border: none;
         cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-right: 10px; 
+        padding-left: 10px;
     }
-  
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
+    a.dropbtn
+    {
+        position: relative;
+        top: 0.25px;
+    }
+    .dropbtn:hover
+    {
+        color: black;
+        background-image: url("img/brushed.png");
+    }
+
   /* The container <div> - needed to position the dropdown content */
   .dropdown 
   {
