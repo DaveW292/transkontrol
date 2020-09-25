@@ -25,6 +25,25 @@ nav a
     text-decoration: none;
     color: white;
 }
+nav > a, nav > a[href]:hover
+{
+    width: 90px;
+    background-color: #404040;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+nav > a:hover, .activeTab
+{
+    color: black;
+    background-image: url("img/brushed.png");
+}
 @media screen and (min-width: 1100px)
 {
     h1
@@ -40,30 +59,8 @@ nav a
         position: relative;
         right: 50px;
     }
-    #standardNav
-    {
-        justify-content: center;
-    }
-    #standardNav > a, #standardNav > a[href]:hover
-    {
-        width: 90px;
-        background-color: #404040;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-    #standardNav > a:hover, .activeTab
-    {
-        color: black;
-        background-image: url("img/brushed.png");
-    }
     #smartNav{display: none;}
+    #standardNav{justify-content: center;}
     main
     {
         margin-top: 60px;
@@ -123,12 +120,8 @@ nav a
     }
     .dropbtn
     {
-        color: white;
         padding: 3px;
-        font-size: 16px;
-        border: none;
         cursor: pointer;
-        font-family: Arial, Helvetica, sans-serif;
         border-radius: 10px;
     }
     .dropbtn:hover
@@ -136,39 +129,35 @@ nav a
         background-color: grey;
         box-shadow: 0px 0px 20px white;
     }
+    .dropdown
+    {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content 
+    {
+        display: none;
+        position: absolute;
+        background-color: black;
+        min-width: 153px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        opacity: 0.8;
+    }
+    .dropdown-content a 
+    {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover 
+    {
+        text-shadow: 0px 0px 20px white;
+    }
+    .show {display:block;}
 
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown 
-  {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd}
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;}
-
-#slider
+    #slider
     {
         max-width: 440px;
         margin-top: 20px;
