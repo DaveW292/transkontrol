@@ -194,4 +194,29 @@ main h2
     margin-right: auto;
     width: 1100px;
     text-align: right;
+    text-shadow: 0px 0px 2px black;
+}
+footer
+{
+    height: 100px;
+    background-image: url("img/black_denim.png");
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer a
+{
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+}
+footer a:last-child
+{
+    border-left: 1px solid gray;
+    padding-left: 5px;
+}
+footer a:hover
+{
+    color: gray;
 }
