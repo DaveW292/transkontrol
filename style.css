@@ -97,7 +97,7 @@ nav > a:hover, .activeTab
         line-height: 250%;
         list-style-image: url('img/ticket.png');
     }
-    #slider
+    #sliderSection
     {
         width: 50%;
         margin-top: 20px;
@@ -105,10 +105,19 @@ nav > a:hover, .activeTab
         margin-right: 10px;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
     }
     article
     {
         width: 1100px;
+    }
+    #signature
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: 1100px;
+        text-align: right;
+        text-shadow: 0px 0px 2px black;
     }
 }
 
@@ -201,7 +210,22 @@ nav > a:hover, .activeTab
     {
         margin-bottom: 20px;
     }
+    #signature
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+        text-align: right;
+        text-shadow: 0px 0px 2px black;
+    }
+
 }
+
+
+
+
+
+
 main h2
 {
     width: 100%;
@@ -216,14 +240,6 @@ main h2
 {
     line-height: 250%;
     list-style-image: url('img/conductor.png');
-}
-#signature
-{
-    margin-left: auto;
-    margin-right: auto;
-    width: 1100px;
-    text-align: right;
-    text-shadow: 0px 0px 2px black;
 }
 footer
 {
