@@ -106,6 +106,10 @@ nav > a:hover, .activeTab
         display: flex;
         justify-content: flex-end;
     }
+    article
+    {
+        width: 1100px;
+    }
 }
 
 
@@ -169,17 +173,33 @@ nav > a:hover, .activeTab
         text-shadow: 0px 0px 20px white;
     }
     .show {display:block;}
-    
-
-    #slider
+    main
     {
-        max-width: 440px;
         margin-top: 20px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        margin-left: 10px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: justify;
+    }
+    article
+    {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #introList
+    {
+        list-style-image: url('img/ticket.png');
+    }
+    #slider img
+    {
+        max-width: 350px;
+        height: 300px;
+    }
+    section
+    {
+        margin-bottom: 20px;
     }
 }
 main h2
@@ -191,10 +211,6 @@ main h2
     align-items: center;
     background-image: url("img/solid.png");
     box-shadow: 0px 0px 10px black;
-}
-#aboutUs
-{
-    width: 1100px;
 }
 #characterList
 {
