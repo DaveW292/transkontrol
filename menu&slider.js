@@ -1,12 +1,12 @@
 function smartMenu() 
 {
-    document.getElementById("dropdownTabs").classList.toggle("show");
+    document.getElementById("menu").classList.toggle("show");
 }
-window.onclick = function(event) 
+window.onclick = function(event)
 {
   if (!event.target.matches('#dropButton')) 
   {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var dropdowns = document.getElementsByClassName("tabs");
     var i;
     for (i = 0; i < dropdowns.length; i++) 
     {
