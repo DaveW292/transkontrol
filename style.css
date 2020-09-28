@@ -24,7 +24,7 @@ nav
     z-index: 1;
     background-image: url("img/black_denim.png");
 }
-nav > a:hover, .activeTab
+.activeTab
 {
     color: black;
     background-image: url("img/brushed.png");
@@ -37,6 +37,44 @@ nav > a:hover, .activeTab
     font-size: 20px;
     text-align: center;
 }
+main h2
+{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("img/solid.png");
+    box-shadow: 0px 0px 10px black;
+}
+#characterList
+{
+    line-height: 250%;
+    list-style-image: url('img/conductor.png');
+}
+footer a
+{
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+}
+footer a:last-child
+{
+    border-left: 1px solid gray;
+    padding-left: 5px;
+}
+footer a:hover
+{
+    color: gray;
+}
+
+
+
+
+
+
+
+
 @media screen and (min-width: 1100px)
 {
     h1
@@ -51,8 +89,8 @@ nav > a:hover, .activeTab
         position: relative;
         right: 50px;
     }
-    #smartNav{display: none;}
-    #standardNav{justify-content: center;}
+    
+    nav{justify-content: center;}
     nav a
     {
         width: 90px;
@@ -128,7 +166,38 @@ nav > a:hover, .activeTab
         justify-content: center;
         align-items: center;
     }
+    .dropdown-content 
+    {
+        display: flex;
+        background-color: black;
+        min-width: 153px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        opacity: 0.9;
+        flex-direction: row;
+    }
+    .dropbtn
+    {
+        display: none;
+    }
+    nav a:hover
+    {
+        color: black;
+        background-image: url("img/brushed.png");
+        width: 90px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 5px;
+        font-size: 20px;
+        text-align: center;
+    }
 }
+
+
+
+
 
 
 
@@ -142,8 +211,7 @@ nav > a:hover, .activeTab
         margin-top: 30px;
         font-size: 30px;
     }
-    #standardNav{display: none;}
-    #smartNav{justify-content: flex-start;}
+    nav{justify-content: flex-start;}
     .dropdown img
     {
         width: 25px;
@@ -236,40 +304,4 @@ nav > a:hover, .activeTab
         background-image: url("img/black_denim.png");
         color: white;
     }
-}
-
-
-
-
-
-
-main h2
-{
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("img/solid.png");
-    box-shadow: 0px 0px 10px black;
-}
-#characterList
-{
-    line-height: 250%;
-    list-style-image: url('img/conductor.png');
-}
-footer a
-{
-    text-decoration: none;
-    color: white;
-    margin-left: 5px;
-}
-footer a:last-child
-{
-    border-left: 1px solid gray;
-    padding-left: 5px;
-}
-footer a:hover
-{
-    color: gray;
 }
