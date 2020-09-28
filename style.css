@@ -24,7 +24,7 @@ nav
     z-index: 1;
     background-image: url("img/black_denim.png");
 }
-#activeTab
+#activeTab, #activeSmartTab
 {
     color: black;
     background-image: url("img/brushed.png");
@@ -116,6 +116,7 @@ footer a:hover{color: gray;}
         display: flex;
         justify-content: center;
     }
+    #activeSmartTab{display: none;}
     .tabs
     {
         display: flex;
@@ -178,6 +179,7 @@ footer a:hover{color: gray;}
         justify-content: flex-end;
         flex-direction: row-reverse;
     }
+    #activeTab{display: none;}
     #dropButton
     {
         padding: 3px;
