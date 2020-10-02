@@ -53,12 +53,7 @@ main h2
     background-image: url("img/solid.png");
     box-shadow: 0px 0px 10px black;
 }
-#intro > section > ul{list-style-image: url('img/ticket.png');}
-#characterList
-{
-    line-height: 250%;
-    list-style-image: url('img/conductor.png');
-}
+ul{line-height: 250%;}
 #signature
 {
     margin-left: auto;
