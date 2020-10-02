@@ -95,6 +95,12 @@
       "css": "right-hand",
       "code": 59401,
       "src": "fontawesome"
+    },
+    {
+      "uid": "2e7c67db76849147d16a6763d07a03a9",
+      "css": "police",
+      "code": 59435,
+      "src": "maki"
     }
   ]
 }
