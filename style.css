@@ -145,11 +145,6 @@ footer a:hover{color: gray;}
         width: 50%;
         margin-left: 10px;
     }
-    #intro > section > ul
-    {
-        margin-top: 50px;
-        line-height: 250%;
-    }
     #intro section:last-child
     {
         width: 50%;
@@ -221,15 +216,13 @@ footer a:hover{color: gray;}
         align-items: center;
         flex-direction: column;
     }
-    #intro > section > ul{line-height: 200%;}
     #slider img
     {
         max-width: 350px;
         height: 300px;
     }
     section{margin-bottom: 20px;}
-    #signature
-    {width: 350px;}
+    #signature{width: 350px;}
     footer
     {
         padding-top: 10px;
