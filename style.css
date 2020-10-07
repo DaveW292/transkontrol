@@ -41,6 +41,7 @@ main
     flex-direction: column;
     align-items: center;
 }
+a{text-decoration: none;}
 h2
 {
     width: 100%;
@@ -90,6 +91,16 @@ ol{line-height: 250%;}
     align-items: center;
     text-align: center;
 }
+.buttons
+{
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+}
+.buttons a:hover
+{
+    opacity: 0.8;
+}
 #signature
 {
     margin-left: auto;
@@ -105,7 +116,6 @@ footer
 }
 footer a
 {
-    text-decoration: none;
     color: white;
     margin-left: 5px;
 }
