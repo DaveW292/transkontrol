@@ -265,6 +265,11 @@ footer a:hover{color: gray;}
         height: 300px;
     }
     section{margin-bottom: 20px;}
+    .black
+    {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
     #signature{width: 350px;}
     footer
     {
