@@ -118,6 +118,12 @@ tr:nth-of-type(odd) td
 {
     background-image: url(img/brickwall.png);
 }
+#press .buttons i
+{
+    text-align: center;
+    font-size: 60px;
+    margin: 20px;
+}
 #signature
 {
     margin-left: auto;
