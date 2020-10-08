@@ -97,10 +97,7 @@ ol{line-height: 250%;}
     justify-content: space-around;
     font-size: 25px;
 }
-.buttons a:hover
-{
-    opacity: 0.8;
-}
+.buttons a:hover{opacity: 0.8;}
 tr th
 {
     text-align: center;
