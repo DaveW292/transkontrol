@@ -45,10 +45,7 @@ a{text-decoration: none;}
 h2
 {
     width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     background-image: url("img/solid.png");
     box-shadow: 0px 0px 10px black;
 }
@@ -98,6 +95,11 @@ ol{line-height: 250%;}
     font-size: 25px;
 }
 .buttons a:hover{opacity: 0.8;}
+table
+{
+    display: flex;
+    justify-content: center;
+}
 tr th
 {
     text-align: center;
