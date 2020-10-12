@@ -223,6 +223,11 @@ footer a:hover{color: gray;}
         align-items: center;
     }
     article{width: 1100px;}
+    #maps img
+    {
+        max-width: 1100px;
+        height: 800px;
+    }
     #payments section{margin-bottom: 50px;}
     #signature{width: 1100px;}
     footer
@@ -287,6 +292,11 @@ footer a:hover{color: gray;}
     #slider img
     {
         max-width: 350px;
+        height: 300px;
+    }
+    #maps img
+    {
+        max-width: 400px;
         height: 300px;
     }
     section{margin-bottom: 20px;}
