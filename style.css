@@ -91,7 +91,8 @@ li{margin-bottom: 20px;}
 .divStyle
 {
     background-image: url(img/honey_im_subtle.png);
-    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
     border: 1px solid black;
     margin-top: 30px;
@@ -217,11 +218,7 @@ footer a:hover{color: gray;}
         display: flex;
         margin-bottom: 30px;
     }
-    #intro section:first-child
-    {
-        width: 50%;
-        margin-left: 10px;
-    }
+    #intro section:first-child{width: 50%;}
     #intro section:last-child
     {
         width: 50%;
