@@ -222,7 +222,7 @@ footer a:hover{color: gray;}
         height: 510px;
         display: flex;
     }
-    #intro section:first-child
+    #intro section:first-child, #intro section:last-child
     {
         width: 50%;
         display: flex;
@@ -300,12 +300,18 @@ footer a:hover{color: gray;}
     }
     .tabs a:hover {text-shadow: 0px 0px 20px white;}
     .show {display:block;}
-    article
+    .divStyle
     {
-        width: 90%;
+        width: 85%;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
+    }
+    #intro section:last-child
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     #slider img
     {
