@@ -70,15 +70,19 @@ h4{font-size: 30px;}
 li{margin-bottom: 20px;}
 .black, .button
 {
-    color: white;
-    background-color: black;
     padding: 10px;
     box-shadow: 0px 0px 10px black;
     border-radius: 10px;
     text-align: center;
 }
-.black{background-image: url(img/always_grey.png);}
-.button{background-image: url(img/escheresque_ste.png);}
+.black{background-image: url(img/retro_intro.png);}
+.button
+{
+    background-image: url(img/dark-honeycomb.png);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
 #center
 {
     display: flex;
@@ -86,7 +90,7 @@ li{margin-bottom: 20px;}
     align-items: center;
     text-align: center;
 }
-.divStyle
+article
 {
     background-image: url(img/honey_im_subtle.png);
     padding-left: 20px;
@@ -216,7 +220,7 @@ footer a:hover{color: gray;}
         height: 510px;
         display: flex;
     }
-    #intro section:first-child, #intro section:last-child
+    #intro section:first-child
     {
         width: 50%;
         display: flex;
@@ -227,7 +231,7 @@ footer a:hover{color: gray;}
     #intro section:last-child
     {
         width: 50%;
-        margin-top: 20px;
+        margin-top: 30px;
         margin-bottom: 10px;
         margin-right: 10px;
         display: flex;
@@ -293,7 +297,7 @@ footer a:hover{color: gray;}
     }
     .tabs a:hover {text-shadow: 0px 0px 20px white;}
     .show {display:block;}
-    .divStyle
+    article
     {
         width: 85%;
         display: flex;
@@ -318,7 +322,7 @@ footer a:hover{color: gray;}
         height: 300px;
     }
     section{margin-bottom: 20px;}
-    .black
+    .button
     {
         margin-left: 20px;
         margin-right: 20px;
