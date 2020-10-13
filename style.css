@@ -85,7 +85,7 @@ li{margin-bottom: 20px;}
     margin-bottom: 20px;
     color: white;
 }
-#center
+.center
 {
     display: flex;
     flex-direction: column;
@@ -102,6 +102,11 @@ article
     border: 1px solid black;
     margin-bottom: 30px;
     box-shadow: 0px 0px 10px black;
+}
+#contact p
+{
+    font-size: 26px;
+    margin: 0 !important;
 }
 .buttons
 {
@@ -135,6 +140,7 @@ tr:nth-of-type(odd) td{background-image: url(img/brickwall.png);}
     text-align: center;
     font-size: 60px;
 }
+#maps img, #maps iframe{margin-top: 30px;}
 #signature
 {
     margin-left: auto;
