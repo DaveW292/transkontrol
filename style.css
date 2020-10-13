@@ -311,6 +311,10 @@ footer a:hover{color: gray;}
         display: flex;
         justify-content: center;
     }
+    table
+    {
+        width: 100%;
+    }
     #slider img
     {
         max-width: 100%;
