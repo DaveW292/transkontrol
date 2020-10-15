@@ -343,7 +343,7 @@ footer a:hover{color: gray;}
         margin-left: 20px;
         margin-right: 20px;
     }
-    #signature{width: 350px;}
+    #signature{width: 100%;}
     footer
     {
         padding-top: 10px;
