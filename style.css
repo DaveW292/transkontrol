@@ -112,7 +112,6 @@ article
 .buttons
 {
     display: flex;
-    justify-content: space-around;
     font-size: 25px;
 }
 .buttons a:hover{opacity: 0.8;}
@@ -241,6 +240,7 @@ footer a:hover{color: gray;}
         align-items: center;
     }
     article{width: 1100px;}
+    .buttons{justify-content: space-around;}
     #maps img
     {
         max-width: 1100px;
@@ -305,6 +305,12 @@ footer a:hover{color: gray;}
         display: flex;
         align-items: flex-start;
         flex-direction: column;
+    }
+    .buttons
+    {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
     #intro section:last-child
     {
