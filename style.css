@@ -135,6 +135,8 @@ tr:first-child th
 td, th{padding:10px;}
 tr:nth-of-type(even) td{background-image: url(img/white_brick_wall.png);}
 tr:nth-of-type(odd) td{background-image: url(img/brickwall.png);}
+#statistics tr td~td{text-align: center;}
+/* #statistics tr th~th{word-break: break-all;} */
 #press .buttons i
 {
     text-align: center;
@@ -341,6 +343,7 @@ footer a:hover{color: gray;}
     }
     #signature, table{width: 100%;}
     article h4{text-align: center;}
+    #statistics td, #statistics th{padding:2px;}
     footer
     {
         padding-top: 10px;
