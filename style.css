@@ -319,10 +319,6 @@ footer a:hover{color: gray;}
         display: flex;
         justify-content: center;
     }
-    table
-    {
-        width: 100%;
-    }
     #slider img
     {
         max-width: 100%;
@@ -343,7 +339,8 @@ footer a:hover{color: gray;}
         margin-left: 20px;
         margin-right: 20px;
     }
-    #signature{width: 100%;}
+    #signature, table{width: 100%;}
+    article h4{text-align: center;}
     footer
     {
         padding-top: 10px;
