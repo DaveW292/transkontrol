@@ -344,7 +344,7 @@ footer a:hover{color: gray;}
         margin-left: 20px;
         margin-right: 20px;
     }
-    #signature, table{width: 80%;}
+    #signature{width: 80%;}
     article h4{text-align: center;}
     #statistics td, #statistics th{padding:2px;}
     footer
