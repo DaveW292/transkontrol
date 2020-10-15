@@ -148,6 +148,7 @@ tr:nth-of-type(odd) td{background-image: url(img/brickwall.png);}
     margin-right: auto;
     text-align: right;
     font-family: 'Dancing Script', cursive;
+    font-size: 30px;
 }
 footer
 {
