@@ -9,24 +9,21 @@
     <script type="text/javascript" src="menu.js"></script>
 </head>
 <body>
-    <header>
-        <img src="img/logo.png">
-        <h1>TRANS KONTROL</h1>
-    </header>
+    <header><?php include "naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Usługi</p>
             <div id="menu" class="tabs">
-                <a href="index.html">Start</a>
+                <a href="index.php">Start</a>
                 <a id="activeTab">Usługi</a>
-                <a href="platnosci.html">Płatności</a>
-                <a href="skargi.html">Skargi</a>
-                <a href="odwolania.html">Odwołania</a>
-                <a href="pozwy.html">Pozwy</a>
-                <a href="media.html">Media</a>
-                <a href="incydenty.html">Incydenty</a>
-                <a href="praca.html">Praca</a>
-                <a href="kontakt.html">Kontakt</a>
+                <a href="platnosci.php">Płatności</a>
+                <a href="skargi.php">Skargi</a>
+                <a href="odwolania.php">Odwołania</a>
+                <a href="pozwy.php">Pozwy</a>
+                <a href="media.php">Media</a>
+                <a href="incydenty.php">Incydenty</a>
+                <a href="praca.php">Praca</a>
+                <a href="kontakt.php">Kontakt</a>
                 <a href="#">English</a>
             </div>
         </div>
@@ -80,10 +77,6 @@
             <p>W przypadku zainteresowania naszą ofertą prosimy o kontakt. Prześlemy wówczas szczegółowy opis czynności oraz ofertę cenową.</p>
         </article>
     </main>
-    <footer>
-        <?php
-            include "footer.php";
-        ?>
-    </footer>
+    <footer><?php include "stopka.php"; ?></footer>
 </body>
 </html>

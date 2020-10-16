@@ -1,4 +1,4 @@
-<php lang="pl">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,4 +82,4 @@
     </main>
     <footer><?php include "stopka.php"; ?></footer>
 </body>
-</php>
+</html>
