@@ -9,24 +9,21 @@
     <script type="text/javascript" src="menu.js"></script>
 </head>
 <body>
-    <header>
-        <img src="img/logo.png">
-        <h1>TRANS KONTROL</h1>
-    </header>
+    <header><?php include "naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Pozwy</p>
             <div id="menu" class="tabs">
-                <a href="index.html">Start</a>
-                <a href="uslugi.html">Usługi</a>
-                <a href="platnosci.html">Płatności</a>
-                <a href="skargi.html">Skargi</a>
-                <a href="odwolania.html">Odwołania</a>
+                <a href="index.php">Start</a>
+                <a href="uslugi.php">Usługi</a>
+                <a href="platnosci.php">Płatności</a>
+                <a href="skargi.php">Skargi</a>
+                <a href="odwolania.php">Odwołania</a>
                 <a id="activeTab">Pozwy</a>
-                <a href="media.html">Media</a>
-                <a href="incydenty.html">Incydenty</a>
-                <a href="praca.html">Praca</a>
-                <a href="kontakt.html">Kontakt</a>
+                <a href="media.php">Media</a>
+                <a href="incydenty.php">Incydenty</a>
+                <a href="praca.php">Praca</a>
+                <a href="kontakt.php">Kontakt</a>
                 <a href="#">English</a>
             </div>
         </div>
@@ -37,7 +34,7 @@
             <p>W przypadku otrzymania pozwu sądowego w sprawie zapłacenia opłaty dodatkowej (opłat dodatkowych) należy zastosować się do informacji wskazanych w piśmie przez Sąd. Należy uiścić kwotę wskazaną w Nakazie Zapłaty w postępowaniu upominawczym w terminie tam wskazanym.</p>
             <p>Przekroczenie terminu lub brak wpłaty spowoduje skierowanie sprawy do właściwego miejscowo Komornika celem egzekucji należności. Odsetki należy obliczyć samodzielnie, można w tym celu skorzystać z kalkulatora odsetek ustawowych.</p>
             <section class="buttons">
-                <a href="https://kalkulatory.gofin.pl/Kalkulator-odsetek-ustawowych,12.html" target="_blank" class="button">Kalkulator odsetek ustawowych</a>
+                <a href="https://kalkulatory.gofin.pl/Kalkulator-odsetek-ustawowych,12.php" target="_blank" class="button">Kalkulator odsetek ustawowych</a>
             </section>
             <p>Każda wpłata w pierwszej kolejności księgowana jest w sposób następujący:</p>
             <ol>

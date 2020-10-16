@@ -9,23 +9,20 @@
     <script type="text/javascript" src="menu.js"></script>
 </head>
 <body>
-    <header>
-        <img src="img/logo.png">
-        <h1>TRANS KONTROL</h1>
-    </header>
+    <header><?php include "naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Kontakt</p>
             <div id="menu" class="tabs">
-                <a href="index.html">Start</a>
-                <a href="uslugi.html">Usługi</a>
-                <a href="platnosci.html">Płatności</a>
-                <a href="skargi.html">Skargi</a>
-                <a href="odwolania.html">Odwołania</a>
-                <a href="pozwy.html">Pozwy</a>
-                <a href="media.html">Media</a>
-                <a href="incydenty.html">Incydenty</a>
-                <a href="praca.html">Praca</a>
+                <a href="index.php">Start</a>
+                <a href="uslugi.php">Usługi</a>
+                <a href="platnosci.php">Płatności</a>
+                <a href="skargi.php">Skargi</a>
+                <a href="odwolania.php">Odwołania</a>
+                <a href="pozwy.php">Pozwy</a>
+                <a href="media.php">Media</a>
+                <a href="incydenty.php">Incydenty</a>
+                <a href="praca.php">Praca</a>
                 <a id="activeTab">Kontakt</a>
                 <a href="#">English</a>
             </div>
@@ -70,10 +67,6 @@
             <iframe data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8V96sGgzrasorg2xPOlrlp-cpQFPLSxM&amp;q=os.%20St.%20Batorego%20101%2C%20os.%20St.%20Batorego%20101%2C%20Pozna%C5%84%2C%2060-687&amp;zoom=15" allowfullscreen="" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8V96sGgzrasorg2xPOlrlp-cpQFPLSxM&amp;q=os.%20St.%20Batorego%20101%2C%20os.%20St.%20Batorego%20101%2C%20Pozna%C5%84%2C%2060-687&amp;zoom=15" style="border: medium none;" width="100%" height="500" frameborder="0"></iframe>
         </article>
     </main>
-    <footer>
-        <p>Trans Kontrol &copy; 2020 Wszelkie prawa zastrzeżone.</p>
-        <a href="#">Polityka prywatności</a>
-        <a href="#">Polityka cookie</a>
-    </footer>
+    <footer><?php include "stopka.php"; ?></footer>
 </body>
 </html>
