@@ -14,16 +14,16 @@
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Odwołania</p>
             <div id="menu" class="tabs">
-                <a href="index.php">Start</a>
-                <a href="uslugi.php">Usługi</a>
-                <a href="platnosci.php">Płatności</a>
-                <a href="skargi.php">Skargi</a>
+                <a href="o-nas">Start</a>
+                <a href="uslugi">Usługi</a>
+                <a href="platnosci">Płatności</a>
+                <a href="skargi">Skargi</a>
                 <a id="activeTab">Odwołania</a>
-                <a href="pozwy.php">Pozwy</a>
-                <a href="media.php">Media</a>
-                <a href="incydenty.php">Incydenty</a>
-                <a href="praca.php">Praca</a>
-                <a href="kontakt.php">Kontakt</a>
+                <a href="pozwy">Pozwy</a>
+                <a href="media">Media</a>
+                <a href="incydenty">Incydenty</a>
+                <a href="praca">Praca</a>
+                <a href="kontakt">Kontakt</a>
                 <a href="#">English</a>
             </div>
         </div>
