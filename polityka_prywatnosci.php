@@ -43,6 +43,10 @@
             <p>Nasza firma nie profiluje danych osobowych. Jeśli w trakcie posiadania informacji na temat danej osoby pojawi się inna potrzeba ich przetworzenia niż wskazana wcześniej, jesteśmy zobowiązani do poinformowania jej kiedy i w jakim celu mamy zamiar te dane przetworzyć. Państwa dane nie są przetwarzane poza obszar EOG. </p>
         </article>
     </main>
-    <footer><?php include "stopka.php"; ?></footer>
+    <footer>
+        <p>Trans Kontrol &copy; 2020 Wszelkie prawa zastrzeżone.</p>
+        <a style="color: gray;">Polityka prywatności</a>
+        <a href="polityka_cookies.php">Polityka cookie</a>    
+    </footer>
 </body>
 </html>

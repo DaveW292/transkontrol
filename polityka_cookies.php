@@ -37,6 +37,10 @@
             <p>Właściwe informacje o obsłudze plików "cookies" oraz możliwych konfiguracjach dostępne są w ustawieniach przeglądarki. Poziom ograniczeń dotyczący stosowania plików „cookies” może wpłynąć na dostępność i funkcjonalności oferowane na stronie internetowej, aż do zablokowania możliwości jej prawidłowego użytkowania. </p>
         </article>
     </main>
-    <footer><?php include "stopka.php"; ?></footer>
+    <footer>
+        <p>Trans Kontrol &copy; 2020 Wszelkie prawa zastrzeżone.</p>
+        <a href="polityka_prywatnosci.php">Polityka prywatności</a>
+        <a style="color: gray;">Polityka cookie</a>    
+    </footer>
 </body>
 </html>
