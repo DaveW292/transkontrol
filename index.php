@@ -2,6 +2,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="description" content="Profesjonalna kontrola biletowa w publicznych środkach transportu oraz windykacja należności z tytułu nałożonych opłat dodatkowych."/>
+    <meta name="keywords" content="kontrola biletowa, windykacja należności, trans kontrol"/>
+    <meta name="author" content="davew"/>
     <title>Trans Kontrol</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
