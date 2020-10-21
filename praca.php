@@ -14,7 +14,8 @@
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Praca</p>
             <div id="menu" class="tabs">
-                <a href="o-nas">Start</a>
+                <a href="start">Start</a>
+                <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
                 <a href="skargi">Skargi</a>

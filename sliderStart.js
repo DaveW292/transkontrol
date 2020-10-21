@@ -1,10 +1,10 @@
-var number = Math.floor(Math.random()*5)+1;
+var number = Math.floor(Math.random()*1)+1;
 var timer1 = 0;
 var timer2 = 0;
 function changeSlide()
 {
     number++;
-    if(number>6)number=1;
+    if(number>2)number=1;
     var file = "<img src=\"slides/s"+number+".jpg\"/>";
     document.getElementById("slider").innerHTML = file;
     $("#slider").fadeIn(500);
