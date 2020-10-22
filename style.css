@@ -113,6 +113,10 @@ article
     box-shadow: 0px 0px 10px black;
 }
 figure{text-align:center;}
+<<<<<<< HEAD
+=======
+figure figcaption{font-size: 17px;}
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
 #contact p
 {
     font-size: 26px;
@@ -179,7 +183,11 @@ footer a:last-child
 }
 footer a:hover{color: gray;}
 
+<<<<<<< HEAD
 @media screen and (min-width: 1203px)
+=======
+@media screen and (min-width: 1200px)
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
 {
     h1
     {
@@ -229,7 +237,11 @@ footer a:hover{color: gray;}
     }
     #intro
     {
+<<<<<<< HEAD
         width: 1203px;
+=======
+        width: 1200px;
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
         height: 510px;
         display: flex;
     }
@@ -251,7 +263,11 @@ footer a:hover{color: gray;}
         justify-content: flex-end;
         align-items: center;
     }
+<<<<<<< HEAD
     article{width: 1203px;}
+=======
+    article{width: 1200px;}
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
     .buttons{justify-content: space-around;}
     figure figcaption{font-size: 17px;}
     figure a img
@@ -261,10 +277,17 @@ footer a:hover{color: gray;}
     }
     #maps img
     {
+<<<<<<< HEAD
         max-width: 1203px;
         height: 800px;
     }
     #signature{width: 1203px;}
+=======
+        max-width: 1200px;
+        height: 800px;
+    }
+    #signature{width: 1200px;}
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
     footer
     {
         display: flex;
@@ -272,7 +295,11 @@ footer a:hover{color: gray;}
         align-items: center;
     }
 }
+<<<<<<< HEAD
 @media screen and (max-width: 1203px)
+=======
+@media screen and (max-width: 1200px)
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
 {
     h1
     {

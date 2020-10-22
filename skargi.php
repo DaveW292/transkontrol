@@ -4,7 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - skargi</title>
     <link rel="icon" href="img/logo.png">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
+=======
+    <link rel="stylesheet" href="style.css" type="text/css" />
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <script type="text/javascript" src="menu.js"></script>
 </head>

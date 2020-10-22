@@ -104,12 +104,20 @@
             </section>
             <section class="buttons" style="flex-direction: column;">
                 <figure>
+<<<<<<< HEAD
                     <a href="img/map1.jpg"><img src="img/map1.jpg"></a>
+=======
+                    <a href="img/map1.jpg"><img src="img/map1.jpg" width="600" height="400"></a>
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
                     <figcaption>Wejście od os. St. Batorego i os. B. Śmiałego</figcaption>
                 </figure>
                 &nbsp;
                 <figure>
+<<<<<<< HEAD
                     <a href="img/map2.jpg"><img src="img/map2.jpg"></a>
+=======
+                    <a href="img/map2.jpg"><img src="img/map2.jpg" width="600" height="400"></a>
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
                     <figcaption>W przypadku zamkniętej bramy wejście tylko od os. B. Śmiałego</figcaption>
                 </figure>
             </section>

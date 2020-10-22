@@ -2,10 +2,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>Trans Kontrol - o nas</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
+=======
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="description" content="Profesjonalna kontrola biletowa w publicznych środkach transportu oraz windykacja należności z tytułu nałożonych opłat dodatkowych."/>
+    <meta name="keywords" content="kontrola biletowa, windykacja należności, trans kontrol"/>
+    <meta name="author" content="davew"/>
+    <title>Trans Kontrol</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script type="text/javascript" src="menu.js"></script>
@@ -15,7 +25,11 @@
     <header><?php include "naglowek.php"; ?></header>
     <nav>
         <div>
+<<<<<<< HEAD
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; O nas</p>
+=======
+            <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Start</p>
+>>>>>>> 606c3653862e0e0b0fc8953348d135cc27dab4e1
             <div id="menu" class="tabs">
                 <a href="start">Start</a>
                 <a id="activeTab">O nas</a>
