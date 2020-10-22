@@ -5,7 +5,8 @@ Deny from all
 </FilesMatch>
 
 RewriteEngine on
-RewriteRule o-nas index.php
+RewriteRule start index.php
+RewriteRule o-nas o-nas.php
 RewriteRule uslugi uslugi.php
 RewriteRule platnosci platnosci.php
 RewriteRule skargi skargi.php

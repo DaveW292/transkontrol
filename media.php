@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - media</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script type="text/javascript" src="menu.js"></script>
@@ -15,7 +15,8 @@
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Media</p>
             <div id="menu" class="tabs">
-                <a href="o-nas">Start</a>
+                <a href="start">Start</a>
+                <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
                 <a href="skargi">Skargi</a>

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - pozwy</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <script type="text/javascript" src="menu.js"></script>
 </head>
@@ -14,7 +14,8 @@
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Pozwy</p>
             <div id="menu" class="tabs">
-                <a href="o-nas">Start</a>
+                <a href="start">Start</a>
+                <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
                 <a href="skargi">Skargi</a>
@@ -34,7 +35,7 @@
             <p>W przypadku otrzymania pozwu sądowego w sprawie zapłacenia opłaty dodatkowej (opłat dodatkowych) należy zastosować się do informacji wskazanych w piśmie przez Sąd. Należy uiścić kwotę wskazaną w Nakazie Zapłaty w postępowaniu upominawczym w terminie tam wskazanym.</p>
             <p>Przekroczenie terminu lub brak wpłaty spowoduje skierowanie sprawy do właściwego miejscowo Komornika celem egzekucji należności. Odsetki należy obliczyć samodzielnie, można w tym celu skorzystać z kalkulatora odsetek ustawowych.</p>
             <section class="buttons">
-                <a href="https://kalkulatory.gofin.pl/Kalkulator-odsetek-ustawowych,12.php" target="_blank" class="button">Kalkulator odsetek ustawowych</a>
+                <a href="https://kalkulatory.gofin.pl/Kalkulator-odsetek-ustawowych,12.html" target="_blank" class="button">Kalkulator odsetek ustawowych</a>
             </section>
             <p>Każda wpłata w pierwszej kolejności księgowana jest w sposób następujący:</p>
             <ol>

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - płatności</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <script type="text/javascript" src="menu.js"></script>
 </head>
@@ -14,7 +14,8 @@
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Płatności</p>
             <div id="menu" class="tabs">
-                <a href="o-nas">Start</a>
+                <a href="start">Start</a>
+                <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a id="activeTab">Płatności</a>
                 <a href="skargi">Skargi</a>
@@ -32,23 +33,19 @@
         <article class="center">
             <h3>W celu dokonania zapłaty za opłatę dodatkową należy wymaganą kwotę wpłacić w całości na odpowiednie niżej wymienione konto:</h3>
             <div class="board"><b>Trans Kontrol os. St. Batorego 101, 60-687 Poznań</b></div>
-            &nbsp;
             <div class="board">
                 <b>Konto główne do wpłat za Opłaty Dodatkowe:</b>
                 <p>80 1140 2004 0000 3502 7537 3045</p>
             </div>
-            &nbsp;
             <div class="board">
                 <b>Konto do wpłat windykacyjnych i po sądowych:</b>
                 <p>10 1140 2004 0000 3102 7537 3046</p>
             </div>
-            &nbsp;
         </article>
         <article class="center">
             <h3>ZAPŁAĆ SZYBKO BLIKIEM!</h3>
             <p>Wyślij płatność na numer Trans Kontrol BLIK:</p>
             <div class="board" style="font-size: 40px; width: 300px;"><b>531 833 177</b></div>
-        &nbsp;
         </article>
         <article class="center">
             <h3>PŁATNOŚCI KARTĄ I ZBLIŻENIOWE</h3>

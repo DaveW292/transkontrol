@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - skargi</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <script type="text/javascript" src="menu.js"></script>
 </head>
@@ -14,7 +14,8 @@
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Skargi</p>
             <div id="menu" class="tabs">
-                <a href="o-nas">Start</a>
+                <a href="start">Start</a>
+                <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
                 <a id="activeTab">Skargi</a>
