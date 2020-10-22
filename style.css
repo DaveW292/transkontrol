@@ -179,7 +179,7 @@ footer a:last-child
 }
 footer a:hover{color: gray;}
 
-@media screen and (min-width: 1204px)
+@media screen and (min-width: 1280px)
 {
     h1
     {
@@ -272,7 +272,7 @@ footer a:hover{color: gray;}
         align-items: center;
     }
 }
-@media screen and (max-width: 1204px)
+@media screen and (max-width: 1280px)
 {
     h1
     {
