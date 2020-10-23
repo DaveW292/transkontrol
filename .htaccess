@@ -1,0 +1,20 @@
+### PROTECT FILES ###
+<FilesMatch "\.(htaccess|htpasswd|ini|fla|psd|log|sh)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+RewriteEngine on
+RewriteRule start index.php
+RewriteRule o-nas o-nas.php
+RewriteRule uslugi uslugi.php
+RewriteRule platnosci platnosci.php
+RewriteRule skargi skargi.php
+RewriteRule odwolania odwolania.php
+RewriteRule pozwy pozwy.php
+RewriteRule media media.php
+RewriteRule incydenty incydenty.php
+RewriteRule praca praca.php
+RewriteRule kontakt kontakt.php
+RewriteRule polityka-prywatnosci polityka-prywatnosci.php
+RewriteRule polityka-cookies polityka-cookies.php
