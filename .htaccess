@@ -5,16 +5,16 @@ Deny from all
 </FilesMatch>
 
 RewriteEngine on
-RewriteRule start index.php
-RewriteRule o-nas o-nas.php
-RewriteRule uslugi uslugi.php
-RewriteRule platnosci platnosci.php
-RewriteRule skargi skargi.php
-RewriteRule odwolania odwolania.php
-RewriteRule pozwy pozwy.php
-RewriteRule media media.php
-RewriteRule incydenty incydenty.php
-RewriteRule praca praca.php
-RewriteRule kontakt kontakt.php
-RewriteRule polityka-prywatnosci polityka-prywatnosci.php
-RewriteRule polityka-cookies polityka-cookies.php
+RewriteRule start index.html
+RewriteRule o-nas o-nas.html
+RewriteRule uslugi uslugi.html
+RewriteRule platnosci platnosci.html
+RewriteRule skargi skargi.html
+RewriteRule odwolania odwolania.html
+RewriteRule pozwy pozwy.html
+RewriteRule media media.html
+RewriteRule incydenty incydenty.html
+RewriteRule praca praca.html
+RewriteRule kontakt kontakt.html
+RewriteRule polityka-prywatnosci polityka-prywatnosci.html
+RewriteRule polityka-cookies polityka-cookies.html
