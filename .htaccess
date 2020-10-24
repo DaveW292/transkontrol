@@ -1,0 +1,3 @@
+DirectoryIndex index.html
+RewriteEngine on
+RewriteRule ^o-nas o-nas.html [R=301,L]
