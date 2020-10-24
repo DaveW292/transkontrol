@@ -1,10 +1,5 @@
-### PROTECT FILES ###
-<FilesMatch "\.(htaccess|htpasswd|ini|fla|psd|log|sh)$">
-Order Allow,Deny
-Deny from all
-</FilesMatch>
-
 RewriteEngine on
+DirectoryIndex index.html
 RewriteRule start index.html
 RewriteRule o-nas o-nas.html
 RewriteRule uslugi uslugi.html
