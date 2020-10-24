@@ -1,6 +1,5 @@
 DirectoryIndex index.html
 RewriteEngine on
-RewriteRule ^start index.html [R=301,L]
 RewriteRule ^o-nas o-nas.html [R=301,L]
 RewriteRule uslugi uslugi.html
 RewriteRule platnosci platnosci.html
