@@ -5,7 +5,6 @@ Deny from all
 </FilesMatch>
 
 RewriteEngine on
-RewriteRule start index.html
 RewriteRule o-nas o-nas.html
 RewriteRule uslugi uslugi.html
 RewriteRule platnosci platnosci.html
