@@ -1,4 +1,0 @@
-DirectoryIndex ^start
-RewriteEngine on
-RewriteRule ^start index.html [R=301,L]
-RewriteRule ^o-nas o-nas.html [R=301,L]
