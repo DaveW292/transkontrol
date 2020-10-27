@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="robots" content="noindex">
     <title>Trans Kontrol - o nas</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -12,12 +12,12 @@
     <script type="text/javascript" src="js/sliderAbout.js"></script>
 </head>
 <body onload="changeSlide()">
-    <header><?php include "naglowek.php"; ?></header>
+    <header><?php include "items/naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; O nas</p>
             <div id="menu" class="tabs">
-                <a href="start">Start</a>
+                <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a id="activeTab">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
@@ -78,6 +78,6 @@
             </section>
         </article>
     </main>
-    <footer><?php include "stopka.php"; ?></footer>
+    <footer><?php include "items/stopka.php"; ?></footer>
 </body>
 </html>

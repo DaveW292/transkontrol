@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Trans Kontrol - pozwy</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -9,12 +10,12 @@
     <script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
-    <header><?php include "naglowek.php"; ?></header>
+    <header><?php include "items/naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Pozwy</p>
             <div id="menu" class="tabs">
-                <a href="start">Start</a>
+                <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
@@ -48,10 +49,6 @@
             <p>Niezastosowanie się do nakazu zapłaty lub wniesienie sprzeciwu wiązać się będzie z powstaniem dodatkowych kosztów związanych z postępowaniem sądowym. Dodatkowy koszt zastępstwa procesowego w przypadku drogi sądowej to kwota co najmniej 120 zł. Koszty sądowe mogą być również wyższe w zależności od wysokości roszczenia.</p>
         </article>
     </main>
-    <footer>
-        <p>Trans Kontrol &copy; 2020 Wszelkie prawa zastrzeżone.</p>
-        <a href="#">Polityka prywatności</a>
-        <a href="#">Polityka cookie</a>
-    </footer>
+    <footer><?php include "items/stopka.php"; ?></footer>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Trans Kontrol - kontakt</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -9,12 +10,12 @@
     <script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
-    <header><?php include "naglowek.php"; ?></header>
+    <header><?php include "items/naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Kontakt</p>
             <div id="menu" class="tabs">
-                <a href="start">Start</a>
+                <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
@@ -68,6 +69,6 @@
             <iframe data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8V96sGgzrasorg2xPOlrlp-cpQFPLSxM&amp;q=os.%20St.%20Batorego%20101%2C%20os.%20St.%20Batorego%20101%2C%20Pozna%C5%84%2C%2060-687&amp;zoom=15" allowfullscreen="" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8V96sGgzrasorg2xPOlrlp-cpQFPLSxM&amp;q=os.%20St.%20Batorego%20101%2C%20os.%20St.%20Batorego%20101%2C%20Pozna%C5%84%2C%2060-687&amp;zoom=15" style="border: medium none;" width="100%" height="500" frameborder="0"></iframe>
         </article>
     </main>
-    <footer><?php include "stopka.php"; ?></footer>
+    <footer><?php include "items/stopka.php"; ?></footer>
 </body>
 </html>

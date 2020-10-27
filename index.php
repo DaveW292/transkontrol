@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="description" content="Profesjonalna kontrola biletowa w publicznych środkach transportu oraz windykacja należności z tytułu nałożonych opłat dodatkowych.">
-    <meta name="keywords" content="kontrola biletowa, windykacja należności, trans kontrol">
+    <meta name="keywords" content="kontrola biletowa, windykacja należności, trans kontrol, kontroler, windykator">
     <meta name="author" content="davew">
     <title>Trans Kontrol</title>
     <link rel="icon" href="img/logo.png">
@@ -16,7 +16,7 @@
     <script type="text/javascript" src="js/archiveMenu.js"></script>
 </head>
 <body onload="changeSlide()">
-    <header><?php include "naglowek.php"; ?></header>
+    <header><?php include "items/naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Start</p>
@@ -97,6 +97,6 @@
         </article>    
         </article>
     </main>
-    <footer><?php include "stopka.php"; ?></footer>
+    <footer><?php include "items/stopka.php"; ?></footer>
 </body>
 </html>

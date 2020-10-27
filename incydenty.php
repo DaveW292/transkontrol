@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Trans Kontrol - incydenty</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -9,12 +10,12 @@
     <script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
-    <header><?php include "naglowek.php"; ?></header>
+    <header><?php include "items/naglowek.php"; ?></header>
     <nav>
         <div>
             <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Incydenty</p>
             <div id="menu" class="tabs">
-                <a href="start">Start</a>
+                <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>
@@ -259,6 +260,6 @@
             <p> IOD przyjmuje zgłoszenia telefoniczne pod w/w numerem w godzinach urzędowania biura Trans Kontrol tj. 12-16 w dni robocze. W pozostałym czasie należy kontaktować się z IOD wyłącznie mailowo.</p>
         </article>
     </main>
-    <footer><?php include "stopka.php"; ?></footer>
+    <footer><?php include "items/stopka.php"; ?></footer>
 </body>
 </html>
