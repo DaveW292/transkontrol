@@ -57,8 +57,8 @@
                 <a href="platnosci" class="button">!Zapłacisz już u nas w BOK kartą lub telefonem!</a>
                 <a href="odwolania" class="button">!Roszczenie windykacyjne. Przeczytaj!</a>
             </section>
-            <section style="text-align: center;">
-                <div class="center" style="text-align: start;">
+            <section>
+                <div>
                     <h3>UWAGA!</h3>
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 01-07-2020 r. zapłacisz kartą lub telefonem u większości z naszych kontrolerów!</p></div>
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 15-06-2020 r. zapłacisz kartą lub telefonem także u naszych niektórych kontrolerów!</p></div>

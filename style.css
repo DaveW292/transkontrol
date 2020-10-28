@@ -122,7 +122,6 @@ article
     padding: 10px;
     box-shadow: 0px 0px 10px black;
     border-radius: 10px;
-    text-align: center;
     margin-top: 20px;
 }
 .dropbtn:hover, .dropbtn:focus{opacity: 0.8;}
@@ -135,6 +134,7 @@ article
 {
     position: relative;
     display: inline-block;
+    width: 100%;
 }
 .dropdown-content 
 {
@@ -143,7 +143,9 @@ article
     background-image: url(img/retro_intro.png);
     box-shadow: 0px 0px 10px black;
     padding: 10px;
-    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     z-index: 1;
 }
 .dropdown-content p{display: block;}
@@ -289,8 +291,6 @@ footer a:hover{color: gray;}
     }
     article{width: 1204px;}
     .buttons{justify-content: space-around;}
-    .dropdown-content{right: -220px;}
-    .dropdown-content p{width: 500px;}
     figure figcaption{font-size: 17px;}
     figure a img
     {
@@ -370,7 +370,6 @@ footer a:hover{color: gray;}
         align-items: center;
         width: 100%;
     }
-    .dropdown, .dropdown-content p{width: 100%;}
     #intro section:last-child
     {
         width: 100%;
