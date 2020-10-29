@@ -86,7 +86,7 @@
                 <tr>
                     <td>
                         Opłata od skargi na ODG (warunkowo zwrotny)
-                        <br/><i style="font-size: 10px;">Dotyczy jedynie OPŁATY GOTÓWKOWEJ - zapłaconej na miejscu u kontrolera (zob. skargi)</i>
+                        <br/><i>Dotyczy jedynie OPŁATY GOTÓWKOWEJ - zapłaconej na miejscu u kontrolera (zob. skargi)</i>
                     </td>
                     <td>20 zł płatne z góry, zwrotne w przypadku naruszenia prawa przez kontrolera)</td>
                 </tr>

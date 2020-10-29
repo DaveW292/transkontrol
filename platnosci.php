@@ -46,17 +46,17 @@
         <article class="center">
             <h3>ZAPŁAĆ SZYBKO BLIKIEM!</h3>
             <p>Wyślij płatność na numer Trans Kontrol BLIK:</p>
-            <div class="board" style="font-size: 40px; width: 300px;"><b>531 833 177</b></div>
+            <div class="board"><b id="phone">531 833 177</b></div>
         </article>
         <article class="center">
             <h3>PŁATNOŚCI KARTĄ I ZBLIŻENIOWE</h3>
             <p>Możesz już płacić kartą lub telefonem! Także zbliżeniowo! W naszym biurze lub na miejscu u niektórych kontrolerów!</p>
         </article>
-        <article class="center" style="text-align: start;">
+        <article>
             <h3>UWAGA!</h3>
             <div class="li"><i class="icon-exclamation"></i><p>Obniżenie płatności opłaty dodatkowej (do 7 dni) przysługuje jedynie w przypadku dokonania pełnej płatności widocznej na wezwaniu do zapłaty w odpowiednim, nieprzekraczalnym terminie</p></div>
             <div class="li"><i class="icon-exclamation"></i><p>Podczas dokonywania wpłat należy koniecznie podać numer opłaty dodatkowej oraz imię i nazwisko osoby ukaranej</p></div>
-            <div class="li"><i class="icon-exclamation"></i><p style="font-weight: bold;">WAŻNE! Data wpłaty (wpływu na nasz rachunek bankowy) decyduje o terminie zapłaty!</p></div>
+            <div class="li"><i class="icon-exclamation"></i><b>WAŻNE! Data wpłaty (wpływu na nasz rachunek bankowy) decyduje o terminie zapłaty!</b></div>
         </article>
     </main>
     <footer><?php include "items/stopka.php"; ?></footer>

@@ -42,7 +42,7 @@
                 <p>Szanowni Państwo. W związku ze zdarzeniem jakie miało miejsce w dniu 05 czerwca 2019 oraz z uwagi na fakt, że zostało ono przedstawione w sposób skrajnie subiektywny, przedstawiający opinię jednej tylko strony zamieszczam pełne wyjaśnienie niniejszej sprawy. Dodatkowo pozwoliłam sobie na osobisty komentarz w sprawie, w której dziennikarz Głosu Wielkopolskiego pozwolił sobie w mojej opinii na wyjątkową stronniczość i nierzetelność podczas redagowania artykułu opisującego całe zdarzenie. Niestety, nie jest to pierwszy raz, kiedy to wydawałoby się poważna gazeta podejmuje działania przejawiające się wyjątkową niechęcią i subiektywnością przytaczanych opinii.</p>
             </section>
             <p>Poniżej przytaczam chronologiczny ciąg wydarzeń:</p>
-            <section class="buttons" style="flex-direction: column;">
+            <section class="buttons" id="events">
                 <a href="docs/glosWLKP_06-06-2019.pdf" target="_blank" class="button">Tekst: Błażej Dąbkowski, Głos Wielkopolski, 6 czerwca 2019 r.</a>
                 <i class="icon-down"></i>
                 <a href="docs/radiopoznan_06-06-2019.pdf" target="_blank" class="button">Tekst: autor nieznany, Radiopoznan.fm, 6 czerwca 2019 r.</a>
@@ -59,7 +59,7 @@
                 <p>Podsumowując działania redaktora Głosu Wielkopolskiego i reportera Radia Poznań mogę stwierdzić, iż redaktor lub redaktorzy ci wykazali się wielkim lekceważeniem prawa prasowego, lekceważeniem elementarnych zasad dziennikarstwa, nie dochowując należytej staranności i kreując wybraną przez siebie w sposób subiektywny tezę. W początkowej fazie stawiali zarzut straszenia i grożenia małoletniej pasażerce, a na końcu pozostało im doprowadzenie jej do płaczu. W mojej opinii zamiast wycofać się i przeprosić za własną nierzetelność do końca brną w jednym obranym przez siebie kierunku za każdym razem przedstawiając kolejnemu rozmówcy jedną tylko wersję wydarzeń. Taki sposób tworzenia reportaży chyba nie ma nic wspólnego z rzetelnym dziennikarstwem. Przypomina raczej formę HEJTU znaną powszechnie w Internecie.</p>
                 <h3 id="signature">Z poważaniem, właściciel TK Zofia Wawrzyniak</h3>
             </section>
-            <section class="buttons" style="flex-direction: column;">
+            <section class="buttons" id="events">
                 <h4>Zakończenie postępowania w sprawie</h4>
                 <a href="docs/odp_na_skarge_08-07-2019.pdf" target="_blank" class="button">Nasze pismo-odpowiedź z dnia 08-07-2019 do osoby wnoszącej skargę (kończące)</a>
                 <i class="icon-down"></i>
@@ -75,7 +75,7 @@
                 <b>Riposta Głosu Wielkopolskiego</b>
                 <p>Zapoznaj się z ripostą Głosu Wielkopolskiego. Na uwagę zasługuje fakt, że nasza odpowiedź dla osoby wnoszącej skargę liczyła 15 stron, natomiast w ripoście Głosu przytoczono z tego 1 zdanie. Porównaj obie treści poniżej.</p>
             </section>
-            <section class="buttons" style="flex-direction: column;">
+            <section class="buttons" id="events">
                 <a href="docs/ripostaGW_12-07-2019.pdf" target="_blank" class="button">Artykuł Głos Wielkopolski z dn. 12-07-2019 (riposta)</a>
                 <i class="icon-down"></i>
                 <a href="docs/odp_na_skarge_08-07-2019.pdf" target="_blank" class="button">Nasza odpowiedź na skargę (15 stron)</a>
@@ -83,7 +83,7 @@
         </article>
         <h2>Artykuł z dnia 2019-03-25 (Niedziałająca karta PEKA)</h2>
         <article>
-            <section class="buttons" style="flex-direction: column;">
+            <section class="buttons" id="events">
                 <a href="docs/artGW_25-03-2019.pdf" target="_blank" class="button">Artykuł w Głosie Wielkopolskim z dn. 25 marca 2019 r. (tekst: Agnieszka Mozolewska)</a>
             </section>
             <b>Komentarz własny:</b>

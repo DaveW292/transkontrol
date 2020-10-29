@@ -26,7 +26,7 @@
                 <a id="activeTab">Incydenty</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="#">English</a>
+                <a href="en/incidents.php">English</a>
             </div>
         </div>
     </nav>
@@ -37,11 +37,11 @@
             <p>W ten sposób pragniemy Państwu przybliżyć pracę kontrolerów i naszych pracowników zajmujących się skargami na nich. Na podstawie tych przypadków nie trudno wyrobić sobie opinię o zasadności wielu skarg dotyczących pracy kontrolerów. Jak sami Państwo zauważą, praca kontrolerów biletowych nie należy do najłatwiejszych, a dodatkowo nie jest dobrze postrzegana przez większość społeczeństwa. Jest to duży problem społeczny, albowiem duża tolerancja społeczności lokalnej w stosunku do "gapowiczów" powoduje, że osoby takie nie czują presji z tej strony. Sytuacja taka niestety doprowadza do przekonania, że korzystanie z publicznych środków komunikacji miejskiej czy też gminnej bez zapłaty za usługę, staje się normą. Jesteśmy jednak przekonani, iż sytuacja ta ulegać będzie poprawie, dzięki między innymi takim działaniom jak nasze.</p>
         </article>
         <h2>STATYSTYKI</h2>
-        <article>
+        <article id="statistics">
             <p>Poniżej przedstawiamy Państwu nasze statystki. Nasz Dział Skarg prezentuje każdego roku dla Państwa efekty pracy Działu.</p>
             <section>
-                <p style="text-align: center;">Statystyka skarg za rok 2018</p>
-                <table id="statistics">
+                <p>Statystyka skarg za rok 2018</p>
+                <table>
                     <tr>
                         <th>Miesiąc</th>
                         <th>Łączna liczba skarg</th>
@@ -129,8 +129,8 @@
                 </table>
             </section>
             <section>
-                <p style="text-align: center;">Statystyka skarg za rok 2019</p>
-                <table id="statistics">
+                <p>Statystyka skarg za rok 2019</p>
+                <table>
                     <tr>
                         <th>Miesiąc</th>
                         <th>Łączna liczba skarg</th>

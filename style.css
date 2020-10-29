@@ -20,7 +20,7 @@ nav
     display: flex;
     position: sticky;
     top: 0px;
-    z-index: 1;
+    z-index: 2;
     background-image: url("img/black_denim.png");
 }
 #activeTab, #dropButton
@@ -65,7 +65,7 @@ article h4{font-size: 30px;}
     display: flex;
     align-items: center;
 }
-.li p, .subli p
+.li p, .subli p, .li b
 {
     margin-left: 10px;
     margin-top: 10px;
@@ -87,6 +87,12 @@ li{margin-bottom: 20px;}
     margin-top: 20px;
 }
 .board{background-image: url(img/retro_intro.png);}
+#phone
+{
+    font-size: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .button
 {
     background-image: url(img/dark-honeycomb.png);
@@ -111,44 +117,33 @@ article
     border: 1px solid black;
     margin-bottom: 30px;
     box-shadow: 0px 0px 10px black;
+    text-align: justify;
 }
-.dropbtn 
+#events{flex-direction: column;}
+.dropdown 
 {
+    display: inline-block;
     background-image: url(img/dark-honeycomb.png);
     color: white;
     font-size: 16px;
     border: none;
-    cursor: pointer;
     padding: 10px;
     box-shadow: 0px 0px 10px black;
     border-radius: 10px;
     margin-top: 20px;
 }
-.dropbtn:hover, .dropbtn:focus{opacity: 0.8;}
-.dropbtn:focus
-{
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-.dropdown 
-{
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
 .dropdown-content 
 {
     display: none;
-    position: absolute;
+    position: relative;
     background-image: url(img/retro_intro.png);
     box-shadow: 0px 0px 10px black;
     padding: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     z-index: 1;
+    color: black;
 }
-.dropdown-content p{display: block;}
+.dropdown:hover .dropdown-content{display: block;}
 .show {display:block;}
 figure{text-align:center;}
 #contact p
@@ -174,6 +169,7 @@ tr th
     color: white;
     background-image: url(img/dark_brick_wall.png);
 }
+td i{font-size: 10px;}
 .charges tr:first-child th
 {
     border-top-left-radius: 10px;
@@ -182,9 +178,9 @@ tr th
 td, th{padding:10px;}
 tr:nth-of-type(even) td{background-image: url(img/white_brick_wall.png);}
 tr:nth-of-type(odd) td{background-image: url(img/brickwall.png);}
-#statistics tr td~td{text-align: center;}
-#statistics tr:first-child th:first-child{border-top-left-radius: 10px;}
-#statistics tr:first-child th:last-child{border-top-right-radius: 10px;}
+#statistics table tr td~td{text-align: center;}
+#statistics table tr:first-child th:first-child{border-top-left-radius: 10px;}
+#statistics table tr:first-child th:last-child{border-top-right-radius: 10px;}
 #press .buttons i
 {
     text-align: center;
@@ -199,6 +195,7 @@ tr:nth-of-type(odd) td{background-image: url(img/brickwall.png);}
     font-family: 'Dancing Script', cursive;
     font-size: 30px;
 }
+#statistics section p{text-align: center;}
 footer
 {
     height: 100px;
@@ -403,13 +400,10 @@ footer a:hover{color: gray;}
         margin-left: 20px;
         margin-right: 20px;
     }
-    .board
-    {
-        margin-top: 20px;
-    }
+    .board{margin-top: 20px;}
     #signature{width: 80%;}
     article h4{text-align: center;}
-    #statistics td, #statistics th{padding:2px;}
+    #statistics table td, #statistics table th{padding:2px;}
     footer
     {
         padding-top: 10px;

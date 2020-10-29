@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="description" content="Profesjonalna kontrola biletowa w publicznych środkach transportu oraz windykacja należności z tytułu nałożonych opłat dodatkowych.">
     <meta name="keywords" content="kontrola biletowa, windykacja należności, trans kontrol, kontroler, windykator">
     <meta name="author" content="davew">
@@ -13,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/sliderStart.js"></script>
-    <script type="text/javascript" src="js/archiveMenu.js"></script>
 </head>
 <body onload="changeSlide()">
     <header><?php include "items/naglowek.php"; ?></header>
@@ -46,8 +44,8 @@
                 <div class="li"><i class="icon-ok"></i><p>Posiadamy własny dział windykacji, prawny, obsługi odwołań i skarg, kadr i szkolenia, statystyk i postępowań dyscyplinujących oraz dział kontroli jakości</p></div>
                 <div class="li"><i class="icon-ok"></i><p>Działamy na terenie całego kraju</p></div>
             </section>
-            <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
             <section>
+                <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
                 <div id="slider"></div>
             </section>
         </article>
@@ -65,8 +63,8 @@
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 08-06-2020 r. zapłacisz w naszym BOK kartą lub telefonem!</p></div>
                 </div>
                 <div class="dropdown">
-                    <button onclick="archiveMenu()" class="dropbtn">ARCHIWALNE</button>
-                    <div id="myDropdown" class="dropdown-content">
+                    <span>ARCHIWALNE</span>
+                    <div class="dropdown-content">
                         <div class="li"><i class="icon-bus"></i><p>Od dnia 01-06-2020 obsługa w naszym BOK możliwa już w każdy poniedziałek, wtorek i czwartek w g. 12-16.</p></div>
                         <div class="li"><i class="icon-bus"></i><p>Od dnia 12-05-2020 nasze Biuro Obsługi już jest otwarte! Na razie zapraszamy w każdy wtorek i czwartek w g. 12-16.</p></div>
                         <div class="li"><i class="icon-bus"></i><p>Od dnia 16-03-2020 do odwołania obsługa Interesantów tylko telefonicznie lub mailowo!</p></div>
@@ -76,7 +74,7 @@
                         <div class="li"><i class="icon-bus"></i><p>Dnia 31-12-2019 wtorek- biuro czynne w godz. 12-15.</p></div>
                         <div class="li"><i class="icon-bus"></i><p>Przypominamy także, że wszelkie sprawy można załatwiać drogą mailową.</p> 
                     </div>
-                </div> 
+                </div>
             </section>
         </article>    
         <article>
