@@ -12,9 +12,9 @@
 <body>
     <header><?php include "items/naglowek.php"; ?></header>
     <nav>
-        <div>
-            <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Kontakt</p>
-            <div id="menu" class="tabs">
+        <div class="dropdown">
+            <p class="icon-right-hand" id="dropButton">&nbsp; Kontakt</p>
+            <div class="tabs">
                 <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
@@ -23,7 +23,7 @@
                 <a href="odwolania">Odwołania</a>
                 <a href="pozwy">Pozwy</a>
                 <a href="media">Media</a>
-                <a href="incydenty">Incydenty</a>
+                <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a id="activeTab">Kontakt</a>
                 <a href="#">English</a>

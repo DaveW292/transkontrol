@@ -14,9 +14,9 @@
 <body onload="changeSlide()">
     <header><?php include "items/naglowek.php"; ?></header>
     <nav>
-        <div>
-            <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; O nas</p>
-            <div id="menu" class="tabs">
+        <div class="dropdown">
+            <p class="icon-right-hand" id="dropButton">&nbsp; O nas</p>
+            <div class="tabs">
                 <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a id="activeTab">O nas</a>
                 <a href="uslugi">Usługi</a>
@@ -25,7 +25,7 @@
                 <a href="odwolania">Odwołania</a>
                 <a href="pozwy">Pozwy</a>
                 <a href="media">Media</a>
-                <a href="incydenty">Incydenty</a>
+                <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
                 <a href="#">English</a>

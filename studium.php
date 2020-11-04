@@ -3,18 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Trans Kontrol - incydenty</title>
+    <title>Trans Kontrol - studium</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
-    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
 </head>
 <body>
     <header><?php include "items/naglowek.php"; ?></header>
     <nav>
-        <div>
-            <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Incydenty</p>
-            <div id="menu" class="tabs">
+        <div class="dropdown">
+            <p class="icon-right-hand" id="dropButton">&nbsp; Studium</p>
+            <div class="tabs">
                 <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
                 <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
@@ -23,10 +23,10 @@
                 <a href="odwolania">Odwołania</a>
                 <a href="pozwy">Pozwy</a>
                 <a href="media">Media</a>
-                <a id="activeTab">Incydenty</a>
+                <a id="activeTab">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="en/incidents.php">English</a>
+                <a href="#">English</a>
             </div>
         </div>
     </nav>
@@ -220,15 +220,23 @@
         </article>
         <h2>AKTUALNE INCYDENTY ZWIĄZANE Z OCHRONĄ DANYCH OSOBOWYCH</h2>
         <article>
-            <h4>INCYDENT NR 1 data zdarzenia 2018-12-03; utrata wypełnionych druków ODK</h4>
-            <p>Pragniemy poinformować iż z powodu zagubienia przez naszego kontrolera biletowego druków opłat dodatkowych kredytowych w dniu 03/12/2018 dane osobowe dwóch pasażerów zostały utracone. Chcemy serdecznie przeprosić za zaistniałą sytuację i zobowiązujemy się do pomocy w razie negatywnych skutków z tego powodu. Jeśli sprawa może dotyczyć Państwa, prosimy o kontakt z Naszym Inspektorem Ochrony Danych – Katarzyną Wawrzyniak, e-mail: k.wawrzyniak@transkontrol.pl , tel. 61 65 62 115. Możliwe konsekwencje tego incydentu to kradzież Państwa tożsamości przez osobę trzecią. Nasza firma prowadzi ciągły proces podnoszenia poziomu bezpieczeństwa danych osobowych. Dzięki temu incydent został szybko wykryty, a zagrożenia rozpoznane dzięki czemu z pewnością ograniczone zostały skutki tego zdarzenia. W oparciu o zaistniały incydent, zmodyfikowaliśmy nasze szkolenia w zakresie bezpiecznego przenoszenia mandatów w trakcie pracy.</p>
-        </article>
-        <article>
-            <h4>INCYDENT NR 2 data zdarzenia 2019-02-05; utrata wypełnionego druku ODK (opłaty dodatkowej kredytowej)</h4>
-            <p>Pragniemy poinformować Państwa, iż z powodu zagubienia przez naszego kontrolera biletowego druku opłaty dodatkowej kredytowej w dniu 05/02/2019 dane osobowe jednego pasażera zostały utracone. Utrata ta nastąpiła zanim dane osobowe trafiły do naszego biura przez co nie zostały one zarejestrowane w naszej bazie danych a tym samym nie sposób je zidentyfikować. Utrudnia to tym samym rozpoznanie jakie dokładnie dane zostały utracone i do kogo należą. Chcemy serdecznie przeprosić za zaistniałą sytuację i zobowiązujemy się do pomocy w razie negatywnych skutków z tego powodu. Z uwagi na charakter zatrudnienia naszego kontrolera, w szczególności on będzie zobowiązany do poniesienia ewentualnych kosztów związanych z tym zdarzeniem. Kontroler jest świadomy tych konsekwencji a nasza firma udzieli wszelkiego możliwego wsparcia w zakresie ograniczenia ewentualnych szkód z tego tytułu powstałych. Jeśli sprawa może dotyczyć Państwa, prosimy o kontakt z Naszym Inspektorem Ochrony Danych – Katarzyną Wawrzyniak, e-mail: k.wawrzyniak@transkontrol.pl , tel. 61 65 62 115. Możliwe konsekwencje tego incydentu to kradzież Państwa tożsamości przez osobę trzecią. Nasza firma prowadzi ciągły proces podnoszenia poziomu bezpieczeństwa danych osobowych. Dzięki temu incydent został szybko wykryty, a zagrożenia rozpoznane dzięki czemu z pewnością ograniczone zostały skutki tego zdarzenia.</p>
-            <b>Jednocześnie zwracamy się z prośbą do osoby lub osób, które weszły w posiadanie w/w druku o niezwłoczny ich zwrot do biura Trans Kontrol, os. St. Batorego 101, 60-687 Poznań, osobiście lub listownie lub też prosimy o kontakt telefoniczny z naszym Inspektorem Ochrony Danych Osobowych (tel. j.w.). Przypominamy też, że wszelka próba niezgodnego z prawem wykorzystania tych danych osobowych może skutkować odpowiedzialnością karną.</b>
-        </article>
-        <article>
+            <section class="center">
+                <div class="dropdown">
+                    <button onclick="incident1()" class="dropbtn" id="incidents">INCYDENT NR 1 data zdarzenia 2018-12-03; utrata wypełnionych druków ODK</button>
+                    <div id="incident1" class="dropdown-content">
+                        <h4>INCYDENT NR 1 data zdarzenia 2018-12-03; utrata wypełnionych druków ODK</h4>
+                        <p>Pragniemy poinformować iż z powodu zagubienia przez naszego kontrolera biletowego druków opłat dodatkowych kredytowych w dniu 03/12/2018 dane osobowe dwóch pasażerów zostały utracone. Chcemy serdecznie przeprosić za zaistniałą sytuację i zobowiązujemy się do pomocy w razie negatywnych skutków z tego powodu. Jeśli sprawa może dotyczyć Państwa, prosimy o kontakt z Naszym Inspektorem Ochrony Danych – Katarzyną Wawrzyniak, e-mail: k.wawrzyniak@transkontrol.pl , tel. 61 65 62 115. Możliwe konsekwencje tego incydentu to kradzież Państwa tożsamości przez osobę trzecią. Nasza firma prowadzi ciągły proces podnoszenia poziomu bezpieczeństwa danych osobowych. Dzięki temu incydent został szybko wykryty, a zagrożenia rozpoznane dzięki czemu z pewnością ograniczone zostały skutki tego zdarzenia. W oparciu o zaistniały incydent, zmodyfikowaliśmy nasze szkolenia w zakresie bezpiecznego przenoszenia mandatów w trakcie pracy.</p>
+                    </div>
+                </div>                
+                <div class="dropdown">
+                    <button onclick="incident2()" class="dropbtn" id="incidents">INCYDENT NR 2 data zdarzenia 2019-02-05; utrata wypełnionego druku ODK (opłaty dodatkowej kredytowej)</button>
+                    <div id="incident2" class="dropdown-content">
+                        <h4>INCYDENT NR 2 data zdarzenia 2019-02-05; utrata wypełnionego druku ODK (opłaty dodatkowej kredytowej)</h4>
+                        <p>Pragniemy poinformować Państwa, iż z powodu zagubienia przez naszego kontrolera biletowego druku opłaty dodatkowej kredytowej w dniu 05/02/2019 dane osobowe jednego pasażera zostały utracone. Utrata ta nastąpiła zanim dane osobowe trafiły do naszego biura przez co nie zostały one zarejestrowane w naszej bazie danych a tym samym nie sposób je zidentyfikować. Utrudnia to tym samym rozpoznanie jakie dokładnie dane zostały utracone i do kogo należą. Chcemy serdecznie przeprosić za zaistniałą sytuację i zobowiązujemy się do pomocy w razie negatywnych skutków z tego powodu. Z uwagi na charakter zatrudnienia naszego kontrolera, w szczególności on będzie zobowiązany do poniesienia ewentualnych kosztów związanych z tym zdarzeniem. Kontroler jest świadomy tych konsekwencji a nasza firma udzieli wszelkiego możliwego wsparcia w zakresie ograniczenia ewentualnych szkód z tego tytułu powstałych. Jeśli sprawa może dotyczyć Państwa, prosimy o kontakt z Naszym Inspektorem Ochrony Danych – Katarzyną Wawrzyniak, e-mail: k.wawrzyniak@transkontrol.pl , tel. 61 65 62 115. Możliwe konsekwencje tego incydentu to kradzież Państwa tożsamości przez osobę trzecią. Nasza firma prowadzi ciągły proces podnoszenia poziomu bezpieczeństwa danych osobowych. Dzięki temu incydent został szybko wykryty, a zagrożenia rozpoznane dzięki czemu z pewnością ograniczone zostały skutki tego zdarzenia.</p>
+                        <b>Jednocześnie zwracamy się z prośbą do osoby lub osób, które weszły w posiadanie w/w druku o niezwłoczny ich zwrot do biura Trans Kontrol, os. St. Batorego 101, 60-687 Poznań, osobiście lub listownie lub też prosimy o kontakt telefoniczny z naszym Inspektorem Ochrony Danych Osobowych (tel. j.w.). Przypominamy też, że wszelka próba niezgodnego z prawem wykorzystania tych danych osobowych może skutkować odpowiedzialnością karną.</b>
+                    </div>
+                </div>
+            </section>                
             <h3>Uwagi do powyższych incydentów.</h3>
             <section>
                 <p>Możliwymi konsekwencjami naruszenia może być nieuprawnione wykorzystanie danych osobowych m.in. w celu</p>
@@ -254,6 +262,7 @@
                 <b>Finalnie, może się okazać, że zakres utraconych danych był mniejszy niż zgłoszony przez IOD. W zgłoszeniu IOD przytoczył największy z możliwych zakresów danych, które mogły ulec naruszeniu.</b>
                 <b>Obecnie wdrożono stosowne procedury mające na celu zidentyfikowanie osób których dane dotyczą. W tym celu opracowano i wdrożono plan działania polegający między innymi na stałym i regularnym monitorowaniu w bazie danych opłat dodatkowych i transferów pieniężnych związanych z opłatami dodatkowymi. W przypadku ujawnienia osób których naruszenie dotyczyło, zostaną podjęte stosowne kroki zaradcze (j.w., ale spersonalizowane).</b>
             </section>
+        
         </article>
         <article>
             <h3>Informacja dotycząca Inspektora Danych (IOD)</h3>

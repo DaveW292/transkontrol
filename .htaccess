@@ -7,7 +7,7 @@ RewriteRule skargi skargi.php
 RewriteRule odwolania odwolania.php
 RewriteRule pozwy pozwy.php
 RewriteRule media media.php
-RewriteRule incydenty incydenty.php
+RewriteRule studium studium.php
 RewriteRule praca praca.php
 RewriteRule kontakt kontakt.php
 RewriteRule polityka-prywatnosci polityka-prywatnosci.php

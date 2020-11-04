@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
     <script type="text/javascript" src="js/sliderStart.js"></script>
 </head>
 <body onload="changeSlide()">
     <header><?php include "items/naglowek.php"; ?></header>
     <nav>
-        <div>
-            <p class="icon-right-hand" id="dropButton" onclick="smartMenu()">&nbsp; Start</p>
-            <div id="menu" class="tabs">
+        <div class="dropdown">
+            <p class="icon-right-hand" id="dropButton">&nbsp; Start</p>
+            <div class="tabs">
                 <a id="activeTab">Start</a>
                 <a href="o-nas">O nas</a>
                 <a href="uslugi">Usługi</a>
@@ -27,7 +27,7 @@
                 <a href="odwolania">Odwołania</a>
                 <a href="pozwy">Pozwy</a>
                 <a href="media">Media</a>
-                <a href="incydenty">Incydenty</a>
+                <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
                 <a href="#">English</a>
@@ -50,12 +50,12 @@
             </section>
         </article>
         <article>
-            <section class="buttons" style="flex-direction: column;">
+            <section class="buttons" id="events">
                 <a href="kontakt" class="button">Otwieramy się! Obsługujemy w poniedziałki, wtorki i czwartki w godz. 12-16!</a>
                 <a href="platnosci" class="button">!Zapłacisz już u nas w BOK kartą lub telefonem!</a>
                 <a href="odwolania" class="button">!Roszczenie windykacyjne. Przeczytaj!</a>
             </section>
-            <section>
+            <section id="notifications">
                 <div>
                     <h3>UWAGA!</h3>
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 01-07-2020 r. zapłacisz kartą lub telefonem u większości z naszych kontrolerów!</p></div>
@@ -63,8 +63,9 @@
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 08-06-2020 r. zapłacisz w naszym BOK kartą lub telefonem!</p></div>
                 </div>
                 <div class="dropdown">
-                    <span>ARCHIWALNE</span>
-                    <div class="dropdown-content">
+                    <button onclick="archive()" class="dropbtn">ARCHIWALNE</button>
+                    <div id="archive" class="dropdown-content">
+                        <div>ARCHIWALNE</div>
                         <div class="li"><i class="icon-bus"></i><p>Od dnia 01-06-2020 obsługa w naszym BOK możliwa już w każdy poniedziałek, wtorek i czwartek w g. 12-16.</p></div>
                         <div class="li"><i class="icon-bus"></i><p>Od dnia 12-05-2020 nasze Biuro Obsługi już jest otwarte! Na razie zapraszamy w każdy wtorek i czwartek w g. 12-16.</p></div>
                         <div class="li"><i class="icon-bus"></i><p>Od dnia 16-03-2020 do odwołania obsługa Interesantów tylko telefonicznie lub mailowo!</p></div>
@@ -81,7 +82,7 @@
             <section class="buttons">
                 <a href="https://www.google.pl/maps/place/Trans+Kontrol/@52.4561601,16.922046,17z/data=!3m1!4b1!4m5!3m4!1s0x4704433787309f37:0xb78abafc8c6033eb!8m2!3d52.4561601!4d16.9242347" target="_blank" class="button">Wejście od strony Os. B. Śmiałego lub St. Batorego! Kliknij w mapkę!</a>
             </section>
-            <section class="buttons" style="flex-direction: column;">
+            <section class="buttons" id="events">
                 <figure>
                     <a href="img/map1.jpg"><img src="img/map1.jpg"></a>
                     <figcaption>Wejście od os. St. Batorego i os. B. Śmiałego</figcaption>
