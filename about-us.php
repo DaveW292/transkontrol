@@ -19,7 +19,7 @@
                 <a href="en">Start</a>
                 <a id="activeTab">About Us</a>
                 <a href="services">Services</a>
-                <a href="payments">Payments</a>
+                <a href="charges">Charges</a>
                 <a href="complaints">Complaints</a>
                 <a href="appeals">Appeals</a>
                 <a href="lawsuits">Lawsuits</a>
