@@ -14,3 +14,4 @@ RewriteRule polityka-prywatnosci polityka-prywatnosci.php
 RewriteRule polityka-cookies polityka-cookies.php
 RewriteRule en index-en.php
 RewriteRule about-us about-us.php
+RewriteRule services services.php
