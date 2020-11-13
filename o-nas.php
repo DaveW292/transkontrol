@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/sliderAbout.js"></script>
 </head>
 <body onload="changeSlide()">
@@ -28,7 +27,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="#">English</a>
+                <a href="about-us">English</a>
             </div>
         </div>
     </nav>
