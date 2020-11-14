@@ -58,6 +58,6 @@
             <div class="li"><i class="icon-exclamation"></i><b>IMPORTANT! The date of payment (received on our bank account) determines the date of payment!</b></div>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "items/footer.php"; ?></footer>
 </body>
 </html>

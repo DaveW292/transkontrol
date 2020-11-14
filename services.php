@@ -78,6 +78,6 @@
             <p>If you are interested in our offer, please contact us. We will then send you a detailed description of the activities and a price offer.</p>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "items/footer.php"; ?></footer>
 </body>
 </html>

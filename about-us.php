@@ -77,6 +77,6 @@
             </section>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "items/footer.php"; ?></footer>
 </body>
 </html>
