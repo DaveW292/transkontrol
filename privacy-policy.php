@@ -25,7 +25,7 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href=<?php include "items/startTabLink.php"; ?>>Polski</a>
+                <a href="polityka-prywatnosci">Polski</a>
             </div>
         </div>
     </nav>
@@ -48,7 +48,7 @@
     <footer>
         <p>Trans Kontrol &copy; 2020 All rights reserved.</p>
         <a style="color: gray;">Privacy policy</a>
-        <a href="polityka-cookies">Cookies policy</a>    
+        <a href="cookies-policy">Cookies policy</a>
     </footer>
 </body>
 </html>
