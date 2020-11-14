@@ -16,7 +16,7 @@
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; About Us</p>
             <div class="tabs">
-                <a href="en">Start</a>
+                <a href="english">Start</a>
                 <a id="activeTab">About Us</a>
                 <a href="services">Services</a>
                 <a href="charges">Charges</a>
