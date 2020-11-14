@@ -12,7 +12,7 @@ RewriteRule praca praca.php
 RewriteRule kontakt kontakt.php
 RewriteRule polityka-prywatnosci polityka-prywatnosci.php
 RewriteRule polityka-cookies polityka-cookies.php
-RewriteRule en index-en.php
+RewriteRule english english.php
 RewriteRule about-us about-us.php
 RewriteRule services services.php
 RewriteRule charges charges.php
