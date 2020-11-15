@@ -18,5 +18,6 @@ RewriteRule services services.php
 RewriteRule charges charges.php
 RewriteRule complaints complaints.php
 RewriteRule appeals appeals.php
+RewriteRule lawsuits lawsuits.php
 RewriteRule privacy-policy privacy-policy.php
 RewriteRule cookies-policy cookies-policy.php
