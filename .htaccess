@@ -22,5 +22,6 @@ RewriteRule lawsuits lawsuits.php
 RewriteRule press press.php
 RewriteRule study study.php
 RewriteRule job job.php
+RewriteRule contact contact.php
 RewriteRule privacy-policy privacy-policy.php
 RewriteRule cookies-policy cookies-policy.php

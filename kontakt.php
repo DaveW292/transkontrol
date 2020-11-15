@@ -7,7 +7,6 @@
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
-    <script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
     <header><?php include "items/naglowek.php"; ?></header>
@@ -26,7 +25,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a id="activeTab">Kontakt</a>
-                <a href="#">English</a>
+                <a href="contact">English</a>
             </div>
         </div>
     </nav>
@@ -56,7 +55,7 @@
                 <a href="mailto:biuro@transkontrol.pl" class="button"><div>Sprawy ogólne</div></a>
                 <a href="mailto:pelnomocnik@transkontrol.pl" class="button"><div>Kontrola jakości</div></a>
                 <a href="mailto:skargi@transkontrol.pl" class="button"><div>Skargi</div></a>
-                <a href="mailto:odwolania@transkontrol.pl" class="button"><div>Odwolania</div></a>
+                <a href="mailto:odwolania@transkontrol.pl" class="button"><div>Odwołania</div></a>
                 <a href="mailto:windykacja@transkontrol.pl" class="button"><div>Windykacja</div></a>
                 <a href="mailto:epozwy@transkontrol.pl" class="button"><div>Pozwy</div></a>
                 <a href="mailto:k.wawrzyniak@transkontrol.pl" class="button"><div>Inspektor Ochrony Danych Osobowych: Katarzyna Wawrzyniak</div></a>
