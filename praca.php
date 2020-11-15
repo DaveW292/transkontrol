@@ -7,7 +7,6 @@
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
-    <script type="text/javascript" src="js/menu.js"></script>
 </head>
 <body>
     <header><?php include "items/naglowek.php"; ?></header>
@@ -26,7 +25,7 @@
                 <a href="studium">Studium</a>
                 <a id="activeTab">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="#">English</a>
+                <a href="job">English</a>
             </div>
         </div>
     </nav>
