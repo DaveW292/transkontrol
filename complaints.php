@@ -14,14 +14,14 @@
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Complaints</p>
             <div class="tabs">
-                <a href="english">Start</a>
+                <a href="Home">home</a>
                 <a href="about-us">About Us</a>
                 <a href="services">Services</a>
                 <a href="charges">Charges</a>
                 <a id="activeTab">Complaints</a>
                 <a href="appeals">Appeals</a>
                 <a href="lawsuits">Lawsuits</a>
-                <a href="press">Media</a>
+                <a href="press">Press</a>
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>

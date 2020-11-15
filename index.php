@@ -30,7 +30,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="english">English</a>
+                <a href="home">English</a>
             </div>
         </div>
     </nav>
