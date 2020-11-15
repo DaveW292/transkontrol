@@ -26,7 +26,7 @@
                 <a id="activeTab">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="#">English</a>
+                <a href="study">English</a>
             </div>
         </div>
     </nav>
