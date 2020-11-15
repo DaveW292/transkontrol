@@ -33,10 +33,10 @@
         <article>
             <h3>We offer a wide range of services:</h3>
             <div class="li"><i class="icon-train"></i><p>We conduct complete and supplementary inspections as well as work inspections</p></div>
-            <div class="li"><i class="icon-train"></i><p>We have our own debt collection, appeals, statistics, legal and quality control departments</p></div>
+            <div class="li"><i class="icon-train"></i><p>We have our own vindication, appeals, statistics, legal and quality control departments</p></div>
             <div class="li"><i class="icon-train"></i><p>We adapt our own procedures to the existing procedures of the Carrier</p></div>
             <div class="li"><i class="icon-train"></i><p>Controls can be launched anywhere in the country</p></div>
-            <div class="li"><i class="icon-train"></i><p>Debt collection services for the imposed additional fees</p></div>
+            <div class="li"><i class="icon-train"></i><p>Vindication services for the imposed additional fees</p></div>
             <div class="li"><i class="icon-train"></i><p>Control of drivers' work</p></div>
             <div class="li"><i class="icon-train"></i><p>Timetable control</p></div>
             <div class="li"><i class="icon-train"></i><p>Control and analysis of the community using the Carrier's transport and researching passenger-driver relations</p></div>
@@ -50,7 +50,7 @@
                 <div class="subLi"><i class="icon-right-circled"></i><p>Supplementary controls - we act as a control supporting an already existing control</p></div>
                 <div class="subLi"><i class="icon-right-circled"></i><p>Work control - we carry out control of drivers' work or other control</p></div>
             <div class="li"><i class="icon-right-outline"></i><p>Special Car Actions - this is the use of our vehicle in an organized manner</p></div>
-            <div class="li"><i class="icon-right-outline"></i><p>We have our own debt collection, appeals, statistics, legal and quality control departments</p></div>
+            <div class="li"><i class="icon-right-outline"></i><p>We have our own vindication, appeals, statistics, legal and quality control departments</p></div>
             <div class="li"><i class="icon-right-outline"></i><p>We ensure full security of personal data protection</p></div>
             <div class="li"><i class="icon-right-outline"></i><p>We adjust our own procedures to the Carrier's existing procedures:</p></div>
                 <div class="subLi"><i class="icon-right-circled"></i><p>Constant work quality control</p></div>
@@ -59,7 +59,7 @@
             <div class="li"><i class="icon-right-outline"></i><p>Controls can be launched anywhere in the country</p></div>
         </article>
         <article>
-            <h3>Debt collection services for the imposed additional fees</h3>
+            <h3>Vindication services for the imposed additional fees</h3>
             <p>We collect receivables resulting from the imposed additional fees.</p>
             <p>At the request of the Carrier, we collect receivables.</p>
         </article>

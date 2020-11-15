@@ -33,7 +33,7 @@
         <article>
             <h4>WARNING! When submitting a letter regarding an e-claim, it is mandatory to provide your current address of residence as well as correspondence and PESEL number in order to properly verify the person</h4>
             <p>If you receive a lawsuit for the payment of an additional fee (s), you must comply with the information provided in the letter by the Court. You must pay the amount indicated in the Payment Order in the writ proceedings within the time limit indicated therein.</p>
-            <p>Failure to meet the deadline or lack of payment will result in the case being referred to the locally competent bailiff for the purpose of debt collection. You have to calculate the interest yourself, you can use the statutory interest calculator.</p>
+            <p>Failure to meet the deadline or lack of payment will result in the case being referred to the locally competent bailiff for the purpose of vindication. You have to calculate the interest yourself, you can use the statutory interest calculator.</p>
             <section class="buttons">
                 <a href="https://kalkulatory.gofin.pl/Kalkulator-odsetek-ustawowych,12.html" target="_blank" class="button">Statutory interest calculator</a>
             </section>

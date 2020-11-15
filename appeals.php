@@ -36,7 +36,7 @@
             <ol>
                 <li>Deadlines for submitting appeals: 3 months (from the date of the event) - for imposing an additional credit fee (the date of receipt of the appeal or the postmark). An appeal submitted after this date shall not be examined, regardless of its merits</li>
                 <li>Appeals may be submitted by letter, e-mail or in person</li>
-                <li>Filing an appeal does not suspend payment deadlines. It is recommended to make the payment within the indicated period, even in the event of an appeal. In the event of a negative response to the appeal submitted, additional costs may arise (e.g. interest, debt collection claim). The case may also be referred to debt collection or to the court</li>
+                <li>Filing an appeal does not suspend payment deadlines. It is recommended to make the payment within the indicated period, even in the event of an appeal. In the event of a negative response to the appeal submitted, additional costs may arise (e.g. interest, vindication claim). The case may also be referred to vindication or to the court</li>
                 <li>The time for considering the appeal is up to 30 days</li>
                 <li>In the event of a repeated appeal against the received decision issued by Trans Kontrol, the letter will remain unanswered, unless its content gives rise to new circumstances justifying the submission of another appeal.</li>
                 <li>In order to file an appeal or complaint, you can use our template:</li>
@@ -55,9 +55,9 @@
             </section>
         </article>
         <article>
-            <h3>DEBT COLLECTION</h3>
-            <p>If the payment is not made within the prescribed period (see the instruction on the Additional Fee), statutory interest and other costs resulting from legal provisions are added. In addition, the summons may contain a summons to pay the debt collection claim, i.e. the amount that the debt collection company has collected as remuneration for carrying out debt collection activities.</p>
-            <p>Debt collection may be outsourced to an external debt collection company. In the case of unsuccessful recovery, the case is referred to the locally competent court, and after obtaining the payment order, in the event of failure to settle the obligation, the case is transferred to bailiff proceedings.</p>
+            <h3>VINDICATION</h3>
+            <p>If the payment is not made within the prescribed period (see the instruction on the Additional Fee), statutory interest and other costs resulting from legal provisions are added. In addition, the summons may contain a summons to pay the vindication claim, i.e. the amount that the vindication company has collected as remuneration for carrying out vindication activities.</p>
+            <p>Vindication may be outsourced to an external vindication company. In the case of unsuccessful recovery, the case is referred to the locally competent court, and after obtaining the payment order, in the event of failure to settle the obligation, the case is transferred to bailiff proceedings.</p>
             <section class="buttons">
                 <a href="docs/naleznosci_roszczeniowe-podstawa_prawna.pdf" target="_blank" class="button">Claims<br/><i style="font-size: 16px;">legal basis</i></a>
             </section>    
@@ -91,7 +91,7 @@
                 </tr>
                 <tr>
                     <td>Recovery claim (claim)*</td>
-                    <td>Dependent on costs incurred as a result of debt collection by external companies. If such events have occurred and caused damage to the property of the Creditor, then the Creditor files a claim for damages. The claim will be specified in the request for payment</td>
+                    <td>Dependent on costs incurred as a result of vindication by external companies. If such events have occurred and caused damage to the property of the Creditor, then the Creditor files a claim for damages. The claim will be specified in the request for payment</td>
                 </tr>
             </table>
             <table class="charges">
@@ -102,7 +102,7 @@
                 </tr>
                 <tr>
                     <td>Transfer of the case to a debt collection company</td>
-                    <td>After 14 days from the date of the event (imposition of an additional fee). Warning! A debt collection claim may arise</td>
+                    <td>After 14 days from the date of the event (imposition of an additional fee). Warning! A vindication claim may arise</td>
                 </tr>
                 <tr>
                     <td>Pre-trial or information summons about the sale of debt</td>
@@ -117,7 +117,7 @@
                     <td>After 30 days from the date of the court judgment becoming final or at a later date</td>
                 </tr>
             </table>
-            <i>* Debt collection claim - the punished person is not obliged to pay the claim, however, we will have the right to bring a claim for payment of a claim for damage to property (detailed information on the request for payment). This claim does not increase the Debtor's indebtedness, however, it causes the Creditor to claim the right to claim the amount of the claim through court proceedings. The creditor may send letters to the Debtor requesting payment of the claim before sending the case to court. The creditor may also summon the Debtor to settle the matter amicably.</i>
+            <i>*Vindication claim - the punished person is not obliged to pay the claim, however, we will have the right to bring a claim for payment of a claim for damage to property (detailed information on the request for payment). This claim does not increase the Debtor's indebtedness, however, it causes the Creditor to claim the right to claim the amount of the claim through court proceedings. The creditor may send letters to the Debtor requesting payment of the claim before sending the case to court. The creditor may also summon the Debtor to settle the matter amicably.</i>
         </article>
     </main>
     <footer><?php include "items/footer.php"; ?></footer>

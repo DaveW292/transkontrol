@@ -41,7 +41,7 @@
             <p>Trans Kontrol is a company that was established by a team of specialists to ensure the highest standards in ticket inspection services in means of transport. Our vast experience in this field allows us to offer a personalized service to our clients. Due to our ability to adapt to the situation, we can offer our clients services that are appropriate to their needs. We are mobile. We can open our representative office all over the country. Thus, we can provide perfect services for everyone. We focus on developing and delivering personalized, flexible solutions that meet and exceed our customers' expectations across our range of services.</p>
             <p>Customer care and satisfaction is our primary goal. Our main priority is to provide efficient and hassle-free ticket control services related to their high standard of performance.</p>
             <p>All ticket inspections are preceded by planning, and during the implementation of tasks, we coordinate the work by adjusting the order to individual needs.</p>
-            <p>Our Debt Collection Department controls the payments of punished persons. We also have our own Disciplinary Proceedings Department, which increases the quality of our services.</p>
+            <p>Our Vindication Department controls the payments of punished persons. We also have our own Disciplinary Proceedings Department, which increases the quality of our services.</p>
             <p>Caring for the good name of our company is caring for the good name of our clients, which is an indispensable element in our work.</p>
         </article>
         <article>

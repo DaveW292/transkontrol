@@ -2,8 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional ticket control in public means of transport and debt collection for the imposed additional fees.">
-    <meta name="keywords" content="ticket control, debt collection, trans control, controller, debt collector">
+    <meta name="description" content="Professional ticket control in public means of transport and vindication or debt collection for the imposed additional fees.">
+    <meta name="keywords" content="ticket control, vindication, debt collection, trans control, controller, vindicator, debt collector">
     <meta name="author" content="davew">
     <title>Trans Kontrol</title>
     <link rel="icon" href="img/logo.png">
@@ -37,11 +37,11 @@
     <main>
         <article id="intro">
             <section>
-                <h3>Professional ticket control in public means of transport and debt collection for the imposed additional fees</h3>
+                <h3>Professional ticket control in public means of transport and vindication for the imposed additional fees</h3>
                 <div class="li"><i class="icon-ok"></i><p>We have been operating since 2002</p></div>
                 <div class="li"><i class="icon-ok"></i><p>We provide professional ticket control</p></div>
                 <div class="li"><i class="icon-ok"></i><p>We attach great importance to the quality of work of the controllers and passenger service</p></div>
-                <div class="li"><i class="icon-ok"></i><p>We have our own debt collection, legal, appeal and complaint handling, human resources and training departments, statistics and disciplinary proceedings, and a quality control department</p></div>
+                <div class="li"><i class="icon-ok"></i><p>We have our own vindication, legal, appeal and complaint handling, human resources and training departments, statistics and disciplinary proceedings, and a quality control department</p></div>
                 <div class="li"><i class="icon-ok"></i><p>We operate throughout the country</p></div>
             </section>
             <section>
@@ -53,7 +53,7 @@
             <section class="buttons" id="events">
                 <a href="kontakt" class="button">We're opening up! We serve on Mondays, Tuesdays and Thursdays from 12-16!</a>
                 <a href="platnosci" class="button">!You will pay with us in BOK by card or by phone!</a>
-                <a href="odwolania" class="button">!Debt collection claim. Read on!</a>
+                <a href="odwolania" class="button">!Vindication claim. Read on!</a>
             </section>
             <section id="notifications">
                 <div>

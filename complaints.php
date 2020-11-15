@@ -14,7 +14,7 @@
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Complaints</p>
             <div class="tabs">
-                <a href="Home">home</a>
+                <a href="home">Home</a>
                 <a href="about-us">About Us</a>
                 <a href="services">Services</a>
                 <a href="charges">Charges</a>

@@ -38,7 +38,7 @@
                 <p>80 1140 2004 0000 3502 7537 3045</p>
             </div>
             <div class="board">
-                <b>Account for debt collection and court payments:</b>
+                <b>Account for vindication and court payments:</b>
                 <p>10 1140 2004 0000 3102 7537 3046</p>
             </div>
         </article>
