@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
     <title>Trans Kontrol - o nas</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +15,7 @@
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; O nas</p>
             <div class="tabs">
-                <a href=<?php include "items/startTabLink.php"; ?>>Start</a>
+                <a href="/">Start</a>
                 <a id="activeTab">O nas</a>
                 <a href="uslugi">Usługi</a>
                 <a href="platnosci">Płatności</a>

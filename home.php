@@ -30,7 +30,7 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href=<?php include "items/startTabLink.php"; ?>>Polski</a>
+                <a href="/">Polski</a>
             </div>
         </div>
     </nav>

@@ -1,5 +1,4 @@
 RewriteEngine on
-RewriteRule start index.php
 RewriteRule o-nas o-nas.php
 RewriteRule uslugi uslugi.php
 RewriteRule platnosci platnosci.php
