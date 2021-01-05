@@ -6,6 +6,14 @@
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="js/menu.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YWBTPHN0RL');
+    </script>
 </head>
 <body>
     <header><?php include "items/naglowek.php"; ?></header>
