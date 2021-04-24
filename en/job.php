@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - job</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../styles/website.css">
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
     <script>
@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/header.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Job</p>
@@ -32,7 +32,7 @@
                 <a href="study">Study</a>
                 <a id="activeTab">Job</a>
                 <a href="contact">Contact</a>
-                <a href="praca">Polski</a>
+                <a href="/praca">Polski</a>
             </div>
         </div>
     </nav>
@@ -85,6 +85,6 @@
             </section>
         </article>
     </main>
-    <footer><?php include "items/footer.php"; ?></footer>
+    <footer><?php include "components/footer.php"; ?></footer>
 </body>
 </html>

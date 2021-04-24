@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - kontakt</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/website.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/naglowek.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Kontakt</p>
@@ -32,7 +32,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a id="activeTab">Kontakt</a>
-                <a href="contact">English</a>
+                <a href="en/contact">English</a>
             </div>
         </div>
     </nav>
@@ -75,6 +75,6 @@
             <iframe data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8V96sGgzrasorg2xPOlrlp-cpQFPLSxM&amp;q=os.%20St.%20Batorego%20101%2C%20os.%20St.%20Batorego%20101%2C%20Pozna%C5%84%2C%2060-687&amp;zoom=15" allowfullscreen="" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8V96sGgzrasorg2xPOlrlp-cpQFPLSxM&amp;q=os.%20St.%20Batorego%20101%2C%20os.%20St.%20Batorego%20101%2C%20Pozna%C5%84%2C%2060-687&amp;zoom=15" style="border: medium none;" width="100%" height="500" frameborder="0"></iframe>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "components/stopka.php"; ?></footer>
 </body>
 </html>

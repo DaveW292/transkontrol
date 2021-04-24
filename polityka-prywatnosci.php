@@ -4,8 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - polityka prywatności</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="js/menu.js"></script>
+    <link rel="stylesheet" href="styles/website.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
     <script>
@@ -16,7 +15,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/naglowek.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Polityka</p>
@@ -53,7 +52,7 @@
         </article>
     </main>
     <footer>
-        <p>Trans Kontrol &copy; 2020 Wszelkie prawa zastrzeżone.</p>
+        <p>Trans Kontrol &copy;<? echo date(Y);?> Wszelkie prawa zastrzeżone.</p>
         <a style="color: gray;">Polityka prywatności</a>
         <a href="polityka-cookies">Polityka cookie</a>    
     </footer>

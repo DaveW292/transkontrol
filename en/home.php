@@ -4,11 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional ticket control in public means of transport and vindication or debt collection for the imposed additional fees.">
     <meta name="keywords" content="ticket control, vindication, debt collection, trans control, controller, vindicator, debt collector">
-    <meta name="author" content="davew">
     <title>Trans Kontrol</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../styles/website.css">
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script type="text/javascript" src="js/dropdown.js"></script>
     <script type="text/javascript" src="js/sliderStart.js"></script>
@@ -22,7 +21,7 @@
     </script>
 </head>
 <body onload="changeSlide()">
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/header.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Home</p>
@@ -92,18 +91,18 @@
             </section>
             <section class="buttons" id="events">
                 <figure>
-                    <a href="img/map1.jpg"><img src="img/map1.jpg"></a>
+                    <a href="../img/map1.jpg"><img src="../img/map1.jpg"></a>
                     <figcaption>Entrance from housing estate of Stefan Batory and Bolesław Śmiały</figcaption>
                 </figure>
                 &nbsp;
                 <figure>
-                    <a href="img/map2.jpg"><img src="img/map2.jpg"></a>
+                    <a href="../img/map2.jpg"><img src="../img/map2.jpg"></a>
                     <figcaption>In the case of a closed gate, the entrance is only from the housing estate of Bolesław Śmiały</figcaption>
                 </figure>
             </section>
         </article>    
         </article>
     </main>
-    <footer><?php include "items/footer.php"; ?></footer>
+    <footer><?php include "components/footer.php"; ?></footer>
 </body>
 </html>

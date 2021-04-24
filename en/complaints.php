@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - complaints</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../styles/website.css">
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
     <script>
@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+<header><?php include "components/header.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Complaints</p>
@@ -32,7 +32,7 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href="skargi">Polski</a>
+                <a href="/skargi">Polski</a>
             </div>
         </div>
     </nav>
@@ -50,8 +50,8 @@
             <h3>COMPLAINTS CONCERNING THE CONDUCTED INSPECTIONS AND CONTROLLERS</h3>
             <p>Any complaints about the inspection and inspectors carried out can be submitted on the form below:</p>
             <section class="buttons">
-                <a href="docs/wniosek-odwolanie-skarga.pdf" target="_blank" class="button">download.pdf</a>
-                <a href="docs/wniosek-odwolanie-skarga.doc" target="_blank" class="button">download.doc</a>
+                <a href="../docs/wniosek-odwolanie-skarga.pdf" target="_blank" class="button">download.pdf</a>
+                <a href="../docs/wniosek-odwolanie-skarga.doc" target="_blank" class="button">download.doc</a>
             </section>
         </article>
         <article>
@@ -60,11 +60,11 @@
             <p>We consider appeals only after a prior payment of PLN 20.00 towards the costs of the complaint. This amount is only reimbursed in the event of unjustified imposition of ODG</p>
             <p>Securing appeal costs is necessary due to the fact that the complaint against ODG is an exceptional remedy. This measure is directed only to persons punished contrary to the law. Therefore, in order to limit its abuse, such a fee is reasonable and should be paid with the complaint at the latest. Please use the form to submit a complaint</p>
             <section class="buttons">
-                <a href="docs/skargaODG.pdf" target="_blank" class="button">download.pdf</a>
-                <a href="docs/skargaODG.doc" target="_blank" class="button">download.doc</a>
+                <a href="../docs/skargaODG.pdf" target="_blank" class="button">download.pdf</a>
+                <a href="../docs/skargaODG.doc" target="_blank" class="button">download.doc</a>
             </section>
         </article>
     </main>
-    <footer><?php include "items/footer.php"; ?></footer>
+    <footer><?php include "components/footer.php"; ?></footer>
 </body>
 </html>

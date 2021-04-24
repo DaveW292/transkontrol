@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - media</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/website.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -17,7 +17,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/naglowek.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Media</p>
@@ -33,7 +33,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="press">English</a>
+                <a href="en/press">English</a>
             </div>
         </div>
     </nav>
@@ -97,6 +97,6 @@
             <h3 id="signature">Z poważaniem, właściciel TK Zofia Wawrzyniak</h3>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "components/stopka.php"; ?></footer>
 </body>
 </html>

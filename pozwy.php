@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - pozwy</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/website.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/naglowek.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Pozwy</p>
@@ -32,7 +32,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="lawsuits">English</a>
+                <a href="en/lawsuits">English</a>
             </div>
         </div>
     </nav>
@@ -55,6 +55,6 @@
             <p>Niezastosowanie się do nakazu zapłaty lub wniesienie sprzeciwu wiązać się będzie z powstaniem dodatkowych kosztów związanych z postępowaniem sądowym. Dodatkowy koszt zastępstwa procesowego w przypadku drogi sądowej to kwota co najmniej 120 zł. Koszty sądowe mogą być również wyższe w zależności od wysokości roszczenia.</p>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "components/stopka.php"; ?></footer>
 </body>
 </html>

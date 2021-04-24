@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - about us</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../styles/website.css">
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script type="text/javascript" src="js/sliderAbout.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -18,7 +18,7 @@
     </script>
 </head>
 <body onload="changeSlide()">
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/header.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; About Us</p>
@@ -34,7 +34,7 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href="o-nas">Polski</a>
+                <a href="/o-nas">Polski</a>
             </div>
         </div>
     </nav>
@@ -84,6 +84,6 @@
             </section>
         </article>
     </main>
-    <footer><?php include "items/footer.php"; ?></footer>
+    <footer><?php include "components/footer.php"; ?></footer>
 </body>
 </html>

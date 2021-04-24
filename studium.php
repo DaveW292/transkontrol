@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - studium</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/website.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <script type="text/javascript" src="js/dropdown.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -17,7 +17,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/naglowek.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Studium</p>
@@ -33,7 +33,7 @@
                 <a id="activeTab">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="study">English</a>
+                <a href="en/study">English</a>
             </div>
         </div>
     </nav>
@@ -276,6 +276,6 @@
             <p> IOD przyjmuje zgłoszenia telefoniczne pod w/w numerem w godzinach urzędowania biura Trans Kontrol tj. 12-16 w dni robocze. W pozostałym czasie należy kontaktować się z IOD wyłącznie mailowo.</p>
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "components/stopka.php"; ?></footer>
 </body>
 </html>

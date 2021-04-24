@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - appeals</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../styles/website.css">
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
     <script>
@@ -16,7 +16,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/header.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Appeals</p>
@@ -32,7 +32,7 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href="odwolania">Polski</a>
+                <a href="/odwolania">Polski</a>
             </div>
         </div>
     </nav>
@@ -49,16 +49,16 @@
                 <li>In order to file an appeal or complaint, you can use our template:</li>
             </ol>
             <section class="buttons">
-                <a href="docs/wniosek-odwolanie-skarga.pdf" target="_blank" class="button">download.pdf</a>
-                <a href="docs/wniosek-odwolanie-skarga.doc" target="_blank" class="button">download.doc</a>
+                <a href="../docs/wniosek-odwolanie-skarga.pdf" target="_blank" class="button">download.pdf</a>
+                <a href="../docs/wniosek-odwolanie-skarga.doc" target="_blank" class="button">download.doc</a>
             </section>
         </article>
         <article>
             <h3>HANDLING FEE (HE)</h3>
             <p>This is a fee that is usually imposed in exchange for an additional credit fee (only in the case of a reasonable fee). If the entitlement is documented (e.g. for free or discounted travel, or after presenting a valid personal ticket), the additional fee is canceled within 7 days of the event, and a handling fee is imposed in return (provided that it is permitted).</p>
             <section class="buttons">
-                <a href="docs/skarga.pdf" target="_blank" class="button">download.pdf</a>
-                <a href="docs/skarga.doc" target="_blank" class="button">download.doc</a>
+                <a href="../docs/skarga.pdf" target="_blank" class="button">download.pdf</a>
+                <a href="../docs/skarga.doc" target="_blank" class="button">download.doc</a>
             </section>
         </article>
         <article>
@@ -66,7 +66,7 @@
             <p>If the payment is not made within the prescribed period (see the instruction on the Additional Fee), statutory interest and other costs resulting from legal provisions are added. In addition, the summons may contain a summons to pay the vindication claim, i.e. the amount that the vindication company has collected as remuneration for carrying out vindication activities.</p>
             <p>Vindication may be outsourced to an external vindication company. In the case of unsuccessful recovery, the case is referred to the locally competent court, and after obtaining the payment order, in the event of failure to settle the obligation, the case is transferred to bailiff proceedings.</p>
             <section class="buttons">
-                <a href="docs/naleznosci_roszczeniowe-podstawa_prawna.pdf" target="_blank" class="button">Claims<br/><i style="font-size: 16px;">legal basis</i></a>
+                <a href="../docs/naleznosci_roszczeniowe-podstawa_prawna.pdf" target="_blank" class="button">Claims<br/><i style="font-size: 16px;">legal basis</i></a>
             </section>    
         </article>
         <article>
@@ -127,6 +127,6 @@
             <i>*Vindication claim - the punished person is not obliged to pay the claim, however, we will have the right to bring a claim for payment of a claim for damage to property (detailed information on the request for payment). This claim does not increase the Debtor's indebtedness, however, it causes the Creditor to claim the right to claim the amount of the claim through court proceedings. The creditor may send letters to the Debtor requesting payment of the claim before sending the case to court. The creditor may also summon the Debtor to settle the matter amicably.</i>
         </article>
     </main>
-    <footer><?php include "items/footer.php"; ?></footer>
+    <footer><?php include "components/footer.php"; ?></footer>
 </body>
 </html>

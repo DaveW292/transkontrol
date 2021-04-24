@@ -3,9 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trans Kontrol - cookies policy</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="js/menu.js"></script>
+    <link rel="icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../styles/website.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWBTPHN0RL"></script>
     <script>
@@ -16,7 +15,7 @@
     </script>
 </head>
 <body>
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/header.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Policy</p>
@@ -32,7 +31,7 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href="polityka-cookies">Polski</a>
+                <a href="/polityka-cookies">Polski</a>
             </div>
         </div>
     </nav>
@@ -47,9 +46,9 @@
         </article>
     </main>
     <footer>
-        <p>Trans Kontrol &copy; 2020 All rights reserved.</p>
+        <p>Trans Kontrol &copy;<? echo date(Y);?> All rights reserved.</p>
         <a href="privacy-policy">Privacy policy</a>
-        <a style="color: gray;">Cookies policy</a>    
+        <a style="color: gray;">Cookies policy</a>
     </footer>
 </body>
 </html>

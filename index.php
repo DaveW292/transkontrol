@@ -4,10 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Profesjonalna kontrola biletowa w publicznych środkach transportu oraz windykacja należności z tytułu nałożonych opłat dodatkowych.">
     <meta name="keywords" content="kontrola biletowa, windykacja należności, trans kontrol, kontroler, windykator">
-    <meta name="author" content="daveson">
     <title>Trans Kontrol</title>
     <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/website.css">
     <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script type="text/javascript" src="js/dropdown.js"></script>
@@ -22,7 +21,7 @@
     </script>
 </head>
 <body onload="changeSlide()">
-    <header><?php include "items/naglowek.php"; ?></header>
+    <header><?php include "components/naglowek.php"; ?></header>
     <nav>
         <div class="dropdown">
             <p class="icon-right-hand" id="dropButton">&nbsp; Start</p>
@@ -38,7 +37,7 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="home">English</a>
+                <a href="en/home">English</a>
             </div>
         </div>
     </nav>
@@ -104,6 +103,6 @@
         </article>    
         </article>
     </main>
-    <footer><?php include "items/stopka.php"; ?></footer>
+    <footer><?php include "components/stopka.php"; ?></footer>
 </body>
 </html>
