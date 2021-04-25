@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule zaloguj zaloguj.php
+RewriteRule kontakty kontakty.php
