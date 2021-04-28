@@ -1,4 +1,4 @@
-<?php include "validation/kontakty.php"; ?>
+<?php include "validation/aktualnosci.php"; ?>
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 </head>
 <body>
-    <h2>Kontakty</h2>
-    <a href="aktualnosci"><h2>Aktualnosci</h2></a>
+    <a href="kontakty"><h2>Kontakty</h2></a>
+    <h2>Aktualnosci</h2>
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-        include "crud/create-contact.php";
+        include "crud/create-news.php";
     ?>
 <br>
 <table border= "1px, solid, black">
 	<tr>
-        <td>Numer służbowy</td>
-        <td>Imię</td>
-        <td>Numer telefonu</td>
+        <td>Data dodania</td>
+        <td>Autor</td>
+        <td>Treść</td>
         <?php if($_SESSION['login'] == $admin) echo "<td>Akcja</td>"; ?>
 	</tr>
 	<?php
@@ -26,10 +26,10 @@
         while($row = mysqli_fetch_array($result)) {
 	?>
 	<tr>
-        <td><?php echo $row["tkid"]; ?></td>
-        <td><?php echo $row["name"]; ?></td>
-        <td><?php echo $row["phone"]; ?></td>
-        <?php if($_SESSION['login'] == $admin) echo '<td><a href="crud/delete-contact.php?id='.$row["id"].'">Usuń</a></td>'; ?>
+        <td><?php echo $row["date_time"]; ?></td>
+        <td><?php echo $row["author"]; ?></td>
+        <td><?php echo $row["contents"]; ?></td>
+        <?php if($_SESSION['login'] == $admin) echo '<td><a href="crud/delete-news.php?id='.$row["id"].'">Usuń</a></td>'; ?>
 	</tr>
 	<?php
         $i++;
