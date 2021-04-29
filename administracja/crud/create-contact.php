@@ -1,14 +1,19 @@
 <?php
-require_once "redirects/admin-login.php";
-        if($_SESSION['login'] == $admin)
+        if($myRole == "admin")
         {
             echo '
                 <form action="kontakty" method="post">
                     <fieldset>
                         <legend>Dodaj kontakt</legend>
-                        <input type="text" name="tkid">
-                        <input type="text" name="name">
-                        <input type="text" name="phone">
+                        <input type="text" name="tkid" required>
+                        <input type="text" name="name" required>
+                        <input type="text" name="phone" required>
+                        <input type="text" name="login" required>
+                        <input type="password" name="password" required>
+                        <select name="role">
+                            <option>user</option>
+                            <option>admin</option>
+                        </select>
                         <input type="submit" value="DODAJ">
                     </fieldset>
                 </form>
@@ -24,4 +29,10 @@ require_once "redirects/admin-login.php";
             echo '<div class="error">'.$_SESSION['e_phone'].'</div>';
             unset($_SESSION['e_phone']);
         }
+        if(isset($_SESSION['e_login']))
+        {
+            echo '<div class="error">'.$_SESSION['e_login'].'</div>';
+            unset($_SESSION['e_login']);
+        }
+
 ?>

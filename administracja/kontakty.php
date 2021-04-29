@@ -11,6 +11,14 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
+
+        if ($currentRole->num_rows > 0) {
+                while($row = $currentRole->fetch_assoc()) {
+                  $myRole = $row["role"];
+                  global $myRole;
+                }
+              }
+
         include "crud/create-contact.php";
     ?>
 <br>
@@ -19,7 +27,9 @@
         <td>Numer służbowy</td>
         <td>Imię</td>
         <td>Numer telefonu</td>
-        <?php if($_SESSION['login'] == $admin) echo "<td>Akcja</td>"; ?>
+        <?php if($myRole == "admin") echo "<td>Login</td>"; ?>
+        <?php if($myRole == "admin") echo "<td>Rola</td>"; ?>
+        <?php if($myRole == "admin") echo "<td>Akcja</td>"; ?>
 	</tr>
 	<?php
         $i=0;
@@ -29,7 +39,12 @@
         <td><?php echo $row["tkid"]; ?></td>
         <td><?php echo $row["name"]; ?></td>
         <td><?php echo $row["phone"]; ?></td>
-        <?php if($_SESSION['login'] == $admin) echo '<td><a href="crud/delete-contact.php?id='.$row["id"].'">Usuń</a></td>'; ?>
+        <?php if($myRole == "admin") echo "<td>".$row["login"]."</td>"; ?>
+        <?php if($myRole == "admin") echo "<td>".$row["role"]."</td>"; ?>
+        <?php if($myRole == "admin") 
+                if($row["login"] != $_SESSION['login'])
+                        echo '<td><a href="crud/delete-contact.php?tkid='.$row["tkid"].'">Usuń</a></td>'; 
+        ?>
 	</tr>
 	<?php
         $i++;

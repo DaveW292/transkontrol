@@ -9,14 +9,13 @@
 
     if(isset($_POST['contents']))    
     {
-
         $everything_OK=true;
 
         $date = $_POST['date'];
         $author = $_POST['author'];
         $contents = $_POST['contents'];
 
-        require_once "redirects/connect.php";
+        require_once "redirects/db-management.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
 
         try
@@ -53,8 +52,14 @@
             echo '<br>Informacja developerska: '.$e;
         }
     }
-    include_once 'redirects/connect.php';
+    include_once 'redirects/db-management.php';
     $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$conn) die('Could not Connect My Sql:');
+    
     $result = mysqli_query($conn,"SELECT * FROM news");
+    
+    $login = $_SESSION['login'];
+    $currentRole = mysqli_query($conn, "SELECT role FROM users WHERE login='$login'");
+    
+    $conn->close();
 ?>

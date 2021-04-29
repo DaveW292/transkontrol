@@ -11,6 +11,14 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
+        
+        if ($currentRole->num_rows > 0) {
+                while($row = $currentRole->fetch_assoc()) {
+                  $myRole = $row["role"];
+                  global $myRole;
+                }
+              }
+
         include "crud/create-news.php";
     ?>
 <br>
@@ -19,7 +27,7 @@
         <td>Data dodania</td>
         <td>Autor</td>
         <td>Treść</td>
-        <?php if($_SESSION['login'] == $admin) echo "<td>Akcja</td>"; ?>
+        <?php if($myRole == "admin") echo "<td>Akcja</td>"; ?>
 	</tr>
 	<?php
         $i=0;
@@ -29,7 +37,7 @@
         <td><?php echo $row["date_time"]; ?></td>
         <td><?php echo $row["author"]; ?></td>
         <td><?php echo $row["contents"]; ?></td>
-        <?php if($_SESSION['login'] == $admin) echo '<td><a href="crud/delete-news.php?id='.$row["id"].'">Usuń</a></td>'; ?>
+        <?php if($myRole == "admin") echo '<td><a href="crud/delete-news.php?id='.$row["id"].'">Usuń</a></td>'; ?>
 	</tr>
 	<?php
         $i++;

@@ -7,16 +7,18 @@
         exit();
     }
 
-    if(isset($_POST['tkid']))    
+    if(isset($_POST['tkid']))
     {
-
         $everything_OK=true;
 
         $tkid = $_POST['tkid'];
         $name = $_POST['name'];
         $phone = $_POST['phone'];
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $role = $_POST['role'];
 
-        require_once "redirects/connect.php";
+        require_once "redirects/db-management.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
 
         try
@@ -29,7 +31,7 @@
             else
             {
                 //czy numer sluzbowy juz isnieje?
-                $result = $connection->query("SELECT id FROM contacts WHERE tkid='$tkid'");
+                $result = $connection->query("SELECT tkid FROM users WHERE tkid='$tkid'");
                 if(!$result) throw new Exception($connection->error);
 
                 $how_many_tkids = $result->num_rows;
@@ -40,7 +42,7 @@
                 }
 
                 //czy numer telefonu juz isnieje?
-                $result = $connection->query("SELECT id FROM contacts WHERE phone='$phone'");
+                $result = $connection->query("SELECT tkid FROM users WHERE phone='$phone'");
                 if(!$result) throw new Exception($connection->error);
             
                 $how_many_phones = $result->num_rows;
@@ -50,11 +52,22 @@
                     $_SESSION['e_phone']="Podany numer telefonu jest już w bazie!";
                 }
 
+                //czy login juz isnieje?
+                $result = $connection->query("SELECT tkid FROM users WHERE login='$login'");
+                if(!$result) throw new Exception($connection->error);
+                
+                $how_many_logins = $result->num_rows;
+                if($how_many_logins>0)
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_login']="Podany login jest już w bazie!";
+                }
+
                 if($everything_OK==true)
                 {
                     //Hurra, wszystkie testy zaliczone!
                     #sql query to insert into database
-                    $sql = "INSERT INTO contacts VALUES(NULL, '$tkid', '$name', '$phone')";
+                    $sql = "INSERT INTO users VALUES('$tkid', '$name', '$phone', '$login', '$password', '$role')";
 
                     if(mysqli_query($connection,$sql))
                     {
@@ -75,8 +88,14 @@
             echo '<br>Informacja developerska: '.$e;
         }
     }
-    include_once 'redirects/connect.php';
+    include_once 'redirects/db-management.php';
     $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$conn) die('Could not Connect My Sql:');
-    $result = mysqli_query($conn,"SELECT * FROM contacts");
+
+    $result = mysqli_query($conn, "SELECT * FROM users");
+
+    $login = $_SESSION['login'];
+    $currentRole = mysqli_query($conn, "SELECT role FROM users WHERE login='$login'");
+
+    $conn->close();
 ?>
