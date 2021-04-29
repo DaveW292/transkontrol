@@ -2,3 +2,4 @@ RewriteEngine on
 RewriteRule zaloguj zaloguj.php
 RewriteRule kontakty kontakty.php
 RewriteRule aktualnosci aktualnosci.php
+RewriteRule grafik grafik.php

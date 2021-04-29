@@ -8,6 +8,7 @@
 <body>
     <a href="kontakty"><h2>Kontakty</h2></a>
     <h2>Aktualnosci</h2>
+    <a href="grafik"><h2>Grafik</h2></a>
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
