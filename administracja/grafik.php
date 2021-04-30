@@ -7,7 +7,7 @@
 </head>
 <body>
     <a href="kontakty"><h2>Kontakty</h2></a>
-    <a href="aktualnosci"><h2>Aktualnosci</h2></a>
+    <a href="aktualnosci"><h2>Aktualności</h2></a>
     <h2>Grafik</h2>
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';

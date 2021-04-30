@@ -91,11 +91,13 @@
     include_once 'redirects/db-schedules.php';
     $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$conn) die('Could not Connect My Sql:');
-
     $result = mysqli_query($conn, "SELECT * FROM test");
-
-    $login = $_SESSION['login'];
-    $currentRole = mysqli_query($conn, "SELECT role FROM users WHERE login='$login'");
-
     $conn->close();
+
+    include_once 'redirects/db-management.php';
+    $conn2=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$conn2) die('Could not Connect My Sql:');
+    $login = $_SESSION['login'];
+    $currentRole = mysqli_query($conn2, "SELECT role FROM users WHERE login='$login'");
+    $conn2->close();
 ?>
