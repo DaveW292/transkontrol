@@ -20,7 +20,10 @@
                 }
               }
 
-        include "crud/create-schedule.php";
+        if($myRole == "admin") {
+            echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
+        }
+        // include "crud/create-schedule.php";
     ?>
 <br>
 <table border = "1px, solid, black">
