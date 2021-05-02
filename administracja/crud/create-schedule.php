@@ -18,7 +18,7 @@
                     "friday1", "friday2",
                     "saturday1", "saturday2",
                     "sunday1", "sunday2");
-    $r = 1;
+    $r = 0;
 
     if(isset($_POST['dateStart']) && isset($_POST['dateEnd']))
     {
@@ -26,15 +26,15 @@
 
         $dateStart = $_POST['dateStart'];
         $dateEnd = $_POST['dateEnd'];
-        $carrier = $_POST['carrier'];
         $z = 0;
-        for($x = 1; $x < sizeof($shifts); $x++)
+        for($x = 0; $x < sizeof($carriers); $x++)
         {
-            for($y = 1; $y < sizeof($carriers); $y++)
+            $carrier[$x] = $_POST['carrier'.$x];
+            for($y = 0; $y < sizeof($shifts); $y++)
             {
-                $zmiany[$z] = $_POST[$y.$shifts[$x]."a"];
+                $zmiany[$z] = $_POST[$shifts[$y]."a".$x];
                 $z++;
-                $zmiany[$z] = $_POST[$y.$shifts[$x]."b"];
+                $zmiany[$z] = $_POST[$shifts[$y]."b".$x];
                 $z++;
             }
         }
@@ -52,53 +52,68 @@
             else
             {
                 //czy numer sluzbowy juz isnieje?
-                $result = $connection->query("SELECT tkid FROM users WHERE tkid='$tkid'");
-                if(!$result) throw new Exception($connection->error);
+                // $result = $connection->query("SELECT tkid FROM users WHERE tkid='$tkid'");
+                // if(!$result) throw new Exception($connection->error);
 
-                $how_many_tkids = $result->num_rows;
-                if($how_many_tkids>0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_tkid']="Podany numer służbowy jest już w bazie!";
-                }
+                // $how_many_tkids = $result->num_rows;
+                // if($how_many_tkids>0)
+                // {
+                //     $everything_OK=false;
+                //     $_SESSION['e_tkid']="Podany numer służbowy jest już w bazie!";
+                // }
 
-                //czy numer telefonu juz isnieje?
-                $result = $connection->query("SELECT tkid FROM users WHERE phone='$phone'");
-                if(!$result) throw new Exception($connection->error);
-            
-                $how_many_phones = $result->num_rows;
-                if($how_many_phones>0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_phone']="Podany numer telefonu jest już w bazie!";
-                }
-
-                //czy login juz isnieje?
-                $result = $connection->query("SELECT tkid FROM users WHERE login='$login'");
-                if(!$result) throw new Exception($connection->error);
-                
-                $how_many_logins = $result->num_rows;
-                if($how_many_logins>0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_login']="Podany login jest już w bazie!";
-                }
 
                 if($everything_OK==true)
                 {
                     //Hurra, wszystkie testy zaliczone!
-                    #sql query to insert into database
-                    $sql = "INSERT INTO users VALUES('$tkid', '$name', '$phone', '$login', '$password', '$role')";
+                    //Utwórz tabelę
+                    $tmpTableName = $dateStart."_".$dateEnd;
+                    $tableName = str_replace("-","",$tmpTableName);
+                    $sql = "CREATE TABLE $tableName (
+                        id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                        carrier TEXT,
+                        PRIMARY KEY (id)
+                        )";
+                    if(mysqli_query($connection,$sql)) $_SESSION['sent']=true;
+                    else throw new Exception($connection->error);
 
-                    if(mysqli_query($connection,$sql))
+                    // Dodaj kolumny
+                    for($x = 0; $x < sizeof($shifts); $x++)
                     {
-                        $_SESSION['sent']=true;
-                        header('Location: kontakty');
+                        $sql2 = "ALTER TABLE $tableName ADD $shifts[$x] VARCHAR(5)";
+                        if(mysqli_query($connection, $sql2))
+                        {
+                            $_SESSION['sent'] = true;
+                            if($x + 1 == sizeof($shifts)) header('Location: ../grafik');
+                        }
+                        else throw new Exception($connection -> error);
                     }
-                    else
+
+                    // Dodaj wiersze
+                    for($x = 0; $x < sizeof($carriers); $x++)
                     {
-                        throw new Exception($connection->error);
+                        $sql2 = "INSERT INTO $tableName (carrier) VALUES ($carriers[$x])";
+                        if(mysqli_query($connection, $sql2))
+                        {
+                            $_SESSION['sent'] = true;
+                        }
+                        else throw new Exception($connection -> error);
+
+                        for($y = 0; $y < sizeof($zmiany); $y++)
+                        {
+                            $changes[0] = $zmiany[0].$zmiany[1]
+                            
+                            $sql3 = "INSERT INTO $tableName ($shifts[$y]) VALUES ($zmiany[$y])";
+                            if(mysqli_query($connection, $sql3))
+                            {
+                                $_SESSION['sent'] = true;
+                            }
+                            else throw new Exception($connection -> error);
+                        }
+
+                        if($x + 1 == sizeof($carriers)) header('Location: ../grafik');
                     }
+
                 }        
                 $connection->close();
             }
@@ -142,6 +157,7 @@
         if($myRole == "admin") {
             echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
         }
+        echo $zmiany[0];
 ?>
 
 <?php
@@ -174,7 +190,7 @@
                 <td><?php echo $carriers[$x];?></td>
                 <?php for($y = 0; $y < sizeof($shifts); $y++) {?>
                 <td>
-                    <select name = <?php echo $r.$shifts[$i]."a"; ?>>
+                    <select name = <?php echo $shifts[$i]."a".$r; ?>>
                         <option></option>
                         <?php 
                             $tkid = mysqli_query($conn3, "SELECT tkid FROM users WHERE role = 'user'");
@@ -182,7 +198,7 @@
                         ?>
                         <option>ZAKAZ</option>
                     </select>
-                    <select name = <?php echo $r.$shifts[$i]."b"; $i++; ?>>
+                    <select name = <?php echo $shifts[$i]."b".$r; $i++; ?>>
                         <option></option>
                         <?php 
                             $tkid = mysqli_query($conn3, "SELECT tkid FROM users WHERE role = 'user'");
