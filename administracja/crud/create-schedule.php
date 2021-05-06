@@ -32,10 +32,13 @@
             $carrier[$x] = $_POST['carrier'.$x];
             for($y = 0; $y < sizeof($shifts); $y++)
             {
-                $zmiany[$z] = $_POST[$shifts[$y]."a".$x];
+                // $units[$z] = $_POST[$shifts[$y]."a".$x];
+                // $z++;
+                // $units[$z] = $_POST[$shifts[$y]."b".$x];
+                // $z++;
+                $teams[$z] = $_POST[$shifts[$y]."a".$x]." - ".$_POST[$shifts[$y]."b".$x];
                 $z++;
-                $zmiany[$z] = $_POST[$shifts[$y]."b".$x];
-                $z++;
+                // $teams[$z] = $units[$z]." - ".$units[$q];
             }
         }
 
@@ -90,29 +93,21 @@
                     }
 
                     // Dodaj wiersze
-                    for($x = 0; $x < sizeof($carriers); $x++)
+                
+                    $lista1 = implode(", ", $shifts);
+
+                    for($x = 0; $x < sizeof($shifts); $x++)
                     {
-                        $sql2 = "INSERT INTO $tableName (carrier) VALUES ($carriers[$x])";
-                        if(mysqli_query($connection, $sql2))
-                        {
-                            $_SESSION['sent'] = true;
-                        }
-                        else throw new Exception($connection -> error);
-
-                        for($y = 0; $y < sizeof($zmiany); $y++)
-                        {
-                            $changes[0] = $zmiany[0].$zmiany[1]
-                            
-                            $sql3 = "INSERT INTO $tableName ($shifts[$y]) VALUES ($zmiany[$y])";
-                            if(mysqli_query($connection, $sql3))
-                            {
-                                $_SESSION['sent'] = true;
-                            }
-                            else throw new Exception($connection -> error);
-                        }
-
-                        if($x + 1 == sizeof($carriers)) header('Location: ../grafik');
+                        if($x + 1 == sizeof($shifts)) $lista2 .= "'".$teams[$x]."'";
+                        else $lista2 .= "'".$teams[$x]."', ";
                     }
+
+                    $sql2 = "INSERT INTO $tableName (carrier, ".$lista1.") VALUES ('$carriers[0]', ".$lista2.")";
+                    if(mysqli_query($connection, $sql2))
+                    {
+                        $_SESSION['sent'] = true;
+                    }
+                    else throw new Exception($connection -> error);
 
                 }        
                 $connection->close();
@@ -157,7 +152,6 @@
         if($myRole == "admin") {
             echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
         }
-        echo $zmiany[0];
 ?>
 
 <?php
