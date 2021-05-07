@@ -93,22 +93,25 @@
                     }
 
                     // Dodaj wiersze
-                
-                    $lista1 = implode(", ", $shifts);
-
-                    for($x = 0; $x < sizeof($shifts); $x++)
+            
+                    $z = 0;
+                    for($y=0; $y < sizeof($carriers); $y++)
                     {
-                        if($x + 1 == sizeof($shifts)) $lista2 .= "'".$teams[$x]."'";
-                        else $lista2 .= "'".$teams[$x]."', ";
-                    }
+                        for($x=0; $x < sizeof($shifts); $x++)
+                        {
+                            if($x + 1 == sizeof($shifts)) $lista[$y] .= "'".$teams[$z]."'";
+                            else $lista[$y] .= "'".$teams[$z]."', ";
+                            $z++;
+                        }
 
-                    $sql2 = "INSERT INTO $tableName (carrier, ".$lista1.") VALUES ('$carriers[0]', ".$lista2.")";
-                    if(mysqli_query($connection, $sql2))
-                    {
-                        $_SESSION['sent'] = true;
-                    }
-                    else throw new Exception($connection -> error);
+                        $sql2 = "INSERT INTO $tableName (carrier, ".implode(", ", $shifts).") VALUES ('$carriers[$y]', ".$lista[$y].")";
 
+                        if(mysqli_query($connection, $sql2))
+                        {
+                            $_SESSION['sent'] = true;
+                        }
+                        else throw new Exception($connection -> error);
+                    }
                 }        
                 $connection->close();
             }
