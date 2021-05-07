@@ -64,40 +64,43 @@
                 if($everything_OK==true)
                 {
                     //Hurra, wszystkie testy zaliczone!
-                    //Utwórz tabelę
+                    //Utwórz tabelę i dodaj kolumny
                     $tmpTableName = $dateStart."_".$dateEnd;
                     $tableName = str_replace("-","",$tmpTableName);
-                    // Dodaj kolumny
                     for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(5),";
 
-                    $sql = "CREATE TABLE $tableName (
+                    $query = "CREATE TABLE $tableName (
                         id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
                         carrier TEXT,"
                         .$columns.
                         "PRIMARY KEY (id)
                         )";
 
-                    if(mysqli_query($connection,$sql)) $_SESSION['sent']=true;
+                    if(mysqli_query($connection, $query)) $_SESSION['sent']=true;
                     else throw new Exception($connection->error);
 
                     // Dodaj wiersze
                     $z = 0;
                     for($y=0; $y < sizeof($carriers); $y++)
                     {
+                        $values .= "('".$carriers[$y]."', ";
                         for($x=0; $x < sizeof($shifts); $x++)
                         {
-                            if($x + 1 == sizeof($shifts)) $lista[$y] .= "'".$teams[$z]."'";
-                            else $lista[$y] .= "'".$teams[$z]."', ";
+                            if($x + 1 == sizeof($shifts)) $values .= "'".$teams[$z]."')";
+                            else $values .= "'".$teams[$z]."', ";
                             $z++;
                         }
-
-                        $sql2 = "INSERT INTO $tableName (carrier, ".implode(", ", $shifts).") VALUES ('$carriers[$y]', ".$lista[$y].")";
-
-                        if(mysqli_query($connection, $sql2)) $_SESSION['sent'] = true;
-                        else throw new Exception($connection -> error);
-
-                        if($y+1 == sizeof($carriers)) header('Location: ../grafik');
+                        if($y + 1 != sizeof($carriers)) $values .= ",";
                     }
+
+                    $query = "INSERT INTO $tableName (carrier, ".implode(", ", $shifts).") VALUES".$values;
+
+                    if(mysqli_query($connection, $query)) 
+                    {
+                        $_SESSION['sent'] = true;
+                        header('Location: ../grafik');
+                    }
+                    else throw new Exception($connection -> error);
                 }        
                 $connection->close();
             }
@@ -106,21 +109,14 @@
         {
             echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
             echo '<br>Informacja developerska: '.$e;
-            echo '<br>'.$sql;
         }
     }
-    include_once '../redirects/db-schedules.php';
-    $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$conn) die('Could not Connect My Sql:');
-    $result = mysqli_query($conn, "SELECT * FROM test");
-    $conn->close();
-
     include_once '../redirects/db-management.php';
-    $conn2=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$conn2) die('Could not Connect My Sql:');
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$connection) die('Could not Connect My Sql:');
     $login = $_SESSION['login'];
-    $currentRole = mysqli_query($conn2, "SELECT role FROM users WHERE login='$login'");
-    $conn2->close();
+    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
+    $connection->close();
 ?>
 
 <!DOCTYPE HTML>
@@ -147,8 +143,8 @@
 <?php
 
     include_once '../redirects/db-management.php';
-    $conn3=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$conn3) die('Could not Connect My Sql:');
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$connection) die('Could not Connect My Sql:');
 
     if($myRole == "admin")
     { ?>
@@ -177,7 +173,7 @@
                     <select name = <?php echo $shifts[$i]."a".$r; ?>>
                         <option></option>
                         <?php 
-                            $tkid = mysqli_query($conn3, "SELECT tkid FROM users WHERE role = 'user'");
+                            $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
                             if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                         ?>
                         <option>ZAKAZ</option>
@@ -185,7 +181,7 @@
                     <select name = <?php echo $shifts[$i]."b".$r; $i++; ?>>
                         <option></option>
                         <?php 
-                            $tkid = mysqli_query($conn3, "SELECT tkid FROM users WHERE role = 'user'");
+                            $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
                             if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                         ?>
                         <option>ZAKAZ</option>
