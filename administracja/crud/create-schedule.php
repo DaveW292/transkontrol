@@ -32,13 +32,8 @@
             $carrier[$x] = $_POST['carrier'.$x];
             for($y = 0; $y < sizeof($shifts); $y++)
             {
-                // $units[$z] = $_POST[$shifts[$y]."a".$x];
-                // $z++;
-                // $units[$z] = $_POST[$shifts[$y]."b".$x];
-                // $z++;
                 $teams[$z] = $_POST[$shifts[$y]."a".$x]." - ".$_POST[$shifts[$y]."b".$x];
                 $z++;
-                // $teams[$z] = $units[$z]." - ".$units[$q];
             }
         }
 
@@ -72,28 +67,20 @@
                     //Utwórz tabelę
                     $tmpTableName = $dateStart."_".$dateEnd;
                     $tableName = str_replace("-","",$tmpTableName);
+                    // Dodaj kolumny
+                    for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(5),";
+
                     $sql = "CREATE TABLE $tableName (
                         id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                        carrier TEXT,
-                        PRIMARY KEY (id)
+                        carrier TEXT,"
+                        .$columns.
+                        "PRIMARY KEY (id)
                         )";
+
                     if(mysqli_query($connection,$sql)) $_SESSION['sent']=true;
                     else throw new Exception($connection->error);
 
-                    // Dodaj kolumny
-                    for($x = 0; $x < sizeof($shifts); $x++)
-                    {
-                        $sql2 = "ALTER TABLE $tableName ADD $shifts[$x] VARCHAR(5)";
-                        if(mysqli_query($connection, $sql2))
-                        {
-                            $_SESSION['sent'] = true;
-                            if($x + 1 == sizeof($shifts)) header('Location: ../grafik');
-                        }
-                        else throw new Exception($connection -> error);
-                    }
-
                     // Dodaj wiersze
-            
                     $z = 0;
                     for($y=0; $y < sizeof($carriers); $y++)
                     {
@@ -106,11 +93,10 @@
 
                         $sql2 = "INSERT INTO $tableName (carrier, ".implode(", ", $shifts).") VALUES ('$carriers[$y]', ".$lista[$y].")";
 
-                        if(mysqli_query($connection, $sql2))
-                        {
-                            $_SESSION['sent'] = true;
-                        }
+                        if(mysqli_query($connection, $sql2)) $_SESSION['sent'] = true;
                         else throw new Exception($connection -> error);
+
+                        if($y+1 == sizeof($carriers)) header('Location: ../grafik');
                     }
                 }        
                 $connection->close();
@@ -120,6 +106,7 @@
         {
             echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
             echo '<br>Informacja developerska: '.$e;
+            echo '<br>'.$sql;
         }
     }
     include_once '../redirects/db-schedules.php';
