@@ -22,8 +22,13 @@
 
         if($myRole == "admin") {
             echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
+
+            error_reporting(0);
+            //Zapamiętaj wprowadzone dane
+            $table = $_GET['table'];
+            $community = $_GET['community'];
+            include 'crud/update-schedule.php';
         }
-        // include "crud/create-schedule.php";
     ?>
 <br>
 <table border = "1px, solid, black">

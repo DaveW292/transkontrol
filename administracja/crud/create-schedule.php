@@ -1,6 +1,21 @@
 <?php
     session_start();
-    if(!isset($_SESSION['logged']))
+
+    include_once '../redirects/db-management.php';
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$connection) die('Could not Connect My Sql:');
+    $login = $_SESSION['login'];
+    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
+    $connection->close();
+
+    if ($currentRole->num_rows > 0) {
+        while($row = $currentRole->fetch_assoc()) {
+          $myRole = $row["role"];
+          global $myRole;
+        }
+      }
+
+    if(!isset($_SESSION['logged']) || $myRole != "admin")
     {
         header('Location: ../zaloguj');
         exit();
@@ -111,12 +126,6 @@
             echo '<br>Informacja developerska: '.$e;
         }
     }
-    include_once '../redirects/db-management.php';
-    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$connection) die('Could not Connect My Sql:');
-    $login = $_SESSION['login'];
-    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
-    $connection->close();
 ?>
 
 <!DOCTYPE HTML>
@@ -127,27 +136,12 @@
 </head>
 <body>
     <a href="../grafik"><h2>POWRÓT</h2></a>
-    <?php
-        if ($currentRole->num_rows > 0) {
-                while($row = $currentRole->fetch_assoc()) {
-                  $myRole = $row["role"];
-                  global $myRole;
-                }
-              }
-
-        if($myRole == "admin") {
-            echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
-        }
-?>
-
 <?php
 
     include_once '../redirects/db-management.php';
     $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$connection) die('Could not Connect My Sql:');
-
-    if($myRole == "admin")
-    { ?>
+?>
     <form method="post" enctype="multipart/form-data">
         <input type="date" name="dateStart">
         <input type="date" name="dateEnd">
@@ -191,5 +185,4 @@
         </table>
         <input type="submit" value="DODAJ">
     </form>
-<?php } ?>
 </body>
