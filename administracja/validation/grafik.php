@@ -5,18 +5,12 @@
     {
         header('Location: zaloguj');
         exit();
-    }
+    }    
 
     if(isset($_POST['tkid']))
     {
         $everything_OK=true;
 
-        $tkid = $_POST['tkid'];
-        $name = $_POST['name'];
-        $phone = $_POST['phone'];
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-        $role = $_POST['role'];
 
         require_once "redirects/db-schedules.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
@@ -30,39 +24,6 @@
             }
             else
             {
-                //czy numer sluzbowy juz isnieje?
-                $result = $connection->query("SELECT tkid FROM users WHERE tkid='$tkid'");
-                if(!$result) throw new Exception($connection->error);
-
-                $how_many_tkids = $result->num_rows;
-                if($how_many_tkids>0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_tkid']="Podany numer służbowy jest już w bazie!";
-                }
-
-                //czy numer telefonu juz isnieje?
-                $result = $connection->query("SELECT tkid FROM users WHERE phone='$phone'");
-                if(!$result) throw new Exception($connection->error);
-            
-                $how_many_phones = $result->num_rows;
-                if($how_many_phones>0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_phone']="Podany numer telefonu jest już w bazie!";
-                }
-
-                //czy login juz isnieje?
-                $result = $connection->query("SELECT tkid FROM users WHERE login='$login'");
-                if(!$result) throw new Exception($connection->error);
-                
-                $how_many_logins = $result->num_rows;
-                if($how_many_logins>0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_login']="Podany login jest już w bazie!";
-                }
-
                 if($everything_OK==true)
                 {
                     //Hurra, wszystkie testy zaliczone!
@@ -88,11 +49,27 @@
             echo '<br>Informacja developerska: '.$e;
         }
     }
+
+    $dateStart = $_POST['dateStart'];
+    $dateEnd = $_POST['dateEnd'];
+
+    $tmpTableName = $dateStart."_".$dateEnd;
+    $tableName = str_replace("-","",$tmpTableName);
+
+    include_once 'redirects/show-tables.php';
+    $newestTable = mysql_tablename($showTables, (mysql_num_rows($showTables)-1));
+
     include_once 'redirects/db-schedules.php';
     $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$conn) die('Could not Connect My Sql:');
-    $result = mysqli_query($conn, "SELECT * FROM test");
+    if(!isset($dateStart) && !isset($dateEnd)) $query = "SELECT * FROM $newestTable";
+    else $query = "SELECT * FROM $tableName";
+    
+    $result = mysqli_query($conn, $query);
+
     $conn->close();
+    mysql_free_result($showTables);
+
 
     include_once 'redirects/db-management.php';
     $conn2=mysqli_connect($host, $db_user, $db_password, $db_name);

@@ -31,6 +31,27 @@
         }
     ?>
 <br>
+
+<form action="grafik" method="post">
+    Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
+    <input type="date" value=<?php
+        $dates = split ("\_", $newestTable); 
+        $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
+        if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
+        else echo $dateStart;
+    ?> name="dateStart">
+
+    <input type="date" value=<?php
+        $dates = split ("\_", $newestTable); 
+        $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
+        if(!isset($dateStart) || $dateStart=='') echo $newestDateEnd;
+        else echo $dateStart;
+    ?> name="dateEnd">
+    <input type="submit" value="Wyświetl">
+
+</form>
+
+<br>
 <table border = "1px, solid, black">
     <tr>
         <td rowspan = "2">Przewoźnik</td>
@@ -68,7 +89,7 @@
         <td><?php echo $row["monday1"]; ?></td>
         <td><?php echo $row["monday2"]; ?></td>
         <td><?php echo $row["tuesday1"]; ?></td>
-        <td><?php echo $row["tuesday1"]; ?></td>
+        <td><?php echo $row["tuesday2"]; ?></td>
         <td><?php echo $row["wednesday1"]; ?></td>
         <td><?php echo $row["wednesday2"]; ?></td>
         <td><?php echo $row["thursday1"]; ?></td>
