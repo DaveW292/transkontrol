@@ -44,13 +44,24 @@
             }
             else
             {
+                $dateStartDelete = $_POST['dateStartDelete'];
+                $dateEndDelete = $_POST['dateEndDelete'];
+                $tmpTableName = $dateStartDelete."_".$dateEndDelete;
+                $tableName = str_replace("-","",$tmpTableName);
+
+                //sprawdzanie istanienia grafiku
+                $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
+                if(!$result) throw new Exception($connection->error);
+                
+                $how_many_tables = $result->num_rows;
+                if($how_many_tables==0)
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_delete']="Grafik z wybranego przedziału nie istnieje!";
+                }
+                
                 if($everything_OK==true)
                 {
-                    $dateStartDelete = $_POST['dateStartDelete'];
-                    $dateEndDelete = $_POST['dateEndDelete'];
-                    $tmpTableName = $dateStartDelete."_".$dateEndDelete;
-                    $tableName = str_replace("-","",$tmpTableName);
-
                     if(mysqli_query($connection, "DROP TABLE $tableName"))
                     {
                         $_SESSION['sent']=true;

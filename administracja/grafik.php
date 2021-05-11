@@ -49,6 +49,13 @@
                     <input type="date" name="dateEndDelete">
                     <input type="submit" value="USUŃ">
                 </form>
+                <?php
+                    if(isset($_SESSION['e_delete']))
+                    {
+                        echo '<div class="error">'.$_SESSION['e_delete'].'</div>';
+                        unset($_SESSION['e_delete']);
+                    }
+                ?>
             </fieldset>
        <?php } ?>
     <!-- wybranie tabeli -->
@@ -73,6 +80,13 @@
             ?> name="dateEnd">
             <input type="submit" value="WYŚWIETL">
         </form>
+        <?php
+            if(isset($_SESSION['e_read']))
+            {
+                echo '<div class="error">'.$_SESSION['e_read'].'</div>';
+                unset($_SESSION['e_read']);
+            }
+        ?>
         <!-- aktualizacja tabeli -->
         <?php if($myRole == "admin") { ?>
         <fieldset>

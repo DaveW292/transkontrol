@@ -4,3 +4,7 @@ nav
     flex-direction: row;
     justify-content: space-around;
 }
+.error
+{
+    color: red;
+}
