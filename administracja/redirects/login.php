@@ -4,7 +4,8 @@
 
     if(!isset($_POST['login']) || (!isset($_POST['password'])))
     {
-        header('Location: ../zaloguj');
+        // header('Location: ../zaloguj');
+        header('Location: ../');
         exit();
     }
 
@@ -44,7 +45,7 @@
             else
             {
                 $_SESSION['error'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
-                header('Location: ../zaloguj');
+                header('Location: ../');
             }
         }
 

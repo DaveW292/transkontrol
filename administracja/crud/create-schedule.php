@@ -17,7 +17,7 @@
 
     if(!isset($_SESSION['logged']) || $myRole != "admin")
     {
-        header('Location: ../zaloguj');
+        header('Location: ../');
         exit();
     }
 

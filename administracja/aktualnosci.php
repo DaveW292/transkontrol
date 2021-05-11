@@ -4,11 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../styles/panel.css">
 </head>
 <body>
-    <a href="kontakty"><h2>Kontakty</h2></a>
-    <h2>Aktualnosci</h2>
-    <a href="grafik"><h2>Grafik</h2></a>
+    <nav>
+        <a href="kontakty"><h2>Kontakty</h2></a>
+        <h2>Aktualności</h2>
+        <a href="grafik"><h2>Grafik</h2></a>
+        <a href="dyspozycyjnosc"><h2>Dyspozycyjność</h2></a>
+    </nav>
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
@@ -20,7 +24,20 @@
                 }
               }
 
-        include "crud/create-news.php";
+        if($myRole == "admin")
+        {
+            echo '
+                <form action="aktualnosci" method="post">
+                    <fieldset>
+                        <legend>Dodaj aktualność</legend>
+                        <input type="hidden" value="'.date("Y-m-d H:i").'" name="date">
+                        <input type="hidden" value="'.$_SESSION['login'].'" name="author">
+                        <textarea name="contents" required"></textarea>
+                        <input type="submit" value="DODAJ">
+                    </fieldset>
+                </form>
+            ';
+        }
     ?>
 <br>
 <table border= "1px, solid, black">

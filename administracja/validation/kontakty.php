@@ -1,9 +1,8 @@
 <?php
     session_start();
-
     if(!isset($_SESSION['logged']))
     {
-        header('Location: zaloguj');
+        header('Location: ../administracja');
         exit();
     }
 
@@ -24,10 +23,7 @@
         try
         {
             $connection = new mysqli($host, $db_user, $db_password, $db_name);
-            if($connection->connect_errno!=0)
-            {
-                throw new Exception(mysqli_connect_errno());
-            }
+            if($connection->connect_errno!=0) throw new Exception(mysqli_connect_errno());
             else
             {
                 //czy numer sluzbowy juz isnieje?
@@ -65,19 +61,14 @@
 
                 if($everything_OK==true)
                 {
-                    //Hurra, wszystkie testy zaliczone!
-                    #sql query to insert into database
                     $sql = "INSERT INTO users VALUES('$tkid', '$name', '$phone', '$login', '$password', '$role')";
 
-                    if(mysqli_query($connection,$sql))
+                    if(mysqli_query($connection, $sql))
                     {
                         $_SESSION['sent']=true;
                         header('Location: kontakty');
                     }
-                    else
-                    {
-                        throw new Exception($connection->error);
-                    }
+                    else throw new Exception($connection->error);
                 }        
                 $connection->close();
             }
