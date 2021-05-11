@@ -13,101 +13,148 @@
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
 
-        if ($currentRole->num_rows > 0) {
-                while($row = $currentRole->fetch_assoc()) {
-                  $myRole = $row["role"];
-                  global $myRole;
-                }
-              }
-
-        if($myRole == "admin") {
-            echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
-
-            error_reporting(0);
-            //Zapamiętaj wprowadzone dane
-            $table = $_GET['table'];
-            $community = $_GET['community'];
-            include 'crud/update-schedule.php';
-        }
-    ?>
-<br>
-
-<form action="grafik" method="post">
-    Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
-    <input type="date" value=<?php
-        $dates = split ("\_", $newestTable); 
-        $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
-        if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
-        else echo $dateStart;
-    ?> name="dateStart">
-
-    <input type="date" value=<?php
-        $dates = split ("\_", $newestTable); 
-        $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
-        if(!isset($dateStart) || $dateStart=='') echo $newestDateEnd;
-        else echo $dateStart;
-    ?> name="dateEnd">
-    <input type="submit" value="Wyświetl">
-
-</form>
-
-<br>
-<table border = "1px, solid, black">
-    <tr>
-        <td rowspan = "2">Przewoźnik</td>
-        <td colspan = "2">Poniedziałek</td>
-        <td colspan = "2">Wtorek</td>
-        <td colspan = "2">Środa</td>
-        <td colspan = "2">Czwartek</td>
-        <td colspan = "2">Piątek</td>
-        <td colspan = "2">Sobota</td>
-        <td colspan = "2">Niedziela</td>
-    </tr>
-    <tr>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-        <td>06:00 - 14:00</td>
-        <td>14:00 - 22:00</td>
-    </tr>
-    <?php
-        $i=0;
-        while($row = mysqli_fetch_array($result))
+        if ($currentRole->num_rows > 0) 
         {
-    ?>
-    <tr>
-        <td><?php echo $row["carrier"]; ?></td>
-        <td><?php echo $row["monday1"]; ?></td>
-        <td><?php echo $row["monday2"]; ?></td>
-        <td><?php echo $row["tuesday1"]; ?></td>
-        <td><?php echo $row["tuesday2"]; ?></td>
-        <td><?php echo $row["wednesday1"]; ?></td>
-        <td><?php echo $row["wednesday2"]; ?></td>
-        <td><?php echo $row["thursday1"]; ?></td>
-        <td><?php echo $row["thursday2"]; ?></td>
-        <td><?php echo $row["friday1"]; ?></td>
-        <td><?php echo $row["friday2"]; ?></td>
-        <td><?php echo $row["saturday1"]; ?></td>
-        <td><?php echo $row["saturday2"]; ?></td>
-        <td><?php echo $row["sunday1"]; ?></td>
-        <td><?php echo $row["sunday2"]; ?></td>
-    </tr>
-    <?php
-            $i++;
+            while($row = $currentRole->fetch_assoc()) 
+            {
+                $myRole = $row["role"];
+                global $myRole;
+            }
         }
+
+        if ($currentTkid->num_rows > 0)
+        {
+            while($row = $currentTkid->fetch_assoc()) 
+            {
+                $myTkid = $row["tkid"];
+                global $myTkid;
+            }
+        }
+
+        if($myRole == "admin") 
+        {
+            error_reporting(0);
+            echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
     ?>
-</table>
+    <!-- aktualizacja tabeli -->
+    <fieldset>
+        <legend>Aktualizuj grafik</legend>
+        <form action="grafik" method="post">
+            <input type="date" value=<?php
+                $dates = split ("\_", $newestTable); 
+                $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
+                if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
+                else echo $dateStart;
+            ?> name="dateStartUpdate">
+            <input type="date" value=<?php
+                $dates = split ("\_", $newestTable); 
+                $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
+                if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
+                else echo $dateEnd;
+            ?> name="dateEndUpdate">
+
+            <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
+            
+            <input type="radio" id="1" name="hour" value="1">
+            <label for="1">06:00 - 14:00</label><br>
+            <input type="radio" id="2" name="hour" value="2">
+            <label for="2">14:00 - 22:00</label><br>
+
+            <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
+
+            <?php
+                include_once '../redirects/db-management.php';
+                $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+                if(!$connection) die('Could not Connect My Sql:');
+            ?>
+            <select name = "UnitA">
+                <option></option>
+                <?php 
+                    $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
+                    if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
+                ?>
+                <option>ZAKAZ</option>
+            </select>
+            <select name = "UnitB">
+                <option></option>
+                <?php 
+                    $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
+                    if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
+                ?>
+            </select>
+
+            <input type="submit" value="AKTUALIZUJ">
+        </form>
+    </fieldset>
+    <!-- usuwanie tabeli -->
+    <fieldset>
+        <legend>Usuń grafik</legend>
+        <form action="grafik" method="post">
+            Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
+            <input type="date" name="dateStartDelete">
+            <input type="date" name="dateEndDelete">
+            <input type="submit" value="USUŃ">
+        </form>
+    </fieldset>
+       <?php } ?>
+    <!-- wyświetlanie tabeli -->
+    <fieldset>
+    <legend>Wyświetl grafik</legend>
+        <form action="grafik" method="post">
+            Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
+            <input type="date" value=<?php
+                $dates = split ("\_", $newestTable); 
+                $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
+                if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
+                else echo $dateStart;
+            ?> name="dateStart">
+
+            <input type="date" value=<?php
+                $dates = split ("\_", $newestTable); 
+                $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
+                if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
+                else echo $dateEnd;
+            ?> name="dateEnd">
+            <input type="submit" value="WYŚWIETL">
+        </form>
+    </fieldset>
+
+    <table border = "1px, solid, black">
+        <tr>
+            <td rowspan = "2">Przewoźnik</td>
+            <?php for($x = 0; $x < sizeof($days); $x++) {?>
+                <td colspan = "2"><?php echo $days[$x]; ?></td>
+            <?php } ?>
+        </tr>
+        <tr>
+            <?php for($x = 0; $x < 7; $x++) {?>
+                <td>06:00 - 14:00</td>
+                <td>14:00 - 22:00</td>
+            <?php } ?>
+        </tr>
+        <?php
+            $i=0;
+            while($row = mysqli_fetch_array($result))
+            {
+        ?>
+        <tr>
+            <td><?php echo $row["carrier"]; ?></td>
+            <?php
+                if($myRole == "admin") 
+                    for($x = 0; $x < sizeof($shifts); $x++) 
+                        echo '<td>'.$row[$shifts[$x]].'</td>';
+                else
+                    for($x = 0; $x < sizeof($shifts); $x++)
+                    if(strpos($row[$shifts[$x]], $myTkid) !== false || strpos($row[$shifts[$x]], 'ZAKAZ') !== false)
+                    {
+                        echo '<td>'.$row[$shifts[$x]].'</td>';
+                    }
+                    else echo '<td> - </td>';
+            ?>
+        </tr>
+        <?php
+                $i++;
+            }
+        ?>
+    </table>
 </body>
-
-<!-- INSERT INTO `210503` (`carrier`, `monday1`, `monday2`, `tuesday1`, `tuesday2`, `wednesday1`, `wednesday2`, `thursday1`, `thursday2`, `friday1`, `friday2`, `saturday1`, `saturday2`, `sunday1`, `sunday2`) VALUES ('Rokbus (Rokietnica)', '', '', '', '', '', '', '', '', '', '', '', '', '', ''); -->
-
-<!-- UPDATE `210503` SET `monday1` = '3\r\n4', `wednesday1` = 'ZAKAZ' WHERE `210503`.`id` = 1;  -->

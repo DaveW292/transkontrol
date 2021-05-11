@@ -178,7 +178,6 @@
                             $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
                             if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                         ?>
-                        <option>ZAKAZ</option>
                     </select>
                 </td><?php } ?>
             </tr><?php $r++; } ?>
