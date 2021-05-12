@@ -16,7 +16,6 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-
         if ($currentRole->num_rows > 0) 
         {
             while($row = $currentRole->fetch_assoc()) 
@@ -25,7 +24,6 @@
                 global $myRole;
             }
         }
-
         if ($currentTkid->num_rows > 0)
         {
             while($row = $currentTkid->fetch_assoc()) 
@@ -34,11 +32,16 @@
                 global $myTkid;
             }
         }
-
         if($myRole == "admin") 
         {
             error_reporting(0);
             echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
+            echo '<br>dateStart= '.$dateStart;
+            echo '<br>dateEnd= '.$dateEnd;
+            echo '<br>dateStartUpdate= '.$dateStartUpdate;
+            echo '<br>dateEndUpdate= '.$dateEndUpdate;
+            
+
     ?>
             <!-- usuwanie tabeli -->
             <fieldset>
@@ -70,7 +73,6 @@
                 else if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
                 else echo $dateStart;
             ?> name="dateStart">
-
             <input type="date" value=<?php
                 $dates = split ("\_", $newestTable); 
                 $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
@@ -104,21 +106,13 @@
                     if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                     else echo $dateEnd;
                 ?> name="dateEndUpdate">
-
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
                 
                 <input type="radio" id="1" name="hour" value="1">
                 <label for="1">06:00 - 14:00</label><br>
                 <input type="radio" id="2" name="hour" value="2">
                 <label for="2">14:00 - 22:00</label><br>
-
                 <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
-
-                <?php
-                    include_once '../redirects/db-management.php';
-                    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
-                    if(!$connection) die('Could not Connect My Sql:');
-                ?>
                 <select name = "UnitA">
                     <option></option>
                     <?php 
@@ -134,7 +128,6 @@
                         if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                     ?>
                 </select>
-
                 <input type="submit" value="AKTUALIZUJ">
             </form>
             <?php } ?>

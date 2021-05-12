@@ -3,7 +3,8 @@
 
     include_once '../redirects/db-management.php';
     $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$connection) die('Could not Connect My Sql:');
+    if(!$connection) die('Nie można połączyć się z bazą!');
+
     $login = $_SESSION['login'];
     $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
     $connection->close();
@@ -126,6 +127,9 @@
             echo '<br>Informacja developerska: '.$e;
         }
     }
+    include_once '../redirects/db-management.php';
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$connection) die('Could not Connect My Sql:');
 ?>
 
 <!DOCTYPE HTML>
@@ -136,12 +140,6 @@
 </head>
 <body>
     <a href="../grafik"><h2>POWRÓT</h2></a>
-<?php
-
-    include_once '../redirects/db-management.php';
-    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$connection) die('Could not Connect My Sql:');
-?>
     <form method="post" enctype="multipart/form-data">
         <input type="date" name="dateStart">
         <input type="date" name="dateEnd">
@@ -180,7 +178,7 @@
                         ?>
                     </select>
                 </td><?php } ?>
-            </tr><?php $r++; } ?>
+            </tr><?php $r++; } $connection->close(); ?>
         </table>
         <input type="submit" value="DODAJ">
     </form>

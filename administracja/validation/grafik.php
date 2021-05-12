@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION['logged']))
     {
-        header('Location: ../administracja');
+        header('Location: zaloguj');
         exit();
     }
 
@@ -19,15 +19,6 @@
 
     $days = array("Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela");
     $daysEn = array("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday");
-    // pobieranie uprawnienia oraz id zalogowanego użytkownika
-    include_once 'redirects/db-management.php';
-    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$connection) die('Could not Connect My Sql:');
-
-    $login = $_SESSION['login'];
-    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
-    $currentTkid = mysqli_query($connection, "SELECT tkid FROM users WHERE login='$login'");
-    $connection->close();
     // usuwanie tabeli
     if(isset($_POST['dateStartDelete']) && isset($_POST['dateEndDelete']))
     {
@@ -48,18 +39,17 @@
                 $dateEndDelete = $_POST['dateEndDelete'];
                 $tmpTableName = $dateStartDelete."_".$dateEndDelete;
                 $tableName = str_replace("-","",$tmpTableName);
-
-                //sprawdzanie istanienia grafiku
+                //sprawdzanie istnienia grafiku
                 $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
                 if(!$result) throw new Exception($connection->error);
-                
+
                 $how_many_tables = $result->num_rows;
                 if($how_many_tables==0)
                 {
                     $everything_OK=false;
                     $_SESSION['e_delete']="Grafik z wybranego przedziału nie istnieje!";
                 }
-                
+
                 if($everything_OK==true)
                 {
                     if(mysqli_query($connection, "DROP TABLE $tableName"))
@@ -77,7 +67,7 @@
             echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
             echo '<br>Informacja developerska: '.$e;
         }
-    }    
+    }
     // aktualizacja tabeli
     if(isset($_POST['dateStartUpdate']) && isset($_POST['dateEndUpdate']))
     {
@@ -101,7 +91,12 @@
                     $carrier = $_POST['carrier'];
                     $team = $_POST['UnitA'].' - '.$_POST['UnitB'];
 
-                    if(mysqli_query($connection, "UPDATE $tableName SET $shift = '$team' WHERE carrier = '$carrier'")) $_SESSION['sent']=true;
+                    if(mysqli_query($connection, "UPDATE $tableName SET $shift = '$team' WHERE carrier = '$carrier'")) 
+                    {
+                        $_SESSION['sent']=true;
+                        $query = "SELECT * FROM $tableName";
+                        $result = mysqli_query($connection, $query);    
+                    }
                     else throw new Exception($connection->error);
                 }
                 $connection->close();
@@ -114,25 +109,80 @@
         }
     }
     // wyświetlanie tabeli
-    if(isset($dateStartUpdate)) $dateStart = $dateStartUpdate;
-    else $dateStart = $_POST['dateStart'];
-    if(isset($dateEndUpdate)) $dateEnd = $dateEndUpdate;
-    else $dateEnd = $_POST['dateEnd'];
+    if(isset($_POST['dateStart']) && isset($_POST['dateEnd']))
+    {
+        $everything_OK=true;
+        require_once "redirects/db-schedules.php";
+        mysqli_report(MYSQLI_REPORT_STRICT);
 
-    $tmpTableName = $dateStart."_".$dateEnd;
-    $tableName = str_replace("-","",$tmpTableName);
+        try
+        {
+            $connection = new mysqli($host, $db_user, $db_password, $db_name);
+            if($connection->connect_errno!=0)
+            {
+                throw new Exception(mysqli_connect_errno());
+            }
+            else
+            {
+                $dateStart = $_POST['dateStart'];
+                $dateEnd = $_POST['dateEnd'];
+                $tmpTableName = $dateStart."_".$dateEnd;
+                $tableName = str_replace("-","",$tmpTableName);
+            
+                //sprawdzanie istnienia grafiku
+                $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
+                if(!$result) throw new Exception($connection->error);
 
-    include_once 'redirects/show-tables.php';
-    $newestTable = mysql_tablename($showTables, (mysql_num_rows($showTables)-1));
+                $how_many_tables = $result->num_rows;
+                if($how_many_tables==0)
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_read']="Grafik z wybranego przedziału nie istnieje!";
+                }
 
-    include_once 'redirects/db-schedules.php';
-    $connection = mysqli_connect($host, $db_user, $db_password, $db_name);
+                if($everything_OK==true)
+                {
+                    $query = "SELECT * FROM $tableName";
+                    $result = mysqli_query($connection, $query);
+                }
+                $connection->close();
+            }
+        }
+        catch(Exception $e)
+        {
+            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            echo '<br>Informacja developerska: '.$e;
+        }
+    }
+    else
+    {
+        if(isset($dateStartUpdate) && isset($dateEndUpdate))
+        {
+            $dateStart = $dateStartUpdate;
+            $dateEnd = $dateEndUpdate;
+        }
+        else
+        {
+            include_once 'redirects/show-tables.php';
+            $newestTable = mysql_tablename($showTables, (mysql_num_rows($showTables)-1));
+        
+            include_once 'redirects/db-schedules.php';
+            $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+            if(!$connection) die('Could not Connect My Sql:');
+        
+            $query = "SELECT * FROM $newestTable";
+            $result = mysqli_query($connection, $query);
+            $connection->close();
+            mysql_free_result($showTables);
+        }
+    }
+
+    // pobieranie uprawnienia oraz id zalogowanego użytkownika
+    include_once 'redirects/db-management.php';
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$connection) die('Could not Connect My Sql:');
 
-    if(!isset($dateStart) && !isset($dateEnd)) $query = "SELECT * FROM $newestTable";
-    else if(!isset($dateStart) && !isset($dateEnd)) $query = "SELECT * FROM $newestTable";
-    else $query = "SELECT * FROM $tableName";
-    $result = mysqli_query($connection, $query);
-    $connection->close();
-    mysql_free_result($showTables);
+    $login = $_SESSION['login'];
+    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
+    $currentTkid = mysqli_query($connection, "SELECT tkid FROM users WHERE login='$login'");
 ?>
