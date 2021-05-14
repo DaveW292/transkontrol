@@ -35,11 +35,11 @@
             }
             else
             {
+                //sprawdzanie istnienia grafiku
                 $dateStartDelete = $_POST['dateStartDelete'];
                 $dateEndDelete = $_POST['dateEndDelete'];
                 $tmpTableName = $dateStartDelete."_".$dateEndDelete;
                 $tableName = str_replace("-","",$tmpTableName);
-                //sprawdzanie istnienia grafiku
                 $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
                 if(!$result) throw new Exception($connection->error);
 
@@ -128,7 +128,6 @@
                 $dateEnd = $_POST['dateEnd'];
                 $tmpTableName = $dateStart."_".$dateEnd;
                 $tableName = str_replace("-","",$tmpTableName);
-            
                 //sprawdzanie istnienia grafiku
                 $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
                 if(!$result) throw new Exception($connection->error);
@@ -176,7 +175,6 @@
             mysql_free_result($showTables);
         }
     }
-
     // pobieranie uprawnienia oraz id zalogowanego użytkownika
     include_once 'redirects/db-management.php';
     $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
@@ -185,4 +183,13 @@
     $login = $_SESSION['login'];
     $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
     $currentTkid = mysqli_query($connection, "SELECT tkid FROM users WHERE login='$login'");
+    // usun zapamietane dane z create-schedule
+    for($x = 0; $x < sizeof($carriers); $x++)
+    {
+        for($y = 0; $y < sizeof($shifts); $y++)
+        {
+            if(isset($_SESSION['fr_'.$shifts[$y]."a".$x])) unset($_SESSION['fr_'.$shifts[$y]."a".$x]);
+            if(isset($_SESSION['fr_'.$shifts[$y]."b".$x])) unset($_SESSION['fr_'.$shifts[$y]."b".$x]);
+        }
+    }
 ?>

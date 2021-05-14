@@ -36,30 +36,7 @@
         {
             error_reporting(0);
             echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
-            echo '<br>dateStart= '.$dateStart;
-            echo '<br>dateEnd= '.$dateEnd;
-            echo '<br>dateStartUpdate= '.$dateStartUpdate;
-            echo '<br>dateEndUpdate= '.$dateEndUpdate;
-            
-
     ?>
-            <!-- usuwanie tabeli -->
-            <fieldset>
-                <legend>Usuń grafik</legend>
-                <form action="grafik" method="post">
-                    Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
-                    <input type="date" name="dateStartDelete">
-                    <input type="date" name="dateEndDelete">
-                    <input type="submit" value="USUŃ">
-                </form>
-                <?php
-                    if(isset($_SESSION['e_delete']))
-                    {
-                        echo '<div class="error">'.$_SESSION['e_delete'].'</div>';
-                        unset($_SESSION['e_delete']);
-                    }
-                ?>
-            </fieldset>
        <?php } ?>
     <!-- wybranie tabeli -->
     <fieldset>
@@ -130,6 +107,29 @@
                 </select>
                 <input type="submit" value="AKTUALIZUJ">
             </form>
+            <!-- usuwanie tabeli -->
+            <form action="grafik" method="post">
+                <input type="hidden" value=<?php
+                $dates = split ("\_", $newestTable); 
+                $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
+                if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
+                else echo $dateStart;
+                ?> name="dateStartDelete">
+                <input type="hidden" value=<?php
+                $dates = split ("\_", $newestTable); 
+                $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
+                if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
+                else echo $dateEnd;
+                ?> name="dateEndDelete">
+                <input type="submit" value="USUŃ TABELĘ">
+            </form>
+            <?php
+                if(isset($_SESSION['e_delete']))
+                {
+                    echo '<div class="error">'.$_SESSION['e_delete'].'</div>';
+                    unset($_SESSION['e_delete']);
+                }
+            ?>
             <?php } ?>
             <!-- wyświetlanie tabeli -->
             <table border = "1px, solid, black">
