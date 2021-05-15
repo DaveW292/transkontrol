@@ -179,8 +179,7 @@
                     }
                 ?>
             </table>
-            <?php if($currentRole == "admin") { ?>
         </fieldset>
-        <?php } $connection -> close(); ?>
+        <?php $connection -> close(); ?>
     </fieldset>
 </body>

@@ -175,7 +175,7 @@
         else
         {
             include_once 'redirects/show-tables.php';
-            $newestTable = mysql_tablename($showTables, (mysql_num_rows($showTables)-1));
+            $newestTable = mysql_tablename($showSchedules, (mysql_num_rows($showSchedules)-1));
         
             include_once 'redirects/db-schedules.php';
             $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
@@ -183,7 +183,7 @@
         
             $query = "SELECT * FROM $newestTable";
             $display = mysqli_query($connection, $query);
-            mysql_free_result($showTables);
+            mysql_free_result($showSchedules);
         }
     }
     // pobieranie uprawnienia oraz id zalogowanego użytkownika

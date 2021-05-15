@@ -16,16 +16,11 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-        if($currentRole == "admin") 
-        {
-            error_reporting(0);
-            echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
-        }
     ?>
     <!-- wybranie tabeli -->
     <fieldset>
         <legend>Wyświetl grafik</legend>
-        <form action="grafik" method="post">
+        <form action="dyspozycyjnosc" method="post">
             Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
             <input type="date" value=<?php
                 $dates = split ("\_", $newestTable); 
@@ -52,11 +47,13 @@
                 unset($_SESSION['e_read']);
             }
         ?>
+
+
         <!-- aktualizacja tabeli -->
         <?php if($currentRole == "admin") { ?>
         <fieldset>
             <legend>Aktualizuj grafik</legend>
-            <form action="grafik" method="post">
+            <form action="dyspozycyjnosc" method="post">
                 <input type="hidden" value=<?php
                     $dates = split ("\_", $newestTable); 
                     $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
@@ -73,58 +70,40 @@
 
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
                 
-                <input type="radio" id="1" name="hour" value="1">
+                <input type="radio" id="1" name="hour" value="1" required>
                 <label for="1">06:00 - 14:00</label><br>
-                <input type="radio" id="2" name="hour" value="2">
+                <input type="radio" id="2" name="hour" value="2" required>
                 <label for="2">14:00 - 22:00</label><br>
-                <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
-                <select name = "UnitA">
-                    <option></option>
-                    <?php 
-                        $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                        if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
-                    ?>
-                    <option>ZAKAZ</option>
-                </select>
-                <select name = "UnitB">
-                    <option></option>
-                    <?php 
+
+                <select name="tkid">
+                <?php 
                         $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
                         if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                     ?>
                 </select>
+                
+                <select name = "availability">
+                    <option>TAK</option>
+                    <option>NIE</option>
+                </select>
+                
                 <input type="submit" value="AKTUALIZUJ">
             </form>
-            <!-- usuwanie tabeli -->
-            <form action="grafik" method="post">
-                <input type="hidden" value=<?php
-                $dates = split ("\_", $newestTable); 
-                $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
-                if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
-                else echo $dateStart;
-                ?> name="dateStartDelete">
-
-                <input type="hidden" value=<?php
-                $dates = split ("\_", $newestTable); 
-                $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
-                if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
-                else echo $dateEnd;
-                ?> name="dateEndDelete">
-
-                <input type="submit" value="USUŃ TABELĘ">
-            </form>
             <?php
-                if(isset($_SESSION['e_delete']))
+                if(isset($_SESSION['e_team']))
                 {
-                    echo '<div class="error">'.$_SESSION['e_delete'].'</div>';
-                    unset($_SESSION['e_delete']);
+                    // if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
+                    echo '<div class="error">'.$_SESSION['e_team'].'</div>';
+                    unset($_SESSION['e_team']);
                 }
+            }
             ?>
-            <?php } ?>
+
+
             <!-- wyświetlanie tabeli -->
             <table border = "1px, solid, black">
                 <tr>
-                    <td rowspan = "2">Przewoźnik</td>
+                    <td rowspan = "2">Numer służbowy</td>
                     <?php for($x = 0; $x < sizeof($days); $x++) {?>
                         <td colspan = "2"><?php echo $days[$x]; ?></td>
                     <?php } ?>
@@ -141,7 +120,7 @@
                     {
                 ?>
                 <tr>
-                    <td><?php echo $row["carrier"]; ?></td>
+                    <td><?php echo $row["tkid"]; ?></td>
                     <?php
                         if($currentRole == "admin")
                         {
@@ -168,10 +147,10 @@
                     }
                 ?>
             </table>
-            <?php if($currentRole == "admin") { ?>
         </fieldset>
-        <?php } $connection -> close();
-        echo $currentRole.' '.$currentTkid;
+        <?php
+            $connection -> close(); 
+            echo $rowsCounter;
         ?>
     </fieldset>
 </body>
