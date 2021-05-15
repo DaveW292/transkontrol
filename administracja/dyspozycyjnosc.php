@@ -1,4 +1,4 @@
-<?php include "validation/grafik.php"; ?>
+<?php include "validation/dyspozycyjnosc.php"; ?>
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -10,8 +10,8 @@
     <nav>
         <a href="kontakty"><h2>Kontakty</h2></a>
         <a href="aktualnosci"><h2>Aktualności</h2></a>
-        <h2>Grafik</h2>
-        <a href="dyspozycyjnosc"><h2>Dyspozycyjność</h2></a>
+        <a href="grafik"><h2>Grafik</h2></a>
+        <h2>Dyspozycyjność</h2>
     </nav>
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
@@ -170,6 +170,8 @@
             </table>
             <?php if($currentRole == "admin") { ?>
         </fieldset>
-        <?php } $connection -> close(); ?>
+        <?php } $connection -> close();
+        echo $currentRole.' '.$currentTkid;
+        ?>
     </fieldset>
 </body>

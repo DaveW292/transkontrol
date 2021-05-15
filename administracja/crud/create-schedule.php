@@ -6,16 +6,18 @@
     if(!$connection) die('Nie można połączyć się z bazą!');
 
     $login = $_SESSION['login'];
-    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
+    $currentIdRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
 
-    if ($currentRole->num_rows > 0) {
-        while($row = $currentRole->fetch_assoc()) {
-          $myRole = $row["role"];
-          global $myRole;
+    if ($currentIdRole->num_rows > 0) 
+    {
+        while($row = $currentIdRole->fetch_assoc()) 
+        {
+            $currentRole = $row["role"];
+            global $currentRole;
         }
-      }
+    }
 
-    if(!isset($_SESSION['logged']) || $myRole != "admin")
+    if(!isset($_SESSION['logged']) || $currentRole != "admin")
     {
         header('Location: ../');
         exit();

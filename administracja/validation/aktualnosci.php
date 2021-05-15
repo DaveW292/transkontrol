@@ -29,11 +29,9 @@
             {
                 if($everything_OK==true)
                 {
-                    //Hurra, wszystkie testy zaliczone!
-                    #sql query to insert into database
-                    $sql = "INSERT INTO news VALUES(NULL, '$date', '$author', '$contents')";
+                    $result = "INSERT INTO news VALUES(NULL, '$date', '$author', '$contents')";
 
-                    if(mysqli_query($connection,$sql))
+                    if(mysqli_query($connection, $result))
                     {
                         $_SESSION['sent']=true;
                         header('Location: aktualnosci');
@@ -43,7 +41,6 @@
                         throw new Exception($connection->error);
                     }
                 }        
-                $connection->close();
             }
         }
         catch(Exception $e)
@@ -53,13 +50,19 @@
         }
     }
     include_once 'redirects/db-management.php';
-    $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$conn) die('Could not Connect My Sql:');
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$connection) die('Nie można połączyć się z bazą danych!');
     
-    $result = mysqli_query($conn,"SELECT * FROM news");
+    $display = mysqli_query($connection,"SELECT * FROM news");
     
     $login = $_SESSION['login'];
-    $currentRole = mysqli_query($conn, "SELECT role FROM users WHERE login='$login'");
-    
-    $conn->close();
+    $currentIdRole = mysqli_query($connection, "SELECT * FROM users WHERE login='$login'");
+    if ($currentIdRole->num_rows > 0) 
+    {
+        while($row = $currentIdRole->fetch_assoc()) 
+        {
+            $currentRole = $row["role"];
+        }
+    }
+    $connection->close();
 ?>

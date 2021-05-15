@@ -16,17 +16,8 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-
-        if ($currentRole->num_rows > 0) 
-        {
-            while($row = $currentRole->fetch_assoc()) 
-            {
-                $myRole = $row["role"];
-                global $myRole;
-            }
-        }
         // tworzenie kontaktu
-        if($myRole == "admin")
+        if($currentRole == "admin")
         { ?>
             <form action="kontakty" method="post">
                 <fieldset>
@@ -68,7 +59,7 @@
             <td>Numer służbowy</td>
             <td>Imię</td>
             <td>Numer telefonu</td>
-            <?php if($myRole == "admin") { ?>
+            <?php if($currentRole == "admin") { ?>
                 <td>Nazwa użytkownika</td>
                 <td>Uprawnienia</td>
                 <td>Akcja</td>
@@ -76,15 +67,15 @@
         </tr>
         <?php
             $i=0;
-            while($row = mysqli_fetch_array($result))
+            while($row = mysqli_fetch_array($display))
             { ?>
         <tr>
             <td><?php echo $row["tkid"]; ?></td>
             <td><?php echo $row["name"]; ?></td>
             <td><?php echo $row["phone"]; ?></td>
-            <?php if($myRole == "admin") echo "<td>".$row["login"]."</td>"; ?>
-            <?php if($myRole == "admin") echo "<td>".$row["role"]."</td>"; ?>
-            <?php if($myRole == "admin") 
+            <?php if($currentRole == "admin") echo "<td>".$row["login"]."</td>"; ?>
+            <?php if($currentRole == "admin") echo "<td>".$row["role"]."</td>"; ?>
+            <?php if($currentRole == "admin") 
                     if($row["login"] != $_SESSION['login'])
                             echo '<td><a href="crud/delete-contact.php?tkid='.$row["tkid"].'">Usuń</a></td>'; 
             ?>

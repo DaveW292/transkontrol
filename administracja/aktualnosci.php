@@ -16,15 +16,7 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-        
-        if ($currentRole->num_rows > 0) {
-                while($row = $currentRole->fetch_assoc()) {
-                  $myRole = $row["role"];
-                  global $myRole;
-                }
-              }
-
-        if($myRole == "admin")
+        if($currentRole == "admin")
         {
             echo '
                 <form action="aktualnosci" method="post">
@@ -45,17 +37,17 @@
         <td>Data dodania</td>
         <td>Autor</td>
         <td>Treść</td>
-        <?php if($myRole == "admin") echo "<td>Akcja</td>"; ?>
+        <?php if($currentRole == "admin") echo "<td>Akcja</td>"; ?>
 	</tr>
 	<?php
         $i=0;
-        while($row = mysqli_fetch_array($result)) {
+        while($row = mysqli_fetch_array($display)) {
 	?>
 	<tr>
         <td><?php echo $row["date_time"]; ?></td>
         <td><?php echo $row["author"]; ?></td>
         <td><?php echo $row["contents"]; ?></td>
-        <?php if($myRole == "admin") echo '<td><a href="crud/delete-news.php?id='.$row["id"].'">Usuń</a></td>'; ?>
+        <?php if($currentRole == "admin") echo '<td><a href="crud/delete-news.php?id='.$row["id"].'">Usuń</a></td>'; ?>
 	</tr>
 	<?php
         $i++;

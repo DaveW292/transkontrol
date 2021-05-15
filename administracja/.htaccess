@@ -3,3 +3,5 @@ RewriteRule kontakty kontakty.php
 RewriteRule aktualnosci aktualnosci.php
 RewriteRule grafik grafik.php
 RewriteRule crud/create-schedule crud/create-schedule.php
+RewriteRule dyspozycyjnosc dyspozycyjnosc.php
+

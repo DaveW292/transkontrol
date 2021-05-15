@@ -70,7 +70,7 @@
                     }
                     else throw new Exception($connection->error);
                 }        
-                $connection->close();
+                // $connection->close();
             }
         }
         catch(Exception $e)
@@ -80,13 +80,19 @@
         }
     }
     include_once 'redirects/db-management.php';
-    $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$conn) die('Could not Connect My Sql:');
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    if(!$connection) die('Could not Connect My Sql:');
 
-    $result = mysqli_query($conn, "SELECT * FROM users");
+    $display = mysqli_query($connection, "SELECT * FROM users");
 
     $login = $_SESSION['login'];
-    $currentRole = mysqli_query($conn, "SELECT role FROM users WHERE login='$login'");
-
-    $conn->close();
+    $currentIdRole = mysqli_query($connection, "SELECT * FROM users WHERE login='$login'");
+    if ($currentIdRole->num_rows > 0) 
+    {
+        while($row = $currentIdRole->fetch_assoc()) 
+        {
+            $currentRole = $row["role"];
+        }
+    }
+    $connection->close();
 ?>
