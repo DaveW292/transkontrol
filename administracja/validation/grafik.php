@@ -81,6 +81,18 @@
             if($connection->connect_errno!=0) throw new Exception(mysqli_connect_errno());
             else
             {
+                // sprawdzenie poprawnosci zespolu
+                if(($_POST['UnitA'] != "" && $_POST['UnitB'] != "") && ($_POST['UnitA'] == $_POST['UnitB']))
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
+                }
+                if(($_POST['UnitA'] != "" && $_POST['UnitB'] != "") && ($_POST['UnitA'] == "ZAKAZ" && $_POST['UnitB'] != ""))
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
+                }
+
                 if($everything_OK==true)
                 {
                     $dateStartUpdate = $_POST['dateStartUpdate'];

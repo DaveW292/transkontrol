@@ -73,11 +73,13 @@
 
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
                 
-                <input type="radio" id="1" name="hour" value="1">
+                <input type="radio" id="1" name="hour" value="1" required>
                 <label for="1">06:00 - 14:00</label><br>
-                <input type="radio" id="2" name="hour" value="2">
+                <input type="radio" id="2" name="hour" value="2" required>
                 <label for="2">14:00 - 22:00</label><br>
+
                 <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
+                
                 <select name = "UnitA">
                     <option></option>
                     <?php 
@@ -93,8 +95,17 @@
                         if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                     ?>
                 </select>
+                
                 <input type="submit" value="AKTUALIZUJ">
             </form>
+            <?php
+                if(isset($_SESSION['e_team']))
+                {
+                    // if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
+                    echo '<div class="error">'.$_SESSION['e_team'].'</div>';
+                    unset($_SESSION['e_team']);
+                }
+            ?>
             <!-- usuwanie tabeli -->
             <form action="grafik" method="post">
                 <input type="hidden" value=<?php
