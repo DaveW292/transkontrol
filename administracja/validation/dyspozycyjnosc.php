@@ -44,6 +44,16 @@
         }
     }
 
+    $login = $_SESSION['login'];
+    $currentIdRole = mysqli_query($managementCon, "SELECT * FROM users WHERE login='$login'");
+    if ($currentIdRole->num_rows > 0) 
+    {
+        while($row = $currentIdRole->fetch_assoc()) 
+        {
+            $currentRole = $row["role"];
+            $currentTkid = $row["tkid"];
+        }
+    }
     // aktualizacja tabeli
     if(isset($_POST['dateStartUpdate']) && isset($_POST['dateEndUpdate']))
     {
@@ -66,7 +76,6 @@
                     $tkid = $_POST['tkid'];
                     $shift = $_POST['day'].$_POST['hour'];
                     $availability = $_POST['availability'];
-
                     if(mysqli_query($availabilityCon, "UPDATE $tableName SET $shift = '$availability' WHERE tkid = '$tkid'"))
                     {
                         $_SESSION['sent']=true;
@@ -75,7 +84,6 @@
                     }
                     else throw new Exception($availabilityCon->error);
                 }
-                // $connection->close();
             }
             $availabilityCon->close();
         }
@@ -95,8 +103,8 @@
 
         try
         {
-            $connection = new mysqli($host, $db_user, $db_password, $db_name);
-            if($connection->connect_errno!=0)
+            $availabilityCon = new mysqli($host, $db_user, $db_password, $db_name);
+            if($availabilityCon->connect_errno!=0)
             {
                 throw new Exception(mysqli_connect_errno());
             }
@@ -107,8 +115,8 @@
                 $tmpTableName = $dateStart."_".$dateEnd;
                 $tableName = str_replace("-","",$tmpTableName);
                 //sprawdzanie istnienia grafiku
-                $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
-                if(!$result) throw new Exception($connection->error);
+                $result = $availabilityCon->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
+                if(!$result) throw new Exception($availabilityCon->error);
 
                 $how_many_tables = $result->num_rows;
                 if($how_many_tables==0)
