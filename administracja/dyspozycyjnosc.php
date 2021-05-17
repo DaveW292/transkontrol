@@ -77,9 +77,9 @@
 
                 <select name="tkid">
                 <?php 
-                        $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
+                        $tkid = mysqli_query($managementCon, "SELECT tkid FROM users WHERE role = 'user'");
                         if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
-                    ?>
+                ?>
                 </select>
                 
                 <select name = "availability">
@@ -148,9 +148,9 @@
                 ?>
             </table>
         </fieldset>
-        <?php
-            $connection -> close(); 
-            echo $rowsCounter;
+        <?php 
+            $managementCon -> close();
+            $availabilityCon -> close();
         ?>
     </fieldset>
 </body>
