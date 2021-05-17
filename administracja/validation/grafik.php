@@ -81,18 +81,6 @@
             if($connection->connect_errno!=0) throw new Exception(mysqli_connect_errno());
             else
             {
-                // sprawdzenie poprawnosci zespolu
-                if(($_POST['UnitA'] != "" && $_POST['UnitB'] != "") && ($_POST['UnitA'] == $_POST['UnitB']))
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
-                }
-                if(($_POST['UnitA'] != "" && $_POST['UnitB'] != "") && ($_POST['UnitA'] == "ZAKAZ" && $_POST['UnitB'] != ""))
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
-                }
-
                 if($everything_OK==true)
                 {
                     $dateStartUpdate = $_POST['dateStartUpdate'];
@@ -154,7 +142,7 @@
                 if($everything_OK==true)
                 {
                     $query = "SELECT * FROM $tableName";
-                    $display = mysqli_query($connection, $query);
+                    $result = mysqli_query($connection, $query);
                 }
                 // $connection->close();
             }
@@ -182,25 +170,19 @@
             if(!$connection) die('Could not Connect My Sql:');
         
             $query = "SELECT * FROM $newestTable";
-            $display = mysqli_query($connection, $query);
+            $result = mysqli_query($connection, $query);
+            // $connection->close();
             mysql_free_result($showSchedules);
         }
     }
     // pobieranie uprawnienia oraz id zalogowanego użytkownika
     include_once 'redirects/db-management.php';
-    $connection = mysqli_connect($host, $db_user, $db_password, $db_name);
+    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$connection) die('Could not Connect My Sql:');
 
     $login = $_SESSION['login'];
-    $currentIdRole = mysqli_query($connection, "SELECT * FROM users WHERE login='$login'");
-    if ($currentIdRole->num_rows > 0) 
-    {
-        while($row = $currentIdRole->fetch_assoc()) 
-        {
-            $currentRole = $row["role"];
-            $currentTkid = $row["tkid"];
-        }
-    }
+    $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
+    $currentTkid = mysqli_query($connection, "SELECT tkid FROM users WHERE login='$login'");
     // usun zapamietane dane z create-schedule
     for($x = 0; $x < sizeof($carriers); $x++)
     {

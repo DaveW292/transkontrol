@@ -29,7 +29,6 @@
                 else if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
                 else echo $dateStart;
             ?> name="dateStart">
-
             <input type="date" value=<?php
                 $dates = split ("\_", $newestTable); 
                 $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
@@ -37,7 +36,6 @@
                 else if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                 else echo $dateEnd;
             ?> name="dateEnd">
-
             <input type="submit" value="WYŚWIETL">
         </form>
         <?php
@@ -47,10 +45,8 @@
                 unset($_SESSION['e_read']);
             }
         ?>
-
-
         <!-- aktualizacja tabeli -->
-        <?php if($currentRole == "admin") { ?>
+        <?php if($myRole == "admin") { ?>
         <fieldset>
             <legend>Aktualizuj grafik</legend>
             <form action="dyspozycyjnosc" method="post">
@@ -77,9 +73,9 @@
 
                 <select name="tkid">
                 <?php 
-                        $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
+                        $tkid = mysqli_query($managementCon, "SELECT tkid FROM users WHERE role = 'user'");
                         if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
-                    ?>
+                ?>
                 </select>
                 
                 <select name = "availability">
@@ -89,17 +85,7 @@
                 
                 <input type="submit" value="AKTUALIZUJ">
             </form>
-            <?php
-                if(isset($_SESSION['e_team']))
-                {
-                    // if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
-                    echo '<div class="error">'.$_SESSION['e_team'].'</div>';
-                    unset($_SESSION['e_team']);
-                }
-            }
-            ?>
-
-
+            <?php } $managementCon->close(); ?>
             <!-- wyświetlanie tabeli -->
             <table border = "1px, solid, black">
                 <tr>
@@ -116,30 +102,13 @@
                 </tr>
                 <?php
                     $i=0;
-                    while($row = mysqli_fetch_array($display))
+                    while($row = mysqli_fetch_array($result))
                     {
                 ?>
                 <tr>
                     <td><?php echo $row["tkid"]; ?></td>
                     <?php
-                        if($currentRole == "admin")
-                        {
-                            for($x = 0; $x < sizeof($shifts); $x++)
-                            {
-                                echo '<td>'.$row[$shifts[$x]].'</td>';
-                            }
-                        }
-                        else
-                        {
-                            for($x = 0; $x < sizeof($shifts); $x++)
-                            {
-                                if(strpos($row[$shifts[$x]], $currentTkid) !== false || strpos($row[$shifts[$x]], 'ZAKAZ') !== false)
-                                {
-                                    echo '<td>'.$row[$shifts[$x]].'</td>';
-                                }
-                                else echo '<td> - </td>';
-                            }
-                        }
+                        for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
                     ?>
                 </tr>
                 <?php
@@ -148,9 +117,5 @@
                 ?>
             </table>
         </fieldset>
-        <?php
-            $connection -> close(); 
-            echo $rowsCounter;
-        ?>
     </fieldset>
 </body>

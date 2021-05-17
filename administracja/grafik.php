@@ -16,12 +16,28 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-        if($currentRole == "admin") 
+        if ($currentRole->num_rows > 0) 
+        {
+            while($row = $currentRole->fetch_assoc()) 
+            {
+                $myRole = $row["role"];
+                global $myRole;
+            }
+        }
+        if ($currentTkid->num_rows > 0)
+        {
+            while($row = $currentTkid->fetch_assoc()) 
+            {
+                $myTkid = $row["tkid"];
+                global $myTkid;
+            }
+        }
+        if($myRole == "admin") 
         {
             error_reporting(0);
             echo '<a href="crud/create-schedule">NOWY GRAFIK</a>';
-        }
     ?>
+       <?php } ?>
     <!-- wybranie tabeli -->
     <fieldset>
         <legend>Wyświetl grafik</legend>
@@ -34,7 +50,6 @@
                 else if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
                 else echo $dateStart;
             ?> name="dateStart">
-
             <input type="date" value=<?php
                 $dates = split ("\_", $newestTable); 
                 $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
@@ -42,7 +57,6 @@
                 else if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                 else echo $dateEnd;
             ?> name="dateEnd">
-
             <input type="submit" value="WYŚWIETL">
         </form>
         <?php
@@ -53,7 +67,7 @@
             }
         ?>
         <!-- aktualizacja tabeli -->
-        <?php if($currentRole == "admin") { ?>
+        <?php if($myRole == "admin") { ?>
         <fieldset>
             <legend>Aktualizuj grafik</legend>
             <form action="grafik" method="post">
@@ -63,23 +77,19 @@
                     if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
                     else echo $dateStart;
                 ?> name="dateStartUpdate">
-
                 <input type="hidden" value=<?php
                     $dates = split ("\_", $newestTable); 
                     $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
                     if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                     else echo $dateEnd;
                 ?> name="dateEndUpdate">
-
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
                 
-                <input type="radio" id="1" name="hour" value="1" required>
+                <input type="radio" id="1" name="hour" value="1">
                 <label for="1">06:00 - 14:00</label><br>
-                <input type="radio" id="2" name="hour" value="2" required>
+                <input type="radio" id="2" name="hour" value="2">
                 <label for="2">14:00 - 22:00</label><br>
-
                 <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
-                
                 <select name = "UnitA">
                     <option></option>
                     <?php 
@@ -95,17 +105,8 @@
                         if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
                     ?>
                 </select>
-                
                 <input type="submit" value="AKTUALIZUJ">
             </form>
-            <?php
-                if(isset($_SESSION['e_team']))
-                {
-                    // if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
-                    echo '<div class="error">'.$_SESSION['e_team'].'</div>';
-                    unset($_SESSION['e_team']);
-                }
-            ?>
             <!-- usuwanie tabeli -->
             <form action="grafik" method="post">
                 <input type="hidden" value=<?php
@@ -114,14 +115,12 @@
                 if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
                 else echo $dateStart;
                 ?> name="dateStartDelete">
-
                 <input type="hidden" value=<?php
                 $dates = split ("\_", $newestTable); 
                 $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
                 if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                 else echo $dateEnd;
                 ?> name="dateEndDelete">
-
                 <input type="submit" value="USUŃ TABELĘ">
             </form>
             <?php
@@ -148,38 +147,30 @@
                 </tr>
                 <?php
                     $i=0;
-                    while($row = mysqli_fetch_array($display))
+                    while($row = mysqli_fetch_array($result))
                     {
                 ?>
                 <tr>
                     <td><?php echo $row["carrier"]; ?></td>
                     <?php
-                        if($currentRole == "admin")
-                        {
+                        if($myRole == "admin") 
+                            for($x = 0; $x < sizeof($shifts); $x++) 
+                                echo '<td>'.$row[$shifts[$x]].'</td>';
+                        else
                             for($x = 0; $x < sizeof($shifts); $x++)
+                            if(strpos($row[$shifts[$x]], $myTkid) !== false || strpos($row[$shifts[$x]], 'ZAKAZ') !== false)
                             {
                                 echo '<td>'.$row[$shifts[$x]].'</td>';
                             }
-                        }
-                        else
-                        {
-                            for($x = 0; $x < sizeof($shifts); $x++)
-                            {
-                                if(strpos($row[$shifts[$x]], $currentTkid) !== false || strpos($row[$shifts[$x]], 'ZAKAZ') !== false)
-                                {
-                                    echo '<td>'.$row[$shifts[$x]].'</td>';
-                                }
-                                else echo '<td> - </td>';
-                            }
-                        }
+                            else echo '<td> - </td>';
                     ?>
                 </tr>
                 <?php
                         $i++;
                     }
+                    $connection->close();
                 ?>
             </table>
         </fieldset>
-        <?php $connection -> close(); ?>
     </fieldset>
 </body>
