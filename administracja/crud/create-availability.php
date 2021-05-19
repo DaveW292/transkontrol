@@ -7,13 +7,17 @@
 
     $login = $_SESSION['login'];
     $currentRole = mysqli_query($connection, "SELECT role FROM users WHERE login='$login'");
+    $currentTkid = mysqli_query($connection, "SELECT tkid FROM users WHERE login='$login'");
 
     if ($currentRole->num_rows > 0) {
         while($row = $currentRole->fetch_assoc()) {
           $myRole = $row["role"];
-          global $myRole;
         }
-      }
+    }
+    if ($currentTkid->num_rows > 0)
+    {
+        while($row = $currentTkid->fetch_assoc()) $myTkid = $row["tkid"];
+    }
 
     if(!isset($_SESSION['logged']) || $myRole != "admin")
     {
@@ -22,9 +26,6 @@
     }
 
     $days = array("Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela");
-
-    $carriers = array("Rokbus (Rokietnica)", "ZKP Suchy Las", "Transkom (Murowana Goślina, Czerwonak)", "PUK Komorniki",
-                      "PUK Dopiewo", "Warbus (Oborniki)", "Marco Polo", "PKS Poznań");
 
     $shifts = array("monday1", "monday2",
                     "tuesday1", "tuesday2",
@@ -42,18 +43,18 @@
         $dateStart = $_POST['dateStart'];
         $dateEnd = $_POST['dateEnd'];
         $z = 0;
-        for($x = 0; $x < sizeof($carriers); $x++)
-        {
-            $carrier[$x] = $_POST['carrier'.$x];
-            for($y = 0; $y < sizeof($shifts); $y++)
-            {
-                $teams[$z] = $_POST[$shifts[$y]."a".$x]." - ".$_POST[$shifts[$y]."b".$x];
-                $z++;
-                //Zapamiętaj wprowadzone dane
-                $_SESSION['fr_'.$shifts[$y]."a".$x] = $_POST[$shifts[$y]."a".$x];
-                $_SESSION['fr_'.$shifts[$y]."b".$x] = $_POST[$shifts[$y]."b".$x];
-            }
-        }
+        // for($x = 0; $x < sizeof($carriers); $x++)
+        // {
+        //     $carrier[$x] = $_POST['carrier'.$x];
+        //     for($y = 0; $y < sizeof($shifts); $y++)
+        //     {
+        //         $teams[$z] = $_POST[$shifts[$y]."a".$x]." - ".$_POST[$shifts[$y]."b".$x];
+        //         $z++;
+        //         //Zapamiętaj wprowadzone dane
+        //         $_SESSION['fr_'.$shifts[$y]."a".$x] = $_POST[$shifts[$y]."a".$x];
+        //         $_SESSION['fr_'.$shifts[$y]."b".$x] = $_POST[$shifts[$y]."b".$x];
+        //     }
+        // }
         $_SESSION['fr_dateStart'] = $dateStart;
         $_SESSION['fr_dateEnd'] = $dateEnd;
 
@@ -66,30 +67,6 @@
             if($connection->connect_errno!=0) throw new Exception(mysqli_connect_errno());
             else
             {
-                //sprawdzenie poprawnosci dat
-                $datetime = new DateTime($dateStart);
-                $timestampStart = $datetime->format('U');
-                $fullDate = date("Y-m-d:l", $timestampStart);
-                $day = substr($fullDate, 11);
-                if($day != "Monday")
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_create']="Grafik musi zaczynać się od poniedziałku!";
-                }
-                $datetime = new DateTime($dateEnd);
-                $timestampEnd = $datetime->format('U');
-                $fullDate = date("Y-m-d:l", $timestampEnd);
-                $day = substr($fullDate, 11);
-                if($day != "Sunday")
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_create']="Grafik musi kończyć się na niedzieli!";
-                }
-                if($timestampEnd - $timestampStart != 518400)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_create']="Grafik musi mieścić się w zakresie jednego tygodnia!";
-                }
                 //sprawdzanie istnienia grafiku
                 $tmpTableName = $dateStart."_".$dateEnd;
                 $tableName = str_replace("-","",$tmpTableName);
@@ -104,27 +81,27 @@
                     $_SESSION['e_create']="Grafik z wybranego przedziału już istnieje!";
                 }
                 // sprawdzanie poprawnosci zespolu
-                for($x = 0; $x < sizeof($carriers); $x++)
-                {
-                    for($y = 0; $y < sizeof($shifts); $y++)
-                    {
-                        if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == $_POST[$shifts[$y]."b".$x]))
-                        {
-                            $everything_OK=false;
-                            $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
-                        }
-                        if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == "ZAKAZ" && $_POST[$shifts[$y]."b".$x] != ""))
-                        {
-                            $everything_OK=false;
-                            $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
-                        }
-                    }
-                }     
+                // for($x = 0; $x < sizeof($carriers); $x++)
+                // {
+                //     for($y = 0; $y < sizeof($shifts); $y++)
+                //     {
+                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == $_POST[$shifts[$y]."b".$x]))
+                //         {
+                //             $everything_OK=false;
+                //             $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
+                //         }
+                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == "ZAKAZ" && $_POST[$shifts[$y]."b".$x] != ""))
+                //         {
+                //             $everything_OK=false;
+                //             $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
+                //         }
+                //     }
+                // }        
 
                 if($everything_OK==true)
                 {
                     //Utwórz tabelę i dodaj kolumny
-                    for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(5),";
+                    // for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(5),";
 
                     $query = "CREATE TABLE $tableName (
                         id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -138,17 +115,17 @@
 
                     // Dodaj wiersze
                     $z = 0;
-                    for($y=0; $y < sizeof($carriers); $y++)
-                    {
-                        $values .= "('".$carriers[$y]."', ";
-                        for($x=0; $x < sizeof($shifts); $x++)
-                        {
-                            if($x + 1 == sizeof($shifts)) $values .= "'".$teams[$z]."')";
-                            else $values .= "'".$teams[$z]."', ";
-                            $z++;
-                        }
-                        if($y + 1 != sizeof($carriers)) $values .= ",";
-                    }
+                    // for($y=0; $y < sizeof($carriers); $y++)
+                    // {
+                    //     $values .= "('".$carriers[$y]."', ";
+                    //     for($x=0; $x < sizeof($shifts); $x++)
+                    //     {
+                    //         if($x + 1 == sizeof($shifts)) $values .= "'".$teams[$z]."')";
+                    //         else $values .= "'".$teams[$z]."', ";
+                    //         $z++;
+                    //     }
+                    //     if($y + 1 != sizeof($carriers)) $values .= ",";
+                    // }
 
                     $query = "INSERT INTO $tableName (carrier, ".implode(", ", $shifts).") VALUES".$values;
 
@@ -181,8 +158,9 @@
     <link rel="stylesheet" href="../../styles/panel.css">
 </head>
 <body>
-    <a href="../grafik"><h2>POWRÓT</h2></a>
+    <a href="../dyspozycyjnosc"><h2>POWRÓT</h2></a>
     <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
         <input type="date" value="<?php
         if(isset($_SESSION['fr_dateStart']))
         {
@@ -199,7 +177,7 @@
         ?>" name="dateEnd" required>
         <table border = "1px, solid, black">
             <tr>
-                <td rowspan = "2">Przewoźnik</td>
+                <td rowspan = "2">Numer służbowy</td>
                 <?php for($x = 0; $x < sizeof($days); $x++) {?>
                     <td colspan = "2"><?php echo $days[$x]; ?></td>
                 <?php } ?>
@@ -210,31 +188,17 @@
                     <td>14:00 - 22:00</td>
                     <?php } ?>
             </tr>
-            <?php for($x = 0; $x < sizeof($carriers); $x++) { $i = 0; ?>
-            <input type="hidden" name=<?php echo "carrier".$x;?> value="<?php echo $carriers[$x];?>">
             <tr>
-                <td><?php echo $carriers[$x];?></td>
-                <?php for($y = 0; $y < sizeof($shifts); $y++) {?>
+                <td><input type="text" name="tkid" value="<?php echo $myTkid; ?>" disabled></td>
+                <?php for($y = 0; $y < sizeof($shifts); $y++) { ?>
                 <td>
-                    <select name = <?php echo $shifts[$i]."a".$r; ?>>
-                        <option></option>
-                        <?php 
-                            $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                            if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) {?>
-                            <option <?php if ($_SESSION['fr_'.$shifts[$i]."a".$r] == $row["tkid"]) echo 'selected="selected" ';?>><?php echo $row["tkid"]; ?></option>
-                            <?php } ?>
-                        <option <?php if ($_SESSION['fr_'.$shifts[$i]."a".$r] == "ZAKAZ") echo 'selected="selected" ';?>>ZAKAZ</option>
+                    <select name = "<?php echo $shifts[$y].'Availability'?>">
+                        <option <?php if ($_SESSION['fr_'.$shifts[$y].'Availability'] == "TAK") echo 'selected="selected" ';?>>TAK</option>
+                        <option <?php if ($_SESSION['fr_'.$shifts[$y].'Availability'] == "NIE") echo 'selected="selected" ';?>>NIE</option>
                     </select>
-                    <select name = <?php echo $shifts[$i]."b".$r; ?>>
-                        <option></option>
-                        <?php 
-                            $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                            if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) {?>
-                            <option <?php if ($_SESSION['fr_'.$shifts[$i]."b".$r] == $row["tkid"]) echo 'selected="selected" ';?>><?php echo $row["tkid"]; ?></option>
-                            <?php } ?>
-                    </select>
-                </td><?php $i++; } ?>
-            </tr><?php $r++; } ?>
+                </td>
+                <?php } ?>
+            </tr>
         </table>
         <input type="submit" value="DODAJ">
     </form>

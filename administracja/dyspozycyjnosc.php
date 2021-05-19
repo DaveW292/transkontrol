@@ -16,6 +16,11 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
+        if($myRole == "admin")
+        {
+            error_reporting(0);
+            echo '<a href="crud/create-availability">NOWY GRAFIK</a>';
+        }
     ?>
     <!-- wybranie tabeli -->
     <fieldset>
@@ -93,6 +98,7 @@
                     <?php for($x = 0; $x < sizeof($days); $x++) {?>
                         <td colspan = "2"><?php echo $days[$x]; ?></td>
                     <?php } ?>
+                    <td rowspan = "2">Data dodania</td>
                 </tr>
                 <tr>
                     <?php for($x = 0; $x < 7; $x++) {?>
