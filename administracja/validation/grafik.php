@@ -19,6 +19,9 @@
 
     $days = array("Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela");
     $daysEn = array("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday");
+
+    $_SESSION['fr_day'] = $fr_day;
+
     // usuwanie tabeli
     if(isset($_POST['dateStartDelete']) && isset($_POST['dateEndDelete']))
     {

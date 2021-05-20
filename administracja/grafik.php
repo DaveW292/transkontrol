@@ -21,7 +21,6 @@
             while($row = $currentRole->fetch_assoc()) 
             {
                 $myRole = $row["role"];
-                global $myRole;
             }
         }
         if ($currentTkid->num_rows > 0)
@@ -29,7 +28,6 @@
             while($row = $currentTkid->fetch_assoc()) 
             {
                 $myTkid = $row["tkid"];
-                global $myTkid;
             }
         }
         if($myRole == "admin")
@@ -83,7 +81,7 @@
                     if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                     else echo $dateEnd;
                 ?> name="dateEndUpdate">
-                
+
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
                 
                 <input type="radio" id="1" name="hour" value="1" required>

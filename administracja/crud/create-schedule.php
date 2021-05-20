@@ -124,7 +124,7 @@
                 if($everything_OK==true)
                 {
                     //Utwórz tabelę i dodaj kolumny
-                    for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(5),";
+                    for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(20),";
 
                     $query = "CREATE TABLE $tableName (
                         id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -135,6 +135,37 @@
 
                     if(mysqli_query($connection, $query)) $_SESSION['sent']=true;
                     else throw new Exception($connection->error);
+
+                    // Utwórz tabelę dyspozycyjności na przyszły tydzień
+                    require_once "../redirects/db-availability.php";
+                    mysqli_report(MYSQLI_REPORT_STRICT);            
+                    try {
+                        $availabilityCon = new mysqli($host, $db_user, $db_password, $db_name);
+                        if($availabilityCon->connect_errno!=0) throw new Exception(mysqli_connect_errno());
+                        else {
+                            for($x = 0; $x < sizeof($shifts); $x++) $availabilityColumns .= $shifts[$x]." VARCHAR(3),";
+
+                            $nextTsStart = $timestampStart + 604800;
+                            $nextTsEnd = $timestampEnd + 604800;
+                            $nextDateStart = date('Ymd', $nextTsStart);
+                            $nextDateEnd = date('Ymd', $nextTsEnd);
+                            $availabilityTableName = $nextDateStart.'_'.$nextDateEnd;
+
+                            $availabilityQuery = "CREATE TABLE $availabilityTableName (
+                                tkid SMALLINT,"
+                                .$availabilityColumns.
+                                "date TEXT,
+                                PRIMARY KEY (tkid)
+                                )";
+
+                            if(mysqli_query($availabilityCon, $availabilityQuery)) $_SESSION['sent']=true;
+                            else throw new Exception($availabilityCon->error);
+                        }
+                    }
+                    catch (Exception $e) {
+                        echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+                        echo '<br>Informacja developerska: '.$e;            
+                    }
 
                     // Dodaj wiersze
                     $z = 0;
