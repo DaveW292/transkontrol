@@ -34,31 +34,23 @@
                     "friday1", "friday2",
                     "saturday1", "saturday2",
                     "sunday1", "sunday2");
-    $r = 0;
 
     if(isset($_POST['dateStart']) && isset($_POST['dateEnd']))
     {
         $everything_OK=true;
 
+        $date = $_POST['date'];
         $dateStart = $_POST['dateStart'];
         $dateEnd = $_POST['dateEnd'];
-        $z = 0;
-        // for($x = 0; $x < sizeof($carriers); $x++)
-        // {
-        //     $carrier[$x] = $_POST['carrier'.$x];
-        //     for($y = 0; $y < sizeof($shifts); $y++)
-        //     {
-        //         $teams[$z] = $_POST[$shifts[$y]."a".$x]." - ".$_POST[$shifts[$y]."b".$x];
-        //         $z++;
-        //         //Zapamiętaj wprowadzone dane
-        //         $_SESSION['fr_'.$shifts[$y]."a".$x] = $_POST[$shifts[$y]."a".$x];
-        //         $_SESSION['fr_'.$shifts[$y]."b".$x] = $_POST[$shifts[$y]."b".$x];
-        //     }
-        // }
+        $tkid = $_POST['tkid'];
+        for($x = 0; $x < sizeof($shifts); $x++) {
+            $zmiany[$x] = $_POST[$shifts[$x]];
+        }
+
         $_SESSION['fr_dateStart'] = $dateStart;
         $_SESSION['fr_dateEnd'] = $dateEnd;
 
-        require_once "../redirects/db-schedules.php";
+        require_once "../redirects/db-availability.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
 
         try
@@ -75,64 +67,27 @@
                 if(!$result) throw new Exception($connection->error);
 
                 $how_many_tables = $result->num_rows;
-                if($how_many_tables>0)
+                if($how_many_tables = 0)
                 {
                     $everything_OK=false;
-                    $_SESSION['e_create']="Grafik z wybranego przedziału już istnieje!";
+                    $_SESSION['e_create']="Grafik z wybranego przedziału nie istnieje!";
                 }
-                // sprawdzanie poprawnosci zespolu
-                // for($x = 0; $x < sizeof($carriers); $x++)
-                // {
-                //     for($y = 0; $y < sizeof($shifts); $y++)
-                //     {
-                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == $_POST[$shifts[$y]."b".$x]))
-                //         {
-                //             $everything_OK=false;
-                //             $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
-                //         }
-                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == "ZAKAZ" && $_POST[$shifts[$y]."b".$x] != ""))
-                //         {
-                //             $everything_OK=false;
-                //             $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
-                //         }
-                //     }
-                // }        
 
                 if($everything_OK==true)
                 {
-                    //Utwórz tabelę i dodaj kolumny
-                    // for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(5),";
-
-                    $query = "CREATE TABLE $tableName (
-                        id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                        carrier TEXT,"
-                        .$columns.
-                        "PRIMARY KEY (id)
-                        )";
-
-                    if(mysqli_query($connection, $query)) $_SESSION['sent']=true;
-                    else throw new Exception($connection->error);
-
                     // Dodaj wiersze
-                    $z = 0;
-                    // for($y=0; $y < sizeof($carriers); $y++)
-                    // {
-                    //     $values .= "('".$carriers[$y]."', ";
-                    //     for($x=0; $x < sizeof($shifts); $x++)
-                    //     {
-                    //         if($x + 1 == sizeof($shifts)) $values .= "'".$teams[$z]."')";
-                    //         else $values .= "'".$teams[$z]."', ";
-                    //         $z++;
-                    //     }
-                    //     if($y + 1 != sizeof($carriers)) $values .= ",";
-                    // }
+                    for($x = 0; $x < sizeof($shifts); $x++) {
+                        if ($x == 0) $values .= "('".$tkid."', '".$zmiany[$x]."', ";
+                        else if ($x + 1 == sizeof($shifts)) $values .= "'".$zmiany[$x]."', '".$date."')";
+                        else $values .= "'".$zmiany[$x]."', ";
+                    }
 
-                    $query = "INSERT INTO $tableName (carrier, ".implode(", ", $shifts).") VALUES".$values;
+                $query = "INSERT INTO $tableName (tkid, ".implode(", ", $shifts).", date) VALUES".$values;
 
-                    if(mysqli_query($connection, $query)) 
+                    if(mysqli_query($connection, $query))
                     {
                         $_SESSION['sent'] = true;
-                        header('Location: ../grafik');
+                        header('Location: ../dyspozycyjnosc');
                         if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
                     }
                     else throw new Exception($connection -> error);
@@ -145,10 +100,10 @@
             echo '<br>Informacja developerska: '.$e;
         }
     }
-    include '../redirects/db-management.php';
-    $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
-    if(!$connection) die('Nie można połączyć się z bazą!');
-    $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
+    // include '../redirects/db-management.php';
+    // $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
+    // if(!$connection) die('Nie można połączyć się z bazą!');
+    // $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -160,6 +115,7 @@
 <body>
     <a href="../dyspozycyjnosc"><h2>POWRÓT</h2></a>
     <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="tkid" value="<?php echo $myTkid; ?>">
         <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
         <input type="date" value="<?php
         if(isset($_SESSION['fr_dateStart']))
@@ -189,12 +145,12 @@
                     <?php } ?>
             </tr>
             <tr>
-                <td><input type="text" name="tkid" value="<?php echo $myTkid; ?>" disabled></td>
+                <td><input type="text" value="<?php echo $myTkid; ?>" disabled></td>
                 <?php for($y = 0; $y < sizeof($shifts); $y++) { ?>
                 <td>
-                    <select name = "<?php echo $shifts[$y].'Availability'?>">
-                        <option <?php if ($_SESSION['fr_'.$shifts[$y].'Availability'] == "TAK") echo 'selected="selected" ';?>>TAK</option>
-                        <option <?php if ($_SESSION['fr_'.$shifts[$y].'Availability'] == "NIE") echo 'selected="selected" ';?>>NIE</option>
+                    <select name = "<?php echo $shifts[$y]?>">
+                        <option <?php if ($_SESSION['fr_'.$shifts[$y]] == "TAK") echo 'selected="selected" ';?>>TAK</option>
+                        <option <?php if ($_SESSION['fr_'.$shifts[$y]] == "NIE") echo 'selected="selected" ';?>>NIE</option>
                     </select>
                 </td>
                 <?php } ?>

@@ -11,7 +11,6 @@
     if ($currentRole->num_rows > 0) {
         while($row = $currentRole->fetch_assoc()) {
           $myRole = $row["role"];
-          global $myRole;
         }
       }
 

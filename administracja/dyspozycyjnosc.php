@@ -116,6 +116,7 @@
                     <?php
                         for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
                     ?>
+                    <td><?php echo $row["date"]; ?></td>
                 </tr>
                 <?php
                         $i++;
