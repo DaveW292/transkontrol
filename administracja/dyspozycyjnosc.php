@@ -16,12 +16,71 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
-        if($myRole == "admin")
-        {
-            error_reporting(0);
-            echo '<a href="crud/create-availability">NOWY GRAFIK</a>';
-        }
     ?>
+    <!-- dodaj wiersz -->
+    <fieldset>
+        <legend>Dodaj grafik</legend>
+
+        <form action="dyspozycyjnosc" method="post">
+        <input type="hidden" name="tkid" value="<?php echo $myTkid; ?>">
+        <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
+        <input type="hidden" value=<?php
+                    $dates = split ("\_", $newestTable); 
+                    $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
+                    if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
+                    else echo $dateStart;
+                ?> name="dateStartCreate">
+
+                <input type="hidden" value=<?php
+                    $dates = split ("\_", $newestTable); 
+                    $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
+                    if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
+                    else echo $dateEnd;
+                ?> name="dateEndCreate">
+        <table border = "1px, solid, black">
+            <tr>
+                <td rowspan = "2">Numer służbowy</td>
+                <?php for($x = 0; $x < sizeof($days); $x++) {?>
+                    <td colspan = "2"><?php echo $days[$x]; ?></td>
+                <?php } ?>
+            </tr>
+            <tr>
+                <?php for($x = 0; $x < 7; $x++) {?>
+                    <td>06:00 - 14:00</td>
+                    <td>14:00 - 22:00</td>
+                    <?php } ?>
+            </tr>
+            <tr>
+                <td><input type="text" value="<?php echo $myTkid; ?>" disabled></td>
+                <?php for($y = 0; $y < sizeof($shifts); $y++) { ?>
+                <td>
+                    <select name = "<?php echo $shifts[$y]?>">
+                        <option <?php if ($_SESSION['fr_'.$shifts[$y]] == "TAK") echo 'selected="selected" ';?>>TAK</option>
+                        <option <?php if ($_SESSION['fr_'.$shifts[$y]] == "NIE") echo 'selected="selected" ';?>>NIE</option>
+                    </select>
+                </td>
+                <?php } ?>
+            </tr>
+        </table>
+        <input type="submit" value="DODAJ">
+    </form>
+    <?php
+        if(isset($_SESSION['e_create']))
+        {
+            // if(isset($_SESSION['e_team'])) unset($_SESSION['e_team']);
+            echo '<div class="error">'.$_SESSION['e_create'].'</div>';
+            unset($_SESSION['e_create']);
+        }
+        if(isset($_SESSION['e_team']))
+        {
+            // if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
+            echo '<div class="error">'.$_SESSION['e_team'].'</div>';
+            unset($_SESSION['e_team']);
+        }
+        // $connection->close();
+    ?>
+    </fieldset>
+
     <!-- wybranie tabeli -->
     <fieldset>
         <legend>Wyświetl grafik</legend>
@@ -50,6 +109,7 @@
                 unset($_SESSION['e_read']);
             }
         ?>
+
         <!-- aktualizacja tabeli -->
         <?php if($myRole == "admin") { ?>
         <fieldset>
@@ -112,11 +172,13 @@
                     {
                 ?>
                 <tr>
-                    <td><?php echo $row["tkid"]; ?></td>
-                    <?php
-                        for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
-                    ?>
-                    <td><?php echo $row["date"]; ?></td>
+                    <?php  if($row["tkid"] == "") {?> <td>Uzupełnij grafik!</td>
+                    <?php  } else { ?>
+                        <td><?php echo $row["tkid"]; ?></td>
+                        <?php
+                            for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
+                        ?>
+                    <td><?php echo $row["date"]; } ?></td>
                 </tr>
                 <?php
                         $i++;
