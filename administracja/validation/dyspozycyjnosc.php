@@ -61,16 +61,25 @@
                 //sprawdzanie istnienia grafiku
                 $tmpTableName = $dateStartCreate."_".$dateEndCreate;
                 $tableName = str_replace("-","",$tmpTableName);
-
                 $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
                 if(!$result) throw new Exception($connection->error);
-
                 $how_many_tables = $result->num_rows;
                 if($how_many_tables == 0)
                 {
                     $everything_OK=false;
                     $_SESSION['e_create']="Grafik z wybranego przedziału nie istnieje!";
                 }
+
+                //sprawdzanie czy wiersz istnieje
+                $result = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
+                if(!$result) throw new Exception($connection->error);
+                
+                $how_many_records = $result->num_rows;
+                if($how_many_records > 0)
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_create']="Grafik został już wcześniej uzupełniony!";
+                }                
 
                 if($everything_OK==true)
                 {
@@ -95,8 +104,8 @@
         }
         catch(Exception $e)
         {
-            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-            echo '<br>Informacja developerska: '.$e;
+            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            // echo '<br>Informacja developerska: '.$e;
         }
     }
 
@@ -136,8 +145,8 @@
         }
         catch(Exception $e)
         {
-            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-            echo '<br>Informacja developerska: '.$e;
+            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            // echo '<br>Informacja developerska: '.$e;
         }
     }
 
@@ -161,6 +170,7 @@
                 $dateEnd = $_POST['dateEnd'];
                 $tmpTableName = $dateStart."_".$dateEnd;
                 $tableName = str_replace("-","",$tmpTableName);
+
                 //sprawdzanie istnienia grafiku
                 $result = $connection->query("SELECT Table_name from information_schema.tables WHERE Table_name = '$tableName'");
                 if(!$result) throw new Exception($connection->error);
@@ -172,16 +182,16 @@
                     $_SESSION['e_read']="Grafik z wybranego przedziału nie istnieje!";
                 }
 
-                                //sprawdzanie czy wiersz jest uzupełniony
-                                $result = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
-                                if(!$result) throw new Exception($connection->error);
-                
-                                $how_many_records = $result->num_rows;
-                                if($how_many_records == 0)
-                                {
-                                    $everything_OK=false;
-                                    $_SESSION['e_read']="Uzupełnij tabelę!";
-                                }                
+                //sprawdzanie czy wiersz jest uzupełniony
+                $result = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
+                if(!$result) throw new Exception($connection->error);
+            
+                $how_many_records = $result->num_rows;
+                if($how_many_records == 0)
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_table']="Uzupełnij tabelę!";
+                }                
 
                 if($everything_OK==true)
                 {
@@ -189,13 +199,12 @@
                     else $query = "SELECT * FROM $tableName WHERE tkid = '$myTkid'";
                     $result = mysqli_query($connection, $query);
                 }
-                // $connection->close();
             }
         }
         catch(Exception $e)
         {
-            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-            echo '<br>Informacja developerska: '.$e;
+            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            // echo '<br>Informacja developerska: '.$e;
         }
     }
     else
@@ -217,7 +226,7 @@
             if($myRole == "admin") $query = "SELECT * FROM $newestTable";
             else $query = "SELECT * FROM $newestTable WHERE tkid = '$myTkid'";
             $result = mysqli_query($connection, $query);
-            $connection->close();
+            // $connection->close();
             mysql_free_result($showAvailability);
         }
     }

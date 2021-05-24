@@ -16,15 +16,16 @@
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';
         echo "<a href='redirects/logout.php'>Wyloguj się!</a><br><br>";
+        error_reporting(0);
+        if($myRole == "user") {
     ?>
     <!-- dodaj wiersz -->
     <fieldset>
         <legend>Dodaj grafik</legend>
-
         <form action="dyspozycyjnosc" method="post">
-        <input type="hidden" name="tkid" value="<?php echo $myTkid; ?>">
-        <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
-        <input type="hidden" value=<?php
+            <input type="hidden" name="tkid" value="<?php echo $myTkid; ?>">
+            <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
+            <input type="hidden" value=<?php
                     $dates = split ("\_", $newestTable); 
                     $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
                     if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
@@ -37,7 +38,7 @@
                     if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                     else echo $dateEnd;
                 ?> name="dateEndCreate">
-        <table border = "1px, solid, black">
+            <table border = "1px, solid, black">
             <tr>
                 <td rowspan = "2">Numer służbowy</td>
                 <?php for($x = 0; $x < sizeof($days); $x++) {?>
@@ -61,9 +62,9 @@
                 </td>
                 <?php } ?>
             </tr>
-        </table>
-        <input type="submit" value="DODAJ">
-    </form>
+            </table>
+            <input type="submit" value="DODAJ">
+        </form>
     <?php
         if(isset($_SESSION['e_create']))
         {
@@ -77,9 +78,9 @@
             echo '<div class="error">'.$_SESSION['e_team'].'</div>';
             unset($_SESSION['e_team']);
         }
-        // $connection->close();
     ?>
     </fieldset>
+    <?php } ?>
 
     <!-- wybranie tabeli -->
     <fieldset>
@@ -90,6 +91,7 @@
                 $dates = split ("\_", $newestTable); 
                 $newestDateStart = substr($dates[0],0,4).'-'.substr($dates[0],4,2).'-'.substr($dates[0],6,2);
                 if(isset($dateStartUpdate)) echo $dateStartUpdate;
+                else if(isset($dateStartCreate)) echo $dateStartCreate;
                 else if(!isset($dateStart) || $dateStart=='') echo $newestDateStart;
                 else echo $dateStart;
             ?> name="dateStart">
@@ -97,6 +99,7 @@
                 $dates = split ("\_", $newestTable); 
                 $newestDateEnd = substr($dates[1],0,4).'-'.substr($dates[1],4,2).'-'.substr($dates[1],6,2);
                 if(isset($dateEndUpdate)) echo $dateEndUpdate;
+                else if(isset($dateEndCreate)) echo $dateEndCreate;
                 else if(!isset($dateEnd) || $dateEnd=='') echo $newestDateEnd;
                 else echo $dateEnd;
             ?> name="dateEnd">
@@ -172,19 +175,27 @@
                     {
                 ?>
                 <tr>
-                    <?php  if($row["tkid"] == "") {?> <td>Uzupełnij grafik!</td>
-                    <?php  } else { ?>
+                    <?php if($row["tkid"] == "") {?> <td>Uzupełnij grafik!</td>
+                    <?php } else { ?>
                         <td><?php echo $row["tkid"]; ?></td>
                         <?php
                             for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
                         ?>
-                    <td><?php echo $row["date"]; } ?></td>
+                    <td><?php echo $row["date"];?></td>
+                    <?php } ?>
                 </tr>
                 <?php
                         $i++;
                     }
+                    $connection->close();
                 ?>
             </table>
+            <?php                     
+                if(isset($_SESSION['e_table'])) {
+                    echo '<div class="error"><h1>'.$_SESSION['e_table'].'</h1></div>';
+                    unset($_SESSION['e_table']);
+                }
+            ?>
         </fieldset>
     </fieldset>
 </body>
