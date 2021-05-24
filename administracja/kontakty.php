@@ -31,15 +31,31 @@
             <form action="kontakty" method="post">
                 <fieldset>
                     <legend>Dodaj kontakt</legend>
-                    Numer służbowy<input type="text" name="tkid" required><br>
-                    Imię<input type="text" name="name" required><br>
-                    Numer telefonu<input type="text" name="phone" required><br>
-                    Nazwa użytkownika<input type="text" name="login" required><br>
+                    Numer służbowy<input type="text" name="tkid" required value="<?php
+                    if(isset($_SESSION['fr_tkid'])) {
+                        echo $_SESSION['fr_tkid'];
+                        unset($_SESSION['fr_tkid']);
+                    } ?>"><br>
+                    Imię<input type="text" name="name" required value="<?php
+                    if(isset($_SESSION['fr_name'])) {
+                        echo $_SESSION['fr_name'];
+                        unset($_SESSION['fr_name']);
+                    } ?>"><br>
+                    Numer telefonu<input type="text" name="phone" required value="<?php
+                    if(isset($_SESSION['fr_phone'])) {
+                        echo $_SESSION['fr_phone'];
+                        unset($_SESSION['fr_phone']);
+                    } ?>"><br>
+                    Nazwa użytkownika<input type="text" name="login" required value="<?php
+                    if(isset($_SESSION['fr_login'])) {
+                        echo $_SESSION['fr_login'];
+                        unset($_SESSION['fr_login']);
+                    } ?>"><br>
                     Hasło<input type="password" name="password" required><br>
                     Uprawnienia
                     <select name="role">
-                        <option>user</option>
-                        <option>admin</option>
+                        <option <?php if ($_SESSION['fr_role'] == "user") echo 'selected="selected" ';?>>user</option>
+                        <option <?php if ($_SESSION['fr_role'] == "admin") echo 'selected="selected" ';?>>admin</option>
                     </select><br>
                     <input type="submit" value="DODAJ">
                 </fieldset>

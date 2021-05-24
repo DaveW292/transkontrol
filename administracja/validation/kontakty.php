@@ -17,6 +17,13 @@
         $password = $_POST['password'];
         $role = $_POST['role'];
 
+        //Zapamiętaj wprowadzone dane
+        $_SESSION['fr_tkid'] = $tkid;
+        $_SESSION['fr_name'] = $name;
+        $_SESSION['fr_phone'] = $phone;
+        $_SESSION['fr_login'] = $login;
+        $_SESSION['fr_role'] = $role;
+
         require_once "redirects/db-management.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -26,7 +33,7 @@
             if($connection->connect_errno!=0) throw new Exception(mysqli_connect_errno());
             else
             {
-                //czy numer sluzbowy juz isnieje?
+                //czy numer sluzbowy juz istnieje?
                 $result = $connection->query("SELECT tkid FROM users WHERE tkid='$tkid'");
                 if(!$result) throw new Exception($connection->error);
 
@@ -37,7 +44,7 @@
                     $_SESSION['e_tkid']="Podany numer służbowy jest już w bazie!";
                 }
 
-                //czy numer telefonu juz isnieje?
+                //czy numer telefonu juz istnieje?
                 $result = $connection->query("SELECT tkid FROM users WHERE phone='$phone'");
                 if(!$result) throw new Exception($connection->error);
             
@@ -48,7 +55,7 @@
                     $_SESSION['e_phone']="Podany numer telefonu jest już w bazie!";
                 }
 
-                //czy login juz isnieje?
+                //czy login juz istnieje?
                 $result = $connection->query("SELECT tkid FROM users WHERE login='$login'");
                 if(!$result) throw new Exception($connection->error);
                 
