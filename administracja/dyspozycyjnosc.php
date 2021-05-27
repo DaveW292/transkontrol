@@ -175,14 +175,11 @@
                     {
                 ?>
                 <tr>
-                    <?php if($row["tkid"] == "") {?> <td>Uzupełnij grafik!</td>
-                    <?php } else { ?>
-                        <td><?php echo $row["tkid"]; ?></td>
-                        <?php
-                            for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
-                        ?>
+                    <td><?php echo $row["tkid"]; ?></td>
+                    <?php
+                        for($x = 0; $x < sizeof($shifts); $x++) echo '<td>'.$row[$shifts[$x]].'</td>';
+                    ?>
                     <td><?php echo $row["date"];?></td>
-                    <?php } ?>
                 </tr>
                 <?php
                         $i++;

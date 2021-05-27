@@ -90,12 +90,12 @@
                         else $values .= "'".$zmiany[$x]."', ";
                     }
 
-                    $query = "INSERT INTO $tableName (tkid, ".implode(", ", $shifts).", date) VALUES".$values;
+                    $query2 = "INSERT INTO $tableName (tkid, ".implode(", ", $shifts).", date) VALUES".$values;
 
-                    if(mysqli_query($connection, $query))
+                    if(mysqli_query($connection, $query2))
                     {
                         $_SESSION['sent'] = true;
-                        // header('Location: ../dyspozycyjnosc');
+                        $query = "SELECT * FROM $tableName";
                         if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
                     }
                     else throw new Exception($connection -> error);
@@ -183,11 +183,11 @@
                 }
 
                 //sprawdzanie czy wiersz jest uzupełniony
-                $result = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
-                if(!$result) throw new Exception($connection->error);
+                $result2 = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
+                if(!$result2) throw new Exception($connection->error);
             
-                $how_many_records = $result->num_rows;
-                if($how_many_records == 0)
+                $how_many_records2 = $result2->num_rows;
+                if($how_many_records2 == 0)
                 {
                     $everything_OK=false;
                     $_SESSION['e_table']="Uzupełnij tabelę!";
@@ -222,11 +222,21 @@
             include_once 'redirects/db-availability.php';
             $connection=mysqli_connect($host, $db_user, $db_password, $db_name);
             if(!$connection) die('Could not Connect My Sql:');
-        
+
+            //sprawdzanie czy wiersz jest uzupełniony
+            $result = $connection->query("SELECT * FROM $newestTable WHERE tkid = '$myTkid'");
+            if(!$result) throw new Exception($connection->error);
+
+            $how_many_records = $result->num_rows;
+            if($how_many_records == 0)
+            {
+                $everything_OK=false;
+                $_SESSION['e_table']="Uzupełnij tabelę!";
+            }
+
             if($myRole == "admin") $query = "SELECT * FROM $newestTable";
             else $query = "SELECT * FROM $newestTable WHERE tkid = '$myTkid'";
             $result = mysqli_query($connection, $query);
-            // $connection->close();
             mysql_free_result($showAvailability);
         }
     }
