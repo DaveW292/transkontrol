@@ -149,8 +149,8 @@
                 </tr>
                 <tr>
                     <?php for($x = 0; $x < 7; $x++) {?>
-                        <td>06:00 - 14:00</td>
-                        <td>14:00 - 22:00</td>
+                        <td style="width:70px;">06:00 - 14:00</td>
+                        <td style="width:70px;">14:00 - 22:00</td>
                     <?php } ?>
                 </tr>
                 <?php
@@ -161,6 +161,7 @@
                 <tr>
                     <td><?php echo $row["carrier"]; ?></td>
                     <?php
+                        // if(strpos($row[$shifts[$x]], ",") !== false) str_replace(",", ",<br>", $row[$shifts[$x]]);
                         if($myRole == "admin") 
                             for($x = 0; $x < sizeof($shifts); $x++) 
                                 echo '<td>'.$row[$shifts[$x]].'</td>';

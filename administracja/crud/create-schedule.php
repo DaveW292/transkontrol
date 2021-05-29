@@ -46,13 +46,15 @@
             $carrier[$x] = $_POST['carrier'.$x];
             for($y = 0; $y < sizeof($shifts); $y++)
             {
-                $teams[$z] = $_POST[$shifts[$y]."a".$x]." - ".$_POST[$shifts[$y]."b".$x];
+                $teams[$z] = $_POST[$shifts[$y].$x];
+                // if(strpos($teams[$z], ",") !== false) str_replace(",", ",<br>", $teams[$z]);
                 $z++;
                 //Zapamiętaj wprowadzone dane
-                $_SESSION['fr_'.$shifts[$y]."a".$x] = $_POST[$shifts[$y]."a".$x];
-                $_SESSION['fr_'.$shifts[$y]."b".$x] = $_POST[$shifts[$y]."b".$x];
+                $_SESSION['fr_'.$shifts[$y].$x] = $_POST[$shifts[$y].$x];
             }
         }
+
+
         $_SESSION['fr_dateStart'] = $dateStart;
         $_SESSION['fr_dateEnd'] = $dateEnd;
 
@@ -103,22 +105,22 @@
                     $_SESSION['e_create']="Grafik z wybranego przedziału już istnieje!";
                 }
                 // sprawdzanie poprawnosci zespolu
-                for($x = 0; $x < sizeof($carriers); $x++)
-                {
-                    for($y = 0; $y < sizeof($shifts); $y++)
-                    {
-                        if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == $_POST[$shifts[$y]."b".$x]))
-                        {
-                            $everything_OK=false;
-                            $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
-                        }
-                        if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == "ZAKAZ" && $_POST[$shifts[$y]."b".$x] != ""))
-                        {
-                            $everything_OK=false;
-                            $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
-                        }
-                    }
-                }     
+                // for($x = 0; $x < sizeof($carriers); $x++)
+                // {
+                //     for($y = 0; $y < sizeof($shifts); $y++)
+                //     {
+                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == $_POST[$shifts[$y]."b".$x]))
+                //         {
+                //             $everything_OK=false;
+                //             $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
+                //         }
+                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == "ZAKAZ" && $_POST[$shifts[$y]."b".$x] != ""))
+                //         {
+                //             $everything_OK=false;
+                //             $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
+                //         }
+                //     }
+                // }     
 
                 if($everything_OK==true)
                 {
@@ -246,23 +248,7 @@
                 <td><?php echo $carriers[$x];?></td>
                 <?php for($y = 0; $y < sizeof($shifts); $y++) {?>
                 <td>
-                    <select name = <?php echo $shifts[$i]."a".$r; ?>>
-                        <option></option>
-                        <?php 
-                            $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                            if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) {?>
-                            <option <?php if ($_SESSION['fr_'.$shifts[$i]."a".$r] == $row["tkid"]) echo 'selected="selected" ';?>><?php echo $row["tkid"]; ?></option>
-                            <?php } ?>
-                        <option <?php if ($_SESSION['fr_'.$shifts[$i]."a".$r] == "ZAKAZ") echo 'selected="selected" ';?>>ZAKAZ</option>
-                    </select>
-                    <select name = <?php echo $shifts[$i]."b".$r; ?>>
-                        <option></option>
-                        <?php 
-                            $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                            if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) {?>
-                            <option <?php if ($_SESSION['fr_'.$shifts[$i]."b".$r] == $row["tkid"]) echo 'selected="selected" ';?>><?php echo $row["tkid"]; ?></option>
-                            <?php } ?>
-                    </select>
+                    <textarea name=<?php echo $shifts[$i].$r; ?> cols="8" rows="2"><?php if(isset($_SESSION['fr_'.$shifts[$i].$r])) { echo $_SESSION['fr_'.$shifts[$i].$r]; unset($_SESSION['fr_'.$shifts[$i].$r]);} ?></textarea>
                 </td><?php $i++; } ?>
             </tr><?php $r++; } ?>
         </table>
@@ -271,13 +257,11 @@
     <?php
         if(isset($_SESSION['e_create']))
         {
-            // if(isset($_SESSION['e_team'])) unset($_SESSION['e_team']);
             echo '<div class="error">'.$_SESSION['e_create'].'</div>';
             unset($_SESSION['e_create']);
         }
         if(isset($_SESSION['e_team']))
         {
-            // if(isset($_SESSION['e_create'])) unset($_SESSION['e_create']);
             echo '<div class="error">'.$_SESSION['e_team'].'</div>';
             unset($_SESSION['e_team']);
         }
