@@ -47,7 +47,6 @@
             for($y = 0; $y < sizeof($shifts); $y++)
             {
                 $teams[$z] = $_POST[$shifts[$y].$x];
-                // if(strpos($teams[$z], ",") !== false) str_replace(",", ",<br>", $teams[$z]);
                 $z++;
                 //Zapamiętaj wprowadzone dane
                 $_SESSION['fr_'.$shifts[$y].$x] = $_POST[$shifts[$y].$x];
@@ -104,23 +103,6 @@
                     $everything_OK=false;
                     $_SESSION['e_create']="Grafik z wybranego przedziału już istnieje!";
                 }
-                // sprawdzanie poprawnosci zespolu
-                // for($x = 0; $x < sizeof($carriers); $x++)
-                // {
-                //     for($y = 0; $y < sizeof($shifts); $y++)
-                //     {
-                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == $_POST[$shifts[$y]."b".$x]))
-                //         {
-                //             $everything_OK=false;
-                //             $_SESSION['e_team']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
-                //         }
-                //         if(($_POST[$shifts[$y]."a".$x] != "" && $_POST[$shifts[$y]."b".$x] != "") && ($_POST[$shifts[$y]."a".$x] == "ZAKAZ" && $_POST[$shifts[$y]."b".$x] != ""))
-                //         {
-                //             $everything_OK=false;
-                //             $_SESSION['e_team']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
-                //         }
-                //     }
-                // }     
 
                 if($everything_OK==true)
                 {

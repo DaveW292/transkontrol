@@ -183,15 +183,17 @@
                 }
 
                 //sprawdzanie czy wiersz jest uzupełniony
-                $result2 = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
-                if(!$result2) throw new Exception($connection->error);
-            
-                $how_many_records2 = $result2->num_rows;
-                if($how_many_records2 == 0)
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_table']="Uzupełnij tabelę!";
-                }                
+                if($myRole == "user") {
+                    $result2 = $connection->query("SELECT * FROM $tableName WHERE tkid = '$myTkid'");
+                    if(!$result2) throw new Exception($connection->error);
+                
+                    $how_many_records2 = $result2->num_rows;
+                    if($how_many_records2 == 0)
+                    {
+                        $everything_OK=false;
+                        $_SESSION['e_table']="Uzupełnij tabelę!";
+                    }                
+                }
 
                 if($everything_OK==true)
                 {
@@ -227,11 +229,13 @@
             $result = $connection->query("SELECT * FROM $newestTable WHERE tkid = '$myTkid'");
             if(!$result) throw new Exception($connection->error);
 
-            $how_many_records = $result->num_rows;
-            if($how_many_records == 0)
-            {
-                $everything_OK=false;
-                $_SESSION['e_table']="Uzupełnij tabelę!";
+            if($myRole == "user") {
+                $how_many_records = $result->num_rows;
+                if($how_many_records == 0)
+                {
+                    $everything_OK=false;
+                    $_SESSION['e_table']="Uzupełnij tabelę!";
+                }
             }
 
             if($myRole == "admin") $query = "SELECT * FROM $newestTable";

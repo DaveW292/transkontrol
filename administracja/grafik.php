@@ -89,27 +89,14 @@
                 <input type="radio" id="2" name="hour" value="2" required>
                 <label for="2">14:00 - 22:00</label><br>
                 <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
-                <select name = "UnitA">
-                    <option></option>
-                    <?php 
-                        $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                        if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
-                    ?>
-                    <option>ZAKAZ</option>
-                </select>
-                <select name = "UnitB">
-                    <option></option>
-                    <?php 
-                        $tkid = mysqli_query($connection, "SELECT tkid FROM users WHERE role = 'user'");
-                        if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
-                    ?>
-                </select>
+                
+                <textarea name="team" cols="8" rows="2"><?php if(isset($_SESSION['fr_team'])) { echo $_SESSION['fr_team']; unset($_SESSION['fr_team']);} ?></textarea>
+
                 <input type="submit" value="AKTUALIZUJ">
             </form>
             <?php
                 if(isset($_SESSION['e_update']))
                 {
-                    // if(isset($_SESSION['e_team'])) unset($_SESSION['e_team']);
                     echo '<div class="error">'.$_SESSION['e_update'].'</div>';
                     unset($_SESSION['e_update']);
                 }
@@ -161,7 +148,6 @@
                 <tr>
                     <td><?php echo $row["carrier"]; ?></td>
                     <?php
-                        // if(strpos($row[$shifts[$x]], ",") !== false) str_replace(",", ",<br>", $row[$shifts[$x]]);
                         if($myRole == "admin") 
                             for($x = 0; $x < sizeof($shifts); $x++) 
                                 echo '<td>'.$row[$shifts[$x]].'</td>';

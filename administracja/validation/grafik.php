@@ -21,6 +21,7 @@
     $daysEn = array("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday");
 
     $_SESSION['fr_day'] = $fr_day;
+    $_SESSION['fr_team'] = $fr_day;
 
     // usuwanie tabeli
     if(isset($_POST['dateStartDelete']) && isset($_POST['dateEndDelete']))
@@ -57,11 +58,41 @@
                     if(mysqli_query($connection, "DROP TABLE $tableName"))
                     {
                         $_SESSION['sent']=true;
+                        // Usuń tabelę dyspozycyjności na przyszły tydzień
+                        require_once "redirects/db-availability.php";
+                        mysqli_report(MYSQLI_REPORT_STRICT);            
+                        try {
+                            $availabilityCon = new mysqli($host, $db_user, $db_password, $db_name);
+                            if($availabilityCon->connect_errno!=0) throw new Exception(mysqli_connect_errno());
+                            else {
+                                $datetime = new DateTime($dateStartDelete);
+                                $timestampStart = $datetime->format('U');
+                                $nextTsStart = $timestampStart + 604800;
+
+                                $datetime = new DateTime($dateEndDelete);
+                                $timestampEnd = $datetime->format('U');
+                                $nextTsEnd = $timestampEnd + 604800;
+
+                                $nextDateStart = date('Ymd', $nextTsStart);
+                                $nextDateEnd = date('Ymd', $nextTsEnd);
+                                $availabilityTableName = $nextDateStart.'_'.$nextDateEnd;
+
+                                $availabilityQuery = "DROP TABLE $availabilityTableName";
+
+                                if(mysqli_query($availabilityCon, $availabilityQuery)) $_SESSION['sent']=true;
+                                else throw new Exception($availabilityCon->error);
+                            }
+                        }
+                        catch (Exception $e) {
+                            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+                            echo '<br>Informacja developerska: '.$e;            
+                        }
+                        $availabilityCon->close();
+
                         header('Location: grafik');
                     }
                     else throw new Exception($connection->error);
                 }
-                // $connection->close();
             }
         }
         catch(Exception $e)
@@ -83,18 +114,6 @@
             if($connection->connect_errno!=0) throw new Exception(mysqli_connect_errno());
             else
             {
-                // sprawdzanie poprawnosci zespolu
-                if(($_POST['UnitA'] != "" && $_POST['UnitB'] != "") && ($_POST['UnitA'] == $_POST['UnitB'] ))
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_update']="Nie można wybrać dwukrotnie tego samego kontrolera!";        
-                }
-                if(($_POST['UnitA'] != "" && $_POST['UnitB'] != "") && ($_POST['UnitA'] == "ZAKAZ" && $_POST['UnitB'] != ""))
-                {
-                    $everything_OK=false;
-                    $_SESSION['e_update']="Nie można wybrać kontrolera tam gdzie obowiązuje zakaz!";        
-                }
-
                 if($everything_OK==true)
                 {
                     $dateStartUpdate = $_POST['dateStartUpdate'];
@@ -103,7 +122,7 @@
                     $tableName = str_replace("-","",$tmpTableName);
                     $shift = $_POST['day'].$_POST['hour'];
                     $carrier = $_POST['carrier'];
-                    $team = $_POST['UnitA'].' - '.$_POST['UnitB'];
+                    $team = $_POST['team'];
 
                     if(mysqli_query($connection, "UPDATE $tableName SET $shift = '$team' WHERE carrier = '$carrier'")) 
                     {
@@ -113,7 +132,6 @@
                     }
                     else throw new Exception($connection->error);
                 }
-                // $connection->close();
             }
         }
         catch(Exception $e)
@@ -158,7 +176,6 @@
                     $query = "SELECT * FROM $tableName";
                     $result = mysqli_query($connection, $query);
                 }
-                // $connection->close();
             }
         }
         catch(Exception $e)
@@ -185,7 +202,6 @@
         
             $query = "SELECT * FROM $newestTable";
             $result = mysqli_query($connection, $query);
-            // $connection->close();
             mysql_free_result($showSchedules);
         }
     }
