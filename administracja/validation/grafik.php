@@ -84,8 +84,8 @@
                             }
                         }
                         catch (Exception $e) {
-                            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-                            echo '<br>Informacja developerska: '.$e;            
+                            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+                            // echo '<br>Informacja developerska: '.$e;            
                         }
                         $availabilityCon->close();
 
@@ -97,8 +97,8 @@
         }
         catch(Exception $e)
         {
-            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-            echo '<br>Informacja developerska: '.$e;
+            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            // echo '<br>Informacja developerska: '.$e;
         }
     }
     // aktualizacja tabeli
@@ -136,8 +136,8 @@
         }
         catch(Exception $e)
         {
-            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-            echo '<br>Informacja developerska: '.$e;
+            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            // echo '<br>Informacja developerska: '.$e;
         }
     }
     // wyświetlanie tabeli
@@ -180,8 +180,8 @@
         }
         catch(Exception $e)
         {
-            echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
-            echo '<br>Informacja developerska: '.$e;
+            // echo '<span style="color:red;">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</span>';
+            // echo '<br>Informacja developerska: '.$e;
         }
     }
     else

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="../styles/panel.css">
 </head>
-<body>
+<body id="news">
     <nav>
         <a href="kontakty"><h2>Kontakty</h2></a>
         <h2>Aktualności</h2>

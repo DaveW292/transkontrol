@@ -1,10 +1,15 @@
-nav
-{
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.error
-{
+.error{
     color: red;
+}
+#news textarea {
+    resize: vertical;
+    width: 100%;
+}
+#schedule textarea, table textarea {
+    resize: vertical;
 }

@@ -133,12 +133,12 @@
                 ?> name="dateEndUpdate">
 
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
-                
+                <br>
                 <input type="radio" id="1" name="hour" value="1" required>
-                <label for="1">06:00 - 14:00</label><br>
+                <label for="1">06:00 - 14:00</label>
                 <input type="radio" id="2" name="hour" value="2" required>
-                <label for="2">14:00 - 22:00</label><br>
-
+                <label for="2">14:00 - 22:00</label>
+                <br>
                 <select name="tkid">
                 <?php 
                         $tkid = mysqli_query($managementCon, "SELECT tkid FROM users WHERE role = 'user'");
@@ -150,7 +150,7 @@
                     <option>TAK</option>
                     <option>NIE</option>
                 </select>
-                
+                <br><br>
                 <input type="submit" value="AKTUALIZUJ">
             </form>
             <?php } $managementCon->close(); ?>

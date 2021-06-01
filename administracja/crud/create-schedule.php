@@ -107,7 +107,7 @@
                 if($everything_OK==true)
                 {
                     //Utwórz tabelę i dodaj kolumny
-                    for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." VARCHAR(20),";
+                    for($x = 0; $x < sizeof($shifts); $x++) $columns .= $shifts[$x]." TEXT,";
 
                     $query = "CREATE TABLE $tableName (
                         id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -211,6 +211,7 @@
             unset($_SESSION['fr_dateEnd']);
         }
         ?>" name="dateEnd" required>
+        <b style="color: red;">ENTER zabroniony</b>
         <table border = "1px, solid, black">
             <tr>
                 <td rowspan = "2">Przewoźnik</td>

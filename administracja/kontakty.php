@@ -86,6 +86,7 @@
             <td>Numer telefonu</td>
             <?php if($myRole == "admin") { ?>
                 <td>Nazwa użytkownika</td>
+                <td>Hasło</td>
                 <td>Uprawnienia</td>
                 <td>Akcja</td>
             <?php } ?>
@@ -99,6 +100,7 @@
             <td><?php echo $row["name"]; ?></td>
             <td><?php echo $row["phone"]; ?></td>
             <?php if($myRole == "admin") echo "<td>".$row["login"]."</td>"; ?>
+            <?php if($myRole == "admin") echo "<td>".$row["password"]."</td>"; ?>
             <?php if($myRole == "admin") echo "<td>".$row["role"]."</td>"; ?>
             <?php if($myRole == "admin") 
                     if($row["login"] != $_SESSION['login'])
