@@ -195,7 +195,7 @@
     <link rel="stylesheet" href="../../styles/panel.css">
 </head>
 <body>
-    <a href="../grafik"><h2>POWRÓT</h2></a>
+<h2><a href="../grafik">POWRÓT</a></h2>
     <form method="post" enctype="multipart/form-data">
         <input type="date" value="<?php
         if(isset($_SESSION['fr_dateStart']))
