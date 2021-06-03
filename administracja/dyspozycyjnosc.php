@@ -114,7 +114,7 @@
         ?>
 
         <!-- aktualizacja tabeli -->
-        <?php if($myRole == "admin") { ?>
+        <?php if($myRole == "user") { ?>
         <fieldset>
             <legend>Aktualizuj grafik</legend>
             <form action="dyspozycyjnosc" method="post">
@@ -132,20 +132,18 @@
                     else echo $dateEnd;
                 ?> name="dateEndUpdate">
 
+                <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
+
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
                 <br>
                 <input type="radio" id="1" name="hour" value="1" required>
                 <label for="1">06:00 - 14:00</label>
                 <input type="radio" id="2" name="hour" value="2" required>
                 <label for="2">14:00 - 22:00</label>
+
+                <input type="hidden" value="<?php echo $myTkid; ?>" name="tkid">
                 <br>
-                <select name="tkid">
-                <?php 
-                        $tkid = mysqli_query($managementCon, "SELECT tkid FROM users WHERE role = 'user'");
-                        if ($tkid->num_rows > 0) while($row = $tkid->fetch_assoc()) echo '<option>'.$row["tkid"].'</option>';
-                ?>
-                </select>
-                
+
                 <select name = "availability">
                     <option>TAK</option>
                     <option>NIE</option>

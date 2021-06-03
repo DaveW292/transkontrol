@@ -37,7 +37,7 @@
     }
 
     // tworzenie wiersza dyspozycyjności
-    if(isset($_POST['tkid']))
+    if(isset($_POST['dateStartCreate']))
     {
         $everything_OK=true;
 
@@ -110,7 +110,7 @@
     }
 
     // aktualizacja tabeli
-    if(isset($_POST['dateStartUpdate']) && isset($_POST['dateEndUpdate']))
+    if(isset($_POST['dateStartUpdate']))
     {
         $everything_OK=true;
         require_once "redirects/db-availability.php";
@@ -131,11 +131,12 @@
                     $tkid = $_POST['tkid'];
                     $shift = $_POST['day'].$_POST['hour'];
                     $availability = $_POST['availability'];
+                    $date = $_POST['date'];
 
-                    if(mysqli_query($availabilityCon, "UPDATE $tableName SET $shift = '$availability' WHERE tkid = '$tkid'"))
+                    if(mysqli_query($availabilityCon, "UPDATE $tableName SET $shift = '$availability', date = '$date' WHERE tkid = '$tkid'"))
                     {
                         $_SESSION['sent']=true;
-                        $query = "SELECT * FROM $tableName";
+                        $query = "SELECT * FROM $tableName WHERE tkid = '$tkid'";
                         $result = mysqli_query($availabilityCon, $query);    
                     }
                     else throw new Exception($availabilityCon->error);
