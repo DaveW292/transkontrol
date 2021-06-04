@@ -56,7 +56,7 @@
     $conn=mysqli_connect($host, $db_user, $db_password, $db_name);
     if(!$conn) die('Could not Connect My Sql:');
     
-    $result = mysqli_query($conn,"SELECT * FROM news");
+    $result = mysqli_query($conn,"SELECT * FROM news ORDER BY date_time DESC");
     
     $login = $_SESSION['login'];
     $currentRole = mysqli_query($conn, "SELECT role FROM users WHERE login='$login'");

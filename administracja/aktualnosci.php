@@ -8,10 +8,10 @@
 </head>
 <body id="news">
     <nav>
-        <a href="kontakty"><h2>Kontakty</h2></a>
+        <h2><a href="kontakty">Kontakty</a></h2>
         <h2>Aktualności</h2>
-        <a href="grafik"><h2>Grafik</h2></a>
-        <a href="dyspozycyjnosc"><h2>Dyspozycyjność</h2></a>
+        <h2><a href="grafik">Grafik</a></h2>
+        <h2><a href="dyspozycyjnosc">Dyspozycyjność</a></h2>
     </nav>
     <?php
         echo "<p>Witaj ".$_SESSION['login'].'!</p>';

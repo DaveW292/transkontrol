@@ -109,16 +109,16 @@
                 ?> name="dateEndUpdate">
 
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
-                <br>
+                <br><br>
                 <input type="radio" id="1" name="hour" value="1" required>
                 <label for="1">06:00 - 14:00</label>
                 <input type="radio" id="2" name="hour" value="2" required>
                 <label for="2">14:00 - 22:00</label>
-                <br>
+                <br><br>
                 <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
-                <br>
+                <br><br>
                 <textarea name="team" cols="8" rows="2" placeholder="ENTER zabroniony"><?php if(isset($_SESSION['fr_team'])) { echo $_SESSION['fr_team']; unset($_SESSION['fr_team']);} ?></textarea>
-                <br>
+                <br><br>
                 <input type="submit" value="AKTUALIZUJ">
             </form>
             <?php

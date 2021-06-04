@@ -35,28 +35,28 @@
                     if(isset($_SESSION['fr_tkid'])) {
                         echo $_SESSION['fr_tkid'];
                         unset($_SESSION['fr_tkid']);
-                    } ?>"><br>
+                    } ?>"><br><br>
                     Imię<input type="text" name="name" required value="<?php
                     if(isset($_SESSION['fr_name'])) {
                         echo $_SESSION['fr_name'];
                         unset($_SESSION['fr_name']);
-                    } ?>"><br>
+                    } ?>"><br><br>
                     Numer telefonu<input type="text" name="phone" required value="<?php
                     if(isset($_SESSION['fr_phone'])) {
                         echo $_SESSION['fr_phone'];
                         unset($_SESSION['fr_phone']);
-                    } ?>"><br>
+                    } ?>"><br><br>
                     Nazwa użytkownika<input type="text" name="login" required value="<?php
                     if(isset($_SESSION['fr_login'])) {
                         echo $_SESSION['fr_login'];
                         unset($_SESSION['fr_login']);
-                    } ?>"><br>
-                    Hasło<input type="password" name="password" required><br>
+                    } ?>"><br><br>
+                    Hasło<input type="password" name="password" required><br><br>
                     Uprawnienia
                     <select name="role">
                         <option <?php if ($_SESSION['fr_role'] == "user") echo 'selected="selected" ';?>>user</option>
                         <option <?php if ($_SESSION['fr_role'] == "admin") echo 'selected="selected" ';?>>admin</option>
-                    </select><br>
+                    </select><br><br>
                     <input type="submit" value="DODAJ">
                 </fieldset>
             </form>

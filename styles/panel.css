@@ -1,8 +1,11 @@
 nav {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    /* flex-direction: row; */
+    /* justify-content: space-around; */
+    /* flex-wrap: wrap; */
+}
+nav h2{
+    margin: 0px 20px 0px 20px;
 }
 .error{
     color: red;
@@ -10,6 +13,9 @@ nav {
 #news textarea {
     resize: vertical;
     width: 100%;
+}
+td {
+    padding: 10px;
 }
 #schedule textarea, table textarea {
     resize: vertical;

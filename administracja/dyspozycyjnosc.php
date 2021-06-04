@@ -21,7 +21,7 @@
     ?>
     <!-- dodaj wiersz -->
     <fieldset>
-        <legend>Dodaj grafik</legend>
+        <legend>Dodaj dyspozycyjność</legend>
         <form action="dyspozycyjnosc" method="post">
             <input type="hidden" name="tkid" value="<?php echo $myTkid; ?>">
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
@@ -84,7 +84,7 @@
 
     <!-- wybranie tabeli -->
     <fieldset>
-        <legend>Wyświetl grafik</legend>
+        <legend>Wyświetl dyspozycyjność</legend>
         <form action="dyspozycyjnosc" method="post">
             Wybierz zakres jednego tygodnia od poniedziałku do niedzieli <br>
             <input type="date" value=<?php
@@ -112,11 +112,11 @@
                 unset($_SESSION['e_read']);
             }
         ?>
-
+        <br>
         <!-- aktualizacja tabeli -->
         <?php if($myRole == "user") { ?>
         <fieldset>
-            <legend>Aktualizuj grafik</legend>
+            <legend>Aktualizuj dyspozycyjność</legend>
             <form action="dyspozycyjnosc" method="post">
                 <input type="hidden" value=<?php
                     $dates = split ("\_", $newestTable); 
@@ -135,14 +135,14 @@
                 <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i"); ?>">
 
                 <select name="day"><?php for($x = 0; $x < sizeof($days); $x++) echo '<option value="'.$daysEn[$x].'">'.$days[$x].'</option>'; ?></select>
-                <br>
+                <br><br>
                 <input type="radio" id="1" name="hour" value="1" required>
                 <label for="1">06:00 - 14:00</label>
                 <input type="radio" id="2" name="hour" value="2" required>
                 <label for="2">14:00 - 22:00</label>
 
                 <input type="hidden" value="<?php echo $myTkid; ?>" name="tkid">
-                <br>
+                <br><br>
 
                 <select name = "availability">
                     <option>TAK</option>
