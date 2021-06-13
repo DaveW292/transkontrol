@@ -23,7 +23,7 @@
     $days = array("Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela");
 
     $carriers = array("Rokbus (Rokietnica)", "ZKP Suchy Las", "Transkom (Murowana Goślina, Czerwonak)", "PUK Komorniki",
-                      "PUK Dopiewo", "Warbus (Oborniki)", "Marco Polo", "PKS Poznań");
+                      "PUK Dopiewo", "Marco Polo", "PKS Poznań");
 
     $shifts = array("monday1", "monday2",
                     "tuesday1", "tuesday2",
@@ -214,20 +214,20 @@
         <b style="color: red;">ENTER zabroniony</b>
         <table border = "1px, solid, black">
             <tr>
-                <td rowspan = "2">Przewoźnik</td>
+                <th rowspan = "2">Przewoźnik</th>
                 <?php for($x = 0; $x < sizeof($days); $x++) {?>
-                    <td colspan = "2"><?php echo $days[$x]; ?></td>
+                    <th colspan = "2"><?php echo $days[$x]; ?></th>
                 <?php } ?>
             </tr>
-            <tr>
+            <tr class="hours">
                 <?php for($x = 0; $x < 7; $x++) {?>
-                    <td>06:00 - 14:00</td>
-                    <td>14:00 - 22:00</td>
+                    <th>06:00 - 14:00</th>
+                    <th>14:00 - 22:00</th>
                     <?php } ?>
             </tr>
             <?php for($x = 0; $x < sizeof($carriers); $x++) { $i = 0; ?>
             <input type="hidden" name=<?php echo "carrier".$x;?> value="<?php echo $carriers[$x];?>">
-            <tr>
+            <tr class="teams">
                 <td><?php echo $carriers[$x];?></td>
                 <?php for($y = 0; $y < sizeof($shifts); $y++) {?>
                 <td>

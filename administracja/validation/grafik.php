@@ -7,7 +7,7 @@
     }
 
     $carriers = array("Rokbus (Rokietnica)", "ZKP Suchy Las", "Transkom (Murowana Goślina, Czerwonak)", "PUK Komorniki",
-    "PUK Dopiewo", "Warbus (Oborniki)", "Marco Polo", "PKS Poznań");
+    "PUK Dopiewo", "Marco Polo", "PKS Poznań");
 
     $shifts = array("monday1", "monday2",
     "tuesday1", "tuesday2",

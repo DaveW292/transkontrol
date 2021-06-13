@@ -104,5 +104,6 @@
         </article>
     </main>
     <footer><?php include "components/stopka.php"; ?></footer>
+    <!-- <script>window.alert("Drodzy Państwo, uprzejmie informujemy, iż dnia 04.06.2021 nasze biuro będzie nieczynne!");</script> -->
 </body>
 </html>

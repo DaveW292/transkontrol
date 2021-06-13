@@ -131,25 +131,28 @@
 
             <?php } ?>
             <!-- wyświetlanie tabeli -->
-            <table border = "1px, solid, black">
+            <table border = "2px, solid, black">
+
                 <tr>
-                    <td rowspan = "2">Przewoźnik</td>
+                    <th rowspan = "2">Przewoźnik</th>
                     <?php for($x = 0; $x < sizeof($days); $x++) {?>
-                        <td colspan = "2"><?php echo $days[$x]; ?></td>
+                        <th colspan = "2"><?php echo $days[$x]; ?></th>
                     <?php } ?>
                 </tr>
-                <tr>
+
+                <tr class="hours">
                     <?php for($x = 0; $x < 7; $x++) {?>
-                        <td style="width:70px;">06:00 - 14:00</td>
-                        <td style="width:70px;">14:00 - 22:00</td>
+                        <th style="width:70px;">06:00 - 14:00</th>
+                        <th style="width:70px;">14:00 - 22:00</th>
                     <?php } ?>
                 </tr>
+
                 <?php
                     $i=0;
                     while($row = mysqli_fetch_array($result))
                     {
                 ?>
-                <tr>
+                <tr class="teams">
                     <td><?php echo $row["carrier"]; ?></td>
                     <?php
                         if($myRole == "admin") 
@@ -177,6 +180,7 @@
                             else echo '<td></td>';
                     ?>
                 </tr>
+                
                 <?php
                         $i++;
                     }

@@ -65,7 +65,7 @@
                 <a href="mailto:odwolania@transkontrol.pl" class="button"><div>Odwołania</div></a>
                 <a href="mailto:windykacja@transkontrol.pl" class="button"><div>Windykacja</div></a>
                 <a href="mailto:epozwy@transkontrol.pl" class="button"><div>Pozwy</div></a>
-                <a href="mailto:k.wawrzyniak@transkontrol.pl" class="button"><div>Inspektor Ochrony Danych Osobowych: Katarzyna Wawrzyniak</div></a>
+                <a href="mailto:k.wawrzyniak@transkontrol.pl" class="button"><div>Inspektor Ochrony Danych Osobowych</div></a>
             </div>
         </article>
         <article id="maps" class="center">
@@ -76,5 +76,6 @@
         </article>
     </main>
     <footer><?php include "components/stopka.php"; ?></footer>
+    <!-- <script>window.alert("Drodzy Państwo, uprzejmie informujemy, iż dnia 04.06.2021 nasze biuro będzie nieczynne!");</script> -->
 </body>
 </html>
