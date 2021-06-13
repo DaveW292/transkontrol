@@ -20,12 +20,14 @@ td {
 #schedule textarea, table textarea {
     resize: vertical;
 }
-
 th {
     background-color: black;
     color: white;
 }
-
+th {
+    min-width: 100px;
+    padding: 5px;
+}
 .hours td:nth-of-type(odd) {
     border-right: 1px dashed gray;
 }
@@ -39,7 +41,6 @@ th {
 .teams td:nth-of-type(2n+3) {
     border-left: 1px dashed gray;
 }
-
 .teams:nth-of-type(odd) {
     background-color: rgba(128, 128, 128, 0.5);
 }

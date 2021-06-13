@@ -142,8 +142,8 @@
 
                 <tr class="hours">
                     <?php for($x = 0; $x < 7; $x++) {?>
-                        <th style="width:70px;">06:00 - 14:00</th>
-                        <th style="width:70px;">14:00 - 22:00</th>
+                        <th>06:00 - 14:00</th>
+                        <th>14:00 - 22:00</th>
                     <?php } ?>
                 </tr>
 
