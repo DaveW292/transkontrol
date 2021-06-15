@@ -58,14 +58,38 @@
         <article class="center">
             <h4>Zachęcamy również do kontaktu mailowego z poszczególnymi działami:</h4>
             <div class="buttons" style="flex-direction: column;">
-                <a href="mailto:ksiegowosc@transkontrol.pl" class="button"><div>Księgowość</div></a>
-                <a href="mailto:biuro@transkontrol.pl" class="button"><div>Sprawy ogólne</div></a>
-                <a href="mailto:pelnomocnik@transkontrol.pl" class="button"><div>Kontrola jakości</div></a>
-                <a href="mailto:skargi@transkontrol.pl" class="button"><div>Skargi</div></a>
-                <a href="mailto:odwolania@transkontrol.pl" class="button"><div>Odwołania</div></a>
-                <a href="mailto:windykacja@transkontrol.pl" class="button"><div>Windykacja</div></a>
-                <a href="mailto:epozwy@transkontrol.pl" class="button"><div>Pozwy</div></a>
-                <a href="mailto:k.wawrzyniak@transkontrol.pl" class="button"><div>Inspektor Ochrony Danych Osobowych</div></a>
+                <div class="board">
+                    <b>Księgowość</b>
+                    <p>ksiegowosc@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Sprawy ogólne</b>
+                    <p>biuro@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Kontrola jakości</b>
+                    <p>pelnomocnik@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Skargi</b>
+                    <p>skargi@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Odwołania</b>
+                    <p>odwolania@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Windykacja</b>
+                    <p>windykacja@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Pozwy</b>
+                    <p>epozwy@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Inspektor Ochrony Danych Osobowych</b>
+                    <p>iodo@transkontrol.pl</p>
+                </div>
             </div>
         </article>
         <article id="maps" class="center">

@@ -58,14 +58,38 @@
         <article class="center">
             <h4>We also encourage you to contact individual departments by e-mail:</h4>
             <div class="buttons" style="flex-direction: column;">
-                <a href="mailto:ksiegowosc@transkontrol.pl" class="button"><div>Accountancy</div></a>
-                <a href="mailto:biuro@transkontrol.pl" class="button"><div>General matters</div></a>
-                <a href="mailto:pelnomocnik@transkontrol.pl" class="button"><div>Quality control</div></a>
-                <a href="mailto:skargi@transkontrol.pl" class="button"><div>Complaints</div></a>
-                <a href="mailto:odwolania@transkontrol.pl" class="button"><div>Appeals</div></a>
-                <a href="mailto:windykacja@transkontrol.pl" class="button"><div>Vindication</div></a>
-                <a href="mailto:epozwy@transkontrol.pl" class="button"><div>Lawsuits</div></a>
-                <a href="mailto:k.wawrzyniak@transkontrol.pl" class="button"><div>Inspector of Personal Data Protection: Katarzyna Wawrzyniak</div></a>
+                <div class="board">
+                    <b>Accountancy</b>
+                    <p>ksiegowosc@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>General matters</b>
+                    <p>biuro@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Quality control</b>
+                    <p>pelnomocnik@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Complaints</b>
+                    <p>skargi@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Appeals</b>
+                    <p>odwolania@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Vindication</b>
+                    <p>windykacja@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Lawsuits</b>
+                    <p>epozwy@transkontrol.pl</p>
+                </div>
+                <div class="board">
+                    <b>Inspector of Personal Data Protection</b>
+                    <p>iodo@transkontrol.pl</p>
+                </div>
             </div>
         </article>
         <article id="maps" class="center">
