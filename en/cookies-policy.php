@@ -31,7 +31,13 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href="/polityka-cookies">Polski</a>
+                <div class="dropdown2">
+                    <div onclick="myFunction2()" class="dropbtn2">PL / UA</div>
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <a href="/">Polski</a>
+                        <a href="/ua/charges-ukrainian">Український</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -50,5 +56,6 @@
         <a href="privacy-policy">Privacy policy</a>
         <a style="color: gray;">Cookies policy</a>
     </footer>
+    <script src="js/dropdownNav.js"></script>
 </body>
 </html>

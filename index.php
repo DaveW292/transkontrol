@@ -37,7 +37,15 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="en/home">English</a>
+
+                <div class="dropdown2">
+                    <div onclick="myFunction2()" class="dropbtn2">EN / UA</div>
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <a href="en/home">English</a>
+                        <a href="ua/charges-ukrainian">Український</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </nav>
@@ -65,8 +73,17 @@
             <section id="notifications">
                 <div>
                     <h3>UWAGA!</h3>
+                    <div class="li">
+                        <i class="icon-bus"></i>
+                        <p>
+                            (2021-06-30) Z dniem 1 lipca 2021 roku kontrolerzy firmy Trans Kontrol zostali upoważnieni 
+                            przez przewoźnika TRANSLUB z siedzibą w Luboniu, do przeprowadzania kontroli biletowych 
+                            na liniach tego Przewoźnika. Kontrole będą przeprowadzane we wszystkich strefach za wyjątkiem strefy "A".
+                        </p>
+                    </div>
+
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 01-07-2020 r. zapłacisz kartą lub telefonem u większości z naszych kontrolerów!</p></div>
-                    <div class="li"><i class="icon-bus"></i><p>Od dnia 15-06-2020 r. zapłacisz kartą lub telefonem także u naszych niektórych kontrolerów!</p></div>
+                    <!-- <div class="li"><i class="icon-bus"></i><p>Od dnia 15-06-2020 r. zapłacisz kartą lub telefonem także u naszych niektórych kontrolerów!</p></div> -->
                     <div class="li"><i class="icon-bus"></i><p>Od dnia 08-06-2020 r. zapłacisz w naszym BOK kartą lub telefonem!</p></div>
                 </div>
                 <div class="dropdown">

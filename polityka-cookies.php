@@ -31,7 +31,13 @@
                 <a href="studium">Studium</a>
                 <a href="praca">Praca</a>
                 <a href="kontakt">Kontakt</a>
-                <a href="en/cookies-policy">English</a>
+                <div class="dropdown2">
+                    <div onclick="myFunction2()" class="dropbtn2">EN / UA</div>
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <a href="en/home">English</a>
+                        <a href="ua/charges-ukrainian">Український</a>
+                    </div>
+                </div>            
             </div>
         </div>
     </nav>
@@ -48,7 +54,8 @@
     <footer>
         <p>Trans Kontrol &copy;<? echo date(Y);?> Wszelkie prawa zastrzeżone.</p>
         <a href="polityka-prywatnosci">Polityka prywatności</a>
-        <a style="color: gray;">Polityka cookie</a>    
+        <a style="color: gray;">Polityka cookie</a>
     </footer>
+    <script src="js/dropdownNav.js"></script>
 </body>
 </html>

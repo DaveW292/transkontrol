@@ -24,3 +24,8 @@ RewriteRule en/job en/job.php
 RewriteRule en/contact en/contact.php
 RewriteRule en/privacy-policy en/privacy-policy.php
 RewriteRule en/cookies-policy en/cookies-policy.php
+RewriteRule ua/charges-ukrainian ua/charges-ukrainian.php
+RewriteRule ua/complaints-ukrainian ua/complaints-ukrainian.php
+RewriteRule ua/appeals-ukrainian ua/appeals-ukrainian.php
+RewriteRule ua/contact-ukrainian ua/contact-ukrainian.php
+RewriteRule ua/lawsuits-ukrainian ua/lawsuits-ukrainian.php

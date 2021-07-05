@@ -32,7 +32,13 @@
                 <a href="study">Study</a>
                 <a href="job">Job</a>
                 <a href="contact">Contact</a>
-                <a href="/skargi">Polski</a>
+                <div class="dropdown2">
+                    <div onclick="myFunction2()" class="dropbtn2">PL / UA</div>
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <a href="/">Polski</a>
+                        <a href="/ua/charges-ukrainian">Український</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
