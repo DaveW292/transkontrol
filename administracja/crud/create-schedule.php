@@ -211,7 +211,6 @@
             unset($_SESSION['fr_dateEnd']);
         }
         ?>" name="dateEnd" required>
-        <b style="color: red;">ENTER zabroniony</b>
         <table border = "1px, solid, black">
             <tr>
                 <th rowspan = "2">Przewoźnik</th>

@@ -117,7 +117,7 @@
                 <br><br>
                 <select name="carrier"><?php for($x = 0; $x < sizeof($carriers); $x++) echo '<option>'.$carriers[$x].'</option>'; ?></select>
                 <br><br>
-                <textarea name="team" cols="8" rows="2" placeholder="ENTER zabroniony"><?php if(isset($_SESSION['fr_team'])) { echo $_SESSION['fr_team']; unset($_SESSION['fr_team']);} ?></textarea>
+                <textarea name="team" cols="8" rows="2" placeholder="np. 123 - 456, 321 - 654"><?php if(isset($_SESSION['fr_team'])) { echo $_SESSION['fr_team']; unset($_SESSION['fr_team']);} ?></textarea>
                 <br><br>
                 <input type="submit" value="AKTUALIZUJ">
             </form>
@@ -155,29 +155,46 @@
                 <tr class="teams">
                     <td><?php echo $row["carrier"]; ?></td>
                     <?php
-                        if($myRole == "admin") 
-                            for($x = 0; $x < sizeof($shifts); $x++) 
+                        if($myRole == "admin") {
+                            for($x = 0; $x < sizeof($shifts); $x++) {
                                 echo '<td>'.$row[$shifts[$x]].'</td>';
-                        else
-                            for($x = 0; $x < sizeof($shifts); $x++)
-                            if(strpos($row[$shifts[$x]], $myTkid) !== false)
-                            {
-                                if(substr_count($row[$shifts[$x]], $myTkid." -") == 1) {
-                                    $record = preg_filter('/'.$myTkid.' - [0-9]{3}/', '($0)', $row[$shifts[$x]]);
-                                    $record = preg_replace('/.*[(]/', '', $record);
-                                    $record = preg_replace('/[)].*/', '', $record);
-                                    echo '<td>'.$record.'</td>';
-                                }
+                            }
+                        } else {
+                            for($x = 0; $x < sizeof($shifts); $x++) {
+                                if(strpos($row[$shifts[$x]], $myTkid) !== false)
+                                {
+                                    $text = "";
+                                    $re = '/([0-9]+ ?- ?[0-9]+)/m';
+                                    $str = $row[$shifts[$x]];
+                                    preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
+                                    if(count($matches) > 0) {
+                                        foreach( $matches as $match ) {
+                                            $text .= substr_count($match[1], $myTkid) >= 1 ? $match[1] : "";
+                                        }
+                                    }
+                                    echo '<td>'.$text.'</td>';
 
-                                if(substr_count($row[$shifts[$x]], "- ".$myTkid) == 1) {
-                                    $record = preg_filter('/[0-9]{3} - '.$myTkid.'/', '($0)', $row[$shifts[$x]]);
-                                    $record = preg_replace('/.*[(]/', '', $record);
-                                    $record = preg_replace('/[)].*/', '', $record);
-                                    echo '<td>'.$record.'</td>';
+
+                                    // if(substr_count($row[$shifts[$x]], $myTkid." -") == 1) {
+                                    //     $record = preg_filter('/'.$myTkid.' - [0-9]{3}/', '($0)', $row[$shifts[$x]]);
+                                    //     $record = preg_replace('/.*[(]/', '', $record);
+                                    //     $record = preg_replace('/[)].*/', '', $record);
+                                    //     echo '<td>'.$record.'</td>';
+                                    // }
+
+                                    // if(substr_count($row[$shifts[$x]], "- ".$myTkid) == 1) {
+                                    //     $record = preg_filter('/[0-9]{3} - '.$myTkid.'/', '($0)', $row[$shifts[$x]]);
+                                    //     $record = preg_replace('/.*[(]/', '', $record);
+                                    //     $record = preg_replace('/[)].*/', '', $record);
+                                    //     echo '<td>'.$record.'</td>';
+                                    // }
+                                } else if(stripos($row[$shifts[$x]], 'ZAKAZ') !== false)  {
+                                    echo '<td>'.$row[$shifts[$x]].'</td>';
+                                } else {
+                                    echo '<td></td>';
                                 }
                             }
-                            else if(stripos($row[$shifts[$x]], 'ZAKAZ') !== false) echo '<td>'.$row[$shifts[$x]].'</td>';
-                            else echo '<td></td>';
+                        }
                     ?>
                 </tr>
                 
